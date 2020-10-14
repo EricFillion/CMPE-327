@@ -15,4 +15,4 @@ All of our test case code files are going to be put in ***/qa327_test/frontend**
 
 ## Issues
 *The conflicts and issues related to the specification that we found. For these issue we created an issue on GitHub for the on site customer and then documented what we found here*
- 
+- Issue 1: Unsure of the need to check R6:1-3(Buy requirments) as these are checked when the ticket is created. Were informed that these needed to be checked in case of issues such as user trying to enter a data with malicious intent. 
