@@ -31,6 +31,30 @@ Actions:
 
 ### R6. /buy
 
+**PreSteps - Login**  
+Mocking:    
+- Mock backend.get_user to return a test_user instance
+
+Actions:       
+- open /logout (to invalid any logged-in sessions may exist)
+- open /login
+- Enter test_user's email into element `#email`
+- Enter test_user's password into element `#password`
+- Click element `input[type="submit"]` 
+
+#### **R6.5 - The user has more balance than the ticket price * quantity + service fee (35%) + tax (5%)**  
+
+Mocking:    
+- Mock backend.get_user to return a test_user instance
+
+Actions:       
+- open /logout (to invalid any logged-in sessions may exist)
+- open /login
+- Enter test_user's email into element `#email`
+- Enter test_user's password into element `#password`
+- Click element `input[type="submit"]`
+
+
 ### R7. /logout
 
 ### R8. /*
