@@ -1,6 +1,24 @@
 
 ## Sell R4:
 
+**Description**: A user can sell their tickets. 
+
+### Test Data
+```
+test_user = User(
+    email='test_frontend@test.com',
+    name='test_frontend',
+    password=generate_password_hash('test_frontend')
+)
+```  
+
+Note: This test ticket will be a ticket that is already in the moch database, so that it can be updated. 
+```
+the test_tickets = [
+    {'name': 't1', 'price': '100', date: '20301001', quantity: '90'}
+]
+```
+
 
 ### R4.1: The name of the ticket has to be alphanumeric-only, and space allowed only if it is not the first or the last character.
 
