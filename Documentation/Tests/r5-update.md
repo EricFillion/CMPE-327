@@ -36,7 +36,7 @@ Actions:
 - Enter a string containing symbols (ex. "t!cket_1") into the element `#update-name`
 - Click element `input[type="submit"]
 - Validate that the page has been redirected to /
-- Validate that the `#update_message` element shows and error message stating “The name of the ticket has to be alphanumeric only”.
+- Validate that the `#update_message` element shows an error message stating “The name of the ticket has to be alphanumeric only”.
 - Open /logout (clean up)
 
 ### Test Case R5.1.2:  The name is only allowed spaces if it is not the first or the last character - Negative. Testing the first character.  
@@ -72,7 +72,7 @@ Actions:
 - Enter a string that is less than 60 characters, containing only alphanumeric symbols that has a space for the last character (ex. "t1 ") in the element `#update-name`
 - Click element `input[type="submit"]
 - Validate that the page has been redirected to /
-- Validate that the `#update_message` element shows and error message stating  “The name of the ticket is only allowed spaces if it is not the first or last character”.
+- Validate that the `#update_message` element shows an error message stating  “The name of the ticket is only allowed spaces if it is not the first or last character”.
  - Open /logout (clean up)
 
 ### Test Case R5.1.4:  The name is only allowed spaces if it is not the first or the last character - Positive.
@@ -131,7 +131,7 @@ Actions:
 - Enter a string that containing only alphanumeric symbols that is more than 60 characters in the element `#update-name`
 - Click element `input[type="submit"]
 - Validate that the page has been redirected to /
-- Validate that the `#update_message` element shows and error message stating  “The name of the ticket should be no longer than 60 characters”.
+- Validate that the `#update_message` element shows an error message stating  “The name of the ticket should be no longer than 60 characters”.
 - Open /logout (clean up)
 
 ### Test Case R5.3.1:  The quantity of the tickets has to be more than 0, and less than or equal to 100 - Negative. Testing quantity below range.
@@ -151,7 +151,7 @@ Actions:
 - Enter a number less than or equal to 0 (ex.-1) into the element `#update-quantity`
 - Click element `input[type="submit"]
 - Validate that the page has been redirected to /
-- Validate that the `#update_message` element shows and error message stating  “The quantity of the tickets has to be more than 0, and less than or equal to 100”.
+- Validate that the `#update_message` element shows an error message stating  “The quantity of the tickets has to be more than 0, and less than or equal to 100”.
 - Open /logout (clean up)
 
 ### Test Case R5.3.2: The quantity of the tickets has to be more than 0, and less than or equal to 100 - Negative. Testing quantity above range.  
@@ -171,7 +171,7 @@ Actions:
 - Enter a number greater than 100 (ex. 101) into the element `#update-quantity`
 - Click element `input[type="submit"]
 - Validate that the page has been redirected to /
-- Validate that the `#update_message` element shows and error message stating  “The quantity of the tickets has to be more than 0, and less than or equal to 100”.
+- Validate that the `#update_message` element shows an error message stating  “The quantity of the tickets has to be more than 0, and less than or equal to 100”.
 - Open /logout (clean up)
 
 ### Test Case R5.3.3:  The quantity of the tickets has to be more than 0, and less than or equal to 100 - Postive. 
@@ -213,7 +213,7 @@ Actions:
 - Enter a number below 10 (ex. 9) into the element `#update-price`
 - Click element `input[type="submit"]
 - Validate that the page has been redirected to /
-- Validate that the `#update_message` element shows and error message stating  “The price of the ticket must be between 10 and 100”.
+- Validate that the `#update_message` element shows an error message stating  “The price of the ticket must be between 10 and 100”.
 - Open /logout (clean up)
 
 ### Test Case R5.4.2:  Price has to be of range [10, 100] - Negative. Testing price above the range. 
@@ -233,7 +233,7 @@ Actions:
 - Enter a number above 100 (ex. 101) into the element `#update-price`
 - Click element `input[type="submit"]
 - Validate that the page has been redirected to /
-- Validate that the `#update_message` element shows and error message stating  “The price of the ticket must be between 10 and 100”.
+- Validate that the `#update_message` element shows an error message stating  “The price of the ticket must be between 10 and 100”.
 - Open /logout (clean up)
 
 ### Test Case R5.4.3: Price has to be of range [10, 100] - Positive.  
@@ -275,7 +275,7 @@ Actions:
 - Enter a date in an invald format (ex. 20201331) into the element `#update-date`
 - Click element `input[type="submit"]
 - Validate that the page has been redirected to /
-- Validate that the `#update_message` element shows and error message stating  “Date must be given in the format YYYYMMDD (e.g. 20200901)”.
+- Validate that the `#update_message` element shows an error message stating  “Date must be given in the format YYYYMMDD (e.g. 20200901)”.
 - Open /logout (clean up)
 
 ### Test Case R5.5.2:  Date must be given in the format YYYYMMDD (e.g. 20200901) - Positive.   
@@ -320,5 +320,29 @@ Actions:
 - Enter the test_ticket’s date into the element `#update-date`
 - Click element `input[type="submit"]
 - Validate that the page has been redirected to /
-- Validate that the `#update_message` element shows and error message stating "The ticket of the given name must exist."
+- Validate that the `#update_message` element shows an error message stating "The ticket of the given name must exist."
+- Open /logout (clean up)
+
+### Test Case R5.7.1:  For any errors, redirect back to / and show an error message.  
+Mocking:    
+- Mock backend.get_user to return a test_user instance 
+- Mock backend.get_ticket to return a the test_ticket instance
+- Mock backend.get_all_tickets to return all tickets 
+
+Actions:     
+- Open /logout (to invalid any logged-in sessions may exist)
+- Open /login
+- Enter test_user's email into element `#email`
+- Enter test_user's password into element `#password`
+- Click element `input[type="submit"]
+- Open /
+- Navigate to the update ticket form
+- Enter " no!tATicket " `#ticket-to-update`
+- Enter " no!tATicket " in element `#update-name`
+- Enter the test_ticket’s price into the element `#update-price`
+- Enter the test_ticket’s quantity into the element `#update-quantity`
+- Enter the test_ticket’s date into the element `#update-date`
+- Click element `input[type="submit"]
+- Validate that the page has been redirected to /
+- Validate that the `#update_message` element shows contains an error message."
 - Open /logout (clean up)
