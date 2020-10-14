@@ -92,7 +92,10 @@ Actions
 
 
 
-### R1.6.1 : Email cannot be empty:
+
+### R1.6 : Email and password cannot be empty:
+
+#### R1.6.1 : Email cannot be empty:
 
 - Open /logout
 
@@ -108,7 +111,7 @@ Actions
 
 
 
-### R1.6.2 : Password cannot be empty:
+#### R1.6.2 : Password cannot be empty:
 
  - Open /logout
 
@@ -129,26 +132,21 @@ This one is going to be time consuming to create
 
 
 
-### *R1.8 : Password has to meet required complexity: minimum length 6, at least one upper case, at least one lower case and at least one special character 
+### R1.8 : Password has to meet required complexity: minimum length 6, at least one upper case, at least one lower case and at least one special character 
 
+#### R1.8.1 Password must be at least 6 characters: 
+Mocking:
+- Mock backend.get_user to return a test_user instance
+
+Actions:
 
 - Open /logout
 
 - Open /login
 
-- Enter “test@gmail.com” into element #email
------------
-#### todo create separate cases for these
-##### **R1.8.1**: Password must be at least 6 characters:
+- Enter test_user's email into element #email
 - Enter “A#cde” into element #password
-##### **R1.8.2**: Password must contains one lower case :
-- Enter “A#CDEF” into element #password
-##### **R1.8.3**: Password must contains one special character:
-- Enter “Abcdef” into element #password
-##### **R1.8.4**: Password must contains one upper case:
-- Enter “a#cdef” into element #password
 
-----
 - Click element input[type = “submit”]
 
 - Validate that the #warning-p1 element is equal to “Password is too short”
@@ -161,7 +159,91 @@ This one is going to be time consuming to create
 
 - open /logout
 
-### R1.8.1: If email/password are correct, redirect to / 
+
+#### R1.8.2 Password must contains one lower case :
+
+Mocking:
+- Mock backend.get_user to return a test_user instance
+
+Actions:
+
+- Open /logout
+
+- Open /login
+
+- Enter test_user's email into element #email
+- Enter “A#CDEF” into element #password
+
+- Click element input[type = “submit”]
+
+- Validate that the #warning-p1 element is equal to “Password is too short”
+
+- Enter “a#cdef” into element #password
+
+- Click element input[type = “submit”]
+
+- Validate that the #warning element is equal to “email/password format is incorrect.”
+
+- open /logout
+
+ 
+#### R1.8.3 Password must contains one special character: 
+
+Mocking:
+- Mock backend.get_user to return a test_user instance
+
+Actions:
+
+- Open /logout
+
+- Open /login
+
+- Enter test_user's email into element #email
+
+- Enter “Abcdef” into element #password
+
+- Click element input[type = “submit”]
+
+- Validate that the #warning-p1 element is equal to “Password is too short”
+
+- Enter “a#cdef” into element #password
+
+- Click element input[type = “submit”]
+
+- Validate that the #warning element is equal to “email/password format is incorrect.”
+
+- open /logout
+
+#### R1.8.4 Password must contains one upper case: 
+
+Mocking:
+- Mock backend.get_user to return a test_user instance
+
+Actions:
+
+- Open /logout
+
+- Open /login
+
+- Enter test_user's email into element #email
+
+- Enter “a#cdef” into element #password
+
+- Click element input[type = “submit”]
+
+- Validate that the #warning-p1 element is equal to “Password is too short”
+
+- Enter “a#cdef” into element #password
+
+- Click element input[type = “submit”]
+
+- Validate that the #warning element is equal to “email/password format is incorrect.”
+
+- open /logout
+
+
+
+### R1.9: If email/password are correct, redirect to / 
 
 Mocking:
 
@@ -183,7 +265,7 @@ Actions:
 
   - open /logout
 
-### R1.8.2: If email/password are not correct, redirect to /login 
+### R1.10: If email/password are not correct, redirect to /login 
 
 
 Mocking:
