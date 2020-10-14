@@ -1,5 +1,16 @@
 ##  Login R1
 
+**Description**: A user can log into the the website using their credentials 
+
+### Test Data
+```
+test_user = User(
+    email='testFrontend@test.com',
+    name='testFrontend',
+    password=generate_password_hash('testFrontend')
+    balance = 200
+)
+```
 
 ### R1.1: if the user hasn’t logged in, show the login page
 
