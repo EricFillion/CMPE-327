@@ -1,7 +1,7 @@
 
 ## Sell R4:
 
-R4.1: The name of the ticket has to be alphanumeric-only, and space allowed only if it is not the first or the last character.
+### R4.1: The name of the ticket has to be alphanumeric-only, and space allowed only if it is not the first or the last character.
 
 Mocking:
 - Mock backend.get_user to return a test_ticket instance
@@ -14,7 +14,6 @@ Actions:
 - Click element input[type = “submit”]
 -  open / 
 -----------------------------------------------------------------------------------------------
-#### To do make separate cases for these 
 ##### 4.1.1: only alphanumeric
 
 - Enter “abc1234#” in the element #name
@@ -46,7 +45,7 @@ Actions:
   
   
 
-#### 4.1.5 Space is allowed if not first or last character
+### 4.1.5 Space is allowed if not first or last character
 
 Mocking:
 
@@ -70,7 +69,7 @@ Actions
 - open /logout 
   
 
-#### 4.2.1 The name of the ticket is no longer than 60 characters - Negative
+### 4.2.1 The name of the ticket is no longer than 60 characters - Negative
 
 Mocking:
 
@@ -98,7 +97,7 @@ Actions
 - validate that the #sell_message shows "Sell error"
 - open /logout 
 
-#### **4.2.2 The name of the ticket is no longer than 60 characters - Positive** 
+### 4.2.2 The name of the ticket is no longer than 60 characters - Positive
 
 Mocking:
 
@@ -122,10 +121,10 @@ Actions
 - validate that the #sell_message element shows "Successfully sold the ticket"
 - - open /logout 
 
-#### R4.3 The quantity of the tickets has to be more than 0, and less than or equal to 100.
+### R4.3 The quantity of the tickets has to be more than 0, and less than or equal to 100.
 
 
-#### R4.3.1 The quantity of tickets has to be more than 0  - Negative
+### R4.3.1 The quantity of tickets has to be more than 0  - Negative
 
 Mocking:
 
@@ -147,7 +146,7 @@ Actions
 - validate that the #sell_message element shows "Error selling the ticket"
 - - open /logout 
 
-#### **R4.3.2 The quantity of tickets has to be more than 0 - Positive** 
+### R4.3.2 The quantity of tickets has to be more than 0 - Positive
 
 Mocking:
 
@@ -171,7 +170,7 @@ Actions
 
 
 
-#### R4.3.3 The quantity of tickets has to be less than 101  - Negative
+### R4.3.3 The quantity of tickets has to be less than 101  - Negative
 
 Mocking:
 
@@ -195,7 +194,7 @@ Actions
 
 
 
- #### R4.3.4 The quantity of tickets has to be less than 101  - Positive
+### R4.3.4 The quantity of tickets has to be less than 101  - Positive
 
 Mocking:
 
@@ -218,8 +217,8 @@ Actions
 - open /logout 
 
 
-#### R4.4 Price has to be of range [10, 100]
-#### **R4.4.1 The price of tickets has to be more than 9 - Positive**
+### R4.4 Price has to be of range [10, 100]
+### R4.4.1 The price of tickets has to be more than 9 - Positive
 
 Mocking:
 
@@ -243,7 +242,7 @@ Actions
 
 
 
-#### R4.4.2 The price of tickets has to be more than 9 - Negative
+### R4.4.2 The price of tickets has to be more than 9 - Negative
 
 Mocking:
 
@@ -265,7 +264,7 @@ Actions
 - validate that the #sell_message element shows "Error selling the ticket"
 - open /logout
 
-#### R4.4.3 The price of tickets has to be less than 101 - Positive
+### R4.4.3 The price of tickets has to be less than 101 - Positive
 
 Mocking:
 
@@ -287,7 +286,7 @@ Actions
 - validate that the #sell_message element shows "Successfully sold the ticket"
 - open /logout 
 - 
-#### R4.4.4 The price of tickets has to be less than 101 - Negative
+### R4.4.4 The price of tickets has to be less than 101 - Negative
 
 Mocking:
 
@@ -310,9 +309,9 @@ Actions
 - open /logout 
 
 
-#### R4.5 The date must given in the format YYYYMMDD 
+### R4.5 The date must given in the format YYYYMMDD 
 
-#### R4.5.1 The date must given in the format YYYYMMDD - Negative
+### R4.5.1 The date must given in the format YYYYMMDD - Negative
 
 Mocking:
 
@@ -333,7 +332,7 @@ Actions
 - validate that the #sell_message element shows "Error selling  the ticket"
 - open /logout 
 
-#### R4.5.1 The date must given in the format YYYYMMDD - Positive
+### R4.5.1 The date must given in the format YYYYMMDD - Positive
 
 Mocking:
 
@@ -354,7 +353,7 @@ Actions
 - validate that the #sell_message element shows "Successfully sold the ticket!"
 - open /logout 
 
-#### R4.6 The added new ticket information will be posted on the user profile page 
+### R4.6 The added new ticket information will be posted on the user profile page 
 Mocking:
 
 - Mock backend.get_user to return a test_ticket instance
