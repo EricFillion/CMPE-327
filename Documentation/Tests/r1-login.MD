@@ -95,7 +95,13 @@ Actions
 
 ### R1.6 : Email and password cannot be empty:
 
+
 #### R1.6.1 : Email cannot be empty:
+
+Mocking:
+- Mock backend.get_user to return a test_user instance
+
+Actions:
 
 - Open /logout
 
@@ -113,6 +119,11 @@ Actions
 
 #### R1.6.2 : Password cannot be empty:
 
+Mocking:
+- Mock backend.get_user to return a test_user instance
+
+Actions:
+
  - Open /logout
 
 - Open /login
@@ -126,11 +137,89 @@ Actions
 - Validate that the #warning element is equal to “email/password format is incorrect.”
 
 
-### R1.7 : Email has to follow addr-specs defined in RFC 5322**
+### R1.7 : Email has to follow addr-specs defined in RFC 5322  
 
-This one is going to be time consuming to create
+#### positive case is covered in R1.9
+
+#### R1.7.1 : Email has to follow addr-specs defined in RFC 5322  Negative 1
+
+Mocking:
+- Mock backend.get_user to return a test_user instance
+
+Actions:
+
+ - Open /logout
+
+- Open /login
+
+- Enter test_user's password into element #password
+
+- Enter ".test@gmail.com" into element #email
+
+- Click element input[type = “submit”]
+
+- Validate that the #warning element is equal to “email/password format is incorrect.”
 
 
+#### R1.7.2 : Email has to follow addr-specs defined in RFC 5322  Negative 2
+
+Mocking:
+- Mock backend.get_user to return a test_user instance
+
+Actions:
+
+ - Open /logout
+
+- Open /login
+
+- Enter test_user's password into element #password
+
+- Enter "testgmail.com" into element #email
+
+- Click element input[type = “submit”]
+
+- Validate that the #warning element is equal to “email/password format is incorrect.”
+
+
+#### R1.7.3 : Email has to follow addr-specs defined in RFC 5322  Negative 3
+
+Mocking:
+- Mock backend.get_user to return a test_user instance
+
+Actions:
+
+ - Open /logout
+
+- Open /login
+
+- Enter test_user's password into element #password
+
+- Enter "tes!t@gmail.com" into element #email
+
+- Click element input[type = “submit”]
+
+- Validate that the #warning element is equal to “email/password format is incorrect.”
+
+
+
+#### R1.7.4 : Email has to follow addr-specs defined in RFC 5322  Negative 4
+
+Mocking:
+- Mock backend.get_user to return a test_user instance
+
+Actions:
+
+ - Open /logout
+
+- Open /login
+
+- Enter test_user's password into element #password
+
+- Enter "test@gmail" into element #email
+
+- Click element input[type = “submit”]
+
+- Validate that the #warning element is equal to “email/password format is incorrect.”
 
 ### R1.8 : Password has to meet required complexity: minimum length 6, at least one upper case, at least one lower case and at least one special character 
 
