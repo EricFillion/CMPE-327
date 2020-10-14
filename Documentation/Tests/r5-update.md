@@ -107,7 +107,7 @@ Actions:
 - Validate that current page contains a #ticket-name header matching the tickets name.
 - Open /logout (clean up)
 
-### Test Case R5.2:  The name of the ticket is no longer than 60 characters
+### Test Case R5.2:  The name of the ticket is no longer than 60 characters.
 Mocking:    
 - Mock backend.get_user to return a test_user instance 
 - Mock backend.get_ticket to return a the test_ticket instance
@@ -270,7 +270,7 @@ Actions:
 - Validate that the `#update_message` element shows and error message stating  “Date must be given in the format YYYYMMDD (e.g. 20200901)”.
 - Open /logout (clean up)
 
-### Test Case R5.5.2:  Date must be given in the format YYYYMMDD (e.g. 20200901) - positive.   
+### Test Case R5.5.2:  Date must be given in the format YYYYMMDD (e.g. 20200901) - Positive.   
 Mocking:       
 - Mock backend.get_user to return a test_user instance 
 - Mock backend.get_ticket to return a the test_ticket instance
@@ -291,7 +291,7 @@ Actions:
 - Validate that current page contains a #ticket-name header matching the tickets name.
 - Open /logout (clean up)
 
-### Test Case R5.6:  The ticket of the given name must exist - Negative.  
+### Test Case R5.6.1:  The ticket of the given name must exist - Negative.  
 Mocking:    
 - Mock backend.get_user to return a test_user instance 
 - Mock backend.get_ticket to return a the test_ticket instance
