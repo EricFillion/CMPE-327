@@ -59,6 +59,7 @@ Actions:
 - Validate that the number of ticket rows (as opposed to header rows) in the ticket table is equal to the number of tickets
 - For each ticket in the list of tickets from the mock backend:
     - Find `tr` of ticket by looking up ticket's name under the ticket table
+    - Validate name by looking under the ticket's `tr` and validating that the element `td.tt_name` has text: `"{}".format(ticket.name)`
     - Validate quantity by looking under the ticket's `tr` and validating that the element `td.tt_quantity` has text: `"{}".format(ticket.balance)`
     - Validate owner's email by looking under the ticket's `tr` and validating that the element `td.tt_owner` has text: `"{}".format(ticket.owner)`
     - Validate price by looking under the ticket's `tr` and validating that the element `td.tt_price` has text: `"${:.2f}".format(ticket.price)`
