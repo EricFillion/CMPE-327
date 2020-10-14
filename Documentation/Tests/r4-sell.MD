@@ -16,7 +16,7 @@ Actions:
 -----------------------------------------------------------------------------------------------
 ##### 4.1.1: only alphanumeric
 
-- Enter “abc1234#” in the element #name
+- Enter “abc1234#” in the element `#sellform_input_name`
 
 #####  4.1.2: Space allowed if not first or last character
 
@@ -32,11 +32,11 @@ Actions:
 
 -----------------------------------------------------------------------------------------------
 
-- Enter test_ticket’s quantity into the element #quantity
+- Enter test_ticket’s quantity into the element `#sellform_input_quantity`
 
-- Enter test_ticket’s date in the element #date
+- Enter test_ticket’s date in the element `#sellform_input_expiry`
 
-- Enter test_ticket’s price into the element #price
+- Enter test_ticket’s price into the element `#sellform_input_price`
 
 - Click element input[type = “sell”]
 
@@ -85,7 +85,7 @@ Actions
 - Enter test_user’s password into element #password
 - Click element input[type = “submit”]
 -  open / 
-- Enter “aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa ” (61 chars) in the element #name
+- Enter “aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa” (61 chars) in the element #name
 
 - Enter test_ticket’s quantity into the element #quantity
 
