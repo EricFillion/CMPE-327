@@ -31,13 +31,13 @@ Actions:
 
 - Open /register
 
-- Enter “12345678” into element #password
+- Enter “J12345678a!” into element #password
 
-- Enter “12345678” into element #password2
+- Enter “J12345678a!” into element #password2
 
 - Enter “” into element #email
 
-- Enter "a" into element #name
+- Enter "aaaa" into element #name
 
 - Click element input[type = “submit”]
 
@@ -54,43 +54,25 @@ Actions:
 
 - Enter “” into element #password2
 
-- Enter “a” into element #email
+- Enter “a@qq.com” into element #email
 
-- Enter "a" into element #name
-
-- Click element input[type = “submit”]
-
-- Validate existence of element #password, #password2, #name, #email
-
-- Validate that the #message element is equal to “Password not strong enough”
-
-##### **R2.4.3 Email has to follow addr-spec defined in RFC 5322** 
-- Open /logout
-
-- Open /register
-
-- Enter “” into element #password
-
-- Enter “” into element #password2
-
-- Enter “a” into element #email
-
-- Enter "a" into element #name
+- Enter "aaaa" into element #name
 
 - Click element input[type = “submit”]
 
 - Validate existence of element #password, #password2, #name, #email
 
-- Validate that the #message element is equal to “email format is wrong”
+- Validate that the #message element is equal to “Password format is incorrect”
+
 
 ##### **R2.4.3 Email has to follow addr-spec defined in RFC 5322**
 - Open /logout
 
 - Open /register
 
-- Enter “” into element #password
+- Enter “J1230a!” into element #password
 
-- Enter “” into element #password2
+- Enter “J1230a!” into element #password2
 
 - Enter “a” into element #email
 
@@ -100,7 +82,7 @@ Actions:
 
 - Validate existence of element #password, #password2, #name, #email
 
-- Validate that the #message element is equal to “email format is wrong”
+- Validate that the #message element is equal to “email format is incorrect ”
 
 ##### **R2.4.4 Password has to meet the required complexity: minimum length 6, at least one upper case, at least one lower case, and at least one special character**
 
@@ -109,57 +91,57 @@ Actions:
 
 - Open /register
 
-- Enter “123456” into element #password
+- Enter “12Aa!” into element #password
 
-- Enter “1234” into element #password2
+- Enter “12Aa!” into element #password2
 
-- Enter “a” into element #email
+- Enter “a@qq.com” into element #email
 
-- Enter "a" into element #name
+- Enter "aaa" into element #name
 
 - Click element input[type = “submit”]
 
 - Validate existence of element #password, #password2, #name, #email
 
-- Validate that the #message element is equal to “password format is wrong”
+- Validate that the #message element is equal to “password format is incorrect"
 
 ###### **R2.4.4.2 Password has at least one upper case**
 - Open /logout
 
 - Open /register
 
-- Enter “123456” into element #password
+- Enter “123456!a” into element #password
 
-- Enter “123456” into element #password2
+- Enter “123456!a” into element #password2
 
-- Enter “a” into element #email
+- Enter “a@qq.com” into element #email
 
-- Enter "a" into element #name
+- Enter "aaaa" into element #name
 
 - Click element input[type = “submit”]
 
 - Validate existence of element #password, #password2, #name, #email
 
-- Validate that the #message element is equal to “password format is wrong”
+- Validate that the #message element is equal to “password format is incorrect ”
 
 ###### **R2.4.4.3 Password has at least one lower case**
 - Open /logout
 
 - Open /register
 
-- Enter “A123456” into element #password
+- Enter “A123456!” into element #password
 
-- Enter “A123456” into element #password2
+- Enter “A123456!” into element #password2
 
-- Enter “a” into element #email
+- Enter “a@qq.com” into element #email
 
-- Enter "a" into element #name
+- Enter "aaa" into element #name
 
 - Click element input[type = “submit”]
 
 - Validate existence of element #password, #password2, #name, #email
 
-- Validate that the #message element is equal to “password format is wrong”
+- Validate that the #message element is equal to “password format is incorrect”
 
 ###### **R2.4.4.4 Password has  at least one special letter**
 - Open /logout
@@ -178,7 +160,7 @@ Actions:
 
 - Validate existence of element #password, #password2, #name, #email
 
-- Validate that the #message element is equal to “password format is wrong”
+- Validate that the #message element is equal to “password format is incorrect ”
 
 #### **R2.5 User name has to be non-empty, alphanumeric-only, and space allowed only if it is not the first or the last character**
 
@@ -187,11 +169,11 @@ Actions:
 
 - Open /register
 
-- Enter “1” into element #password
+- Enter “J1234a!” into element #password
 
-- Enter “1” into element #password2
+- Enter “J1234a!” into element #password2
 
-- Enter “a” into element #email
+- Enter “a@qq.com” into element #email
 
 - Enter "" into element #name
 
@@ -225,11 +207,11 @@ Actions:
 
 - Open /register
 
-- Enter “1” into element #password
+- Enter “!1234Aa” into element #password
 
-- Enter “1” into element #password2
+- Enter “!1234Aa” into element #password2
 
-- Enter “2” into element #email
+- Enter “2@qq.com” into element #email
 
 - Enter " aaaa " into element #name
 
@@ -256,9 +238,9 @@ Actions:
 
 - Open /register
 
-- Enter “1222222” into element #password
+- Enter “1222222!aA” into element #password
 
-- Enter “1222222” into element #password2
+- Enter “1222222!aA” into element #password2
 
 - Enter “test_frontend@test.com” into element #email
 
@@ -277,11 +259,11 @@ Actions:
 
 - Open /register
 
-- Enter “1” into element #password
+- Enter “1111Aa!” into element #password
 
-- Enter “1” into element #password2
+- Enter “1111Aa!” into element #password2
 
-- Enter “2” into element #email
+- Enter “2@qq.com” into element #email
 
 - Enter "a" into element #name
 
@@ -296,13 +278,13 @@ Actions:
 
 - Open /register
 
-- Enter “1” into element #password
+- Enter “1111Aa!” into element #password
 
-- Enter “1” into element #password2
+- Enter “1111Aa!” into element #password2
 
-- Enter “2” into element #email
+- Enter “2@qq.com” into element #email
 
-- Enter "aaaaaa" into element #name
+- Enter "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" into element #name
 
 - Click element input[type = “submit”]
 
@@ -316,9 +298,9 @@ Actions:
 
 - Open /register
 
-- Enter “1” into element #password
+- Enter “1Ja!111111111” into element #password
 
-- Enter “2” into element #password2
+- Enter “2J1!sassaaaa” into element #password2
 
 - Enter “aaaa@gmail.com” into element #email
 
@@ -365,6 +347,8 @@ Actions:
 - Enter "Joe Kar" into element #name
 
 - Click element input[type = “submit”]
+
+- check current page is /
 
 - validate page whether have element #email, #password
 
