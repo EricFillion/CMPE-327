@@ -7,122 +7,247 @@ N/A
 Actions:
 - Open `/logout` (to invalidate any previous session)
 - Open `/`
-- Ensure it redirects to login page
-    - TODO: determine how redirect works? HTTP status code? 307?
+- Sleep 3 seconds, then validate that current URL is `/login`
 
 ## R3.2: This page shows a header 'Hi {}'.format(user.name)
 Mocking:
-- Mock user
-    - TODO
+- Mock backend.get_user to return the test user
 
 Actions:
 - Open `/logout` (to invalidate any previous session)
 - Open `/login` and log in as test user as per procedure defined in x...
     - TODO: should we have a defined procedure for logging in as the test user? It feels redundant to have each test case say how to log in..
-- Open '/'
-- Validate that the page shows an element with text: 'Hi {}'.format(user.name) 
+- Open `/`
+- Validate that the page shows element `#welcome` with text: `'Hi {}'.format(user.name)`
+- Open `/logout` (cleanup)
 
-## R3.3: This page shows user balance.
+## R3.3: This page shows user balance
 Mocking:
-- Mock user
-    - TODO
+- Mock backend.get_user to return the test user
 
 Actions:
 - Open `/logout` (to invalidate any previous session)
 - Open `/login` and log in as test user as per procedure defined in x...
-- Open '/'
-- Validate that the page shows an element with text: "Your balance is ${:.2f}".format(user.balance)
+- Open `/`
+- Validate that the page shows element `#balance` with text: `"Your balance is ${:.2f}".format(user.balance)`
+- Open `/logout` (cleanup)
 
 ## R3.4: This page shows a logout link, pointing to /logout
 Mocking:
-- Mock user
-    - TODO
+- Mock backend.get_user to return the test user
 
 Actions:
 - Open `/logout` (to invalidate any previous session)
 - Open `/login` and log in as test user as per procedure defined in x...
-- Open '/'
-- Validate that the page shows an element with text "Logout" and href='/logout'
-    - TODO: specify this in the correct format
+- Open `/`
+- Validate that the page shows element `a#logout` with text "Logout" and `href='/logout'`
+- Open `/logout` (cleanup)
 
 ## R3.5.1: This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. (positive, ensure tickets in database show properly)
 Mocking:
-- Mock user
-    - TODO
-- Mock tickets
-    - Randomly generate ticket information?
+- Mock backend.get_user to return the test user
+- Mock backend.get_all_tickets to create a list of tickets
+    - Ensure list of tickets is stored for later
+    - There must be one or more tickets
+    - All tickets should be valid (not expired)
 
 Actions:
 - Open `/logout` (to invalidate any previous session)
 - Open `/login` and log in as test user as per procedure defined in x...
-- Open '/'
-- Validate that the page shows a table with the same ticket information mocked up
-    - Ensure quantity
-    - Ensure owner's email
-    - Ensure price
+- Open `/`
+- Validate that the page shows element `table#tickettable`
+- Validate that the number of ticket rows (as opposed to header rows) in the ticket table is equal to the number of tickets
+- For each ticket in the list of tickets from the mock backend:
+    - Find `tr` of ticket by looking up ticket's name under the ticket table
+    - Validate quantity by looking under the ticket's `tr` and validating that the element `td.tt_quantity` has text: `"{}".format(ticket.balance)`
+    - Validate owner's email by looking under the ticket's `tr` and validating that the element `td.tt_owner` has text: `"{}".format(ticket.owner)`
+    - Validate price by looking under the ticket's `tr` and validating that the element `td.tt_price` has text: `"${:.2f}".format(ticket.price)`
+- Open `/logout` (cleanup)
 
 ## R3.5.2: This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. (negative, ensure expired ticket is not displayed)
 Mocking:
-- Mock user
-    - TODO
-- Mock tickets
-    - Randomly generate ticket information?
-    - Ensure one expired ticket
+- Mock backend.get_user to return the test user
+- Mock backend.get_all_tickets to create a list of tickets
+    - Ensure list of tickets is stored for later
+    - One or more tickets must be valid (not expired)
+    - One or more tickets must be expired
 
 Actions:
 - Open `/logout` (to invalidate any previous session)
 - Open `/login` and log in as test user as per procedure defined in x...
-- Open '/'
-- Validate that the page shows a table with the same ticket information mocked up
-    - Ensure quantity
-    - Ensure owner's email
-    - Ensure price
-- Validate that the expired ticket is NOT shown
+- Open `/`
+- Validate that the page shows element `table#tickettable`
+- Validate that the number of ticket rows (as opposed to header rows) in the ticket table is equal to the number of valid tickets
+- For each expired ticket in the list of tickets from the mock backend:
+    - Search for `tr` of ticket by looking up ticket's name under the ticket table, and ensure it can not be found
+- Open `/logout` (cleanup)
 
+## R3.5.3: This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. (ensure table is not displayed if there are zero valid tickets)
+Mocking:
+- Mock backend.get_user to return the test user
+- Mock backend.get_all_tickets to create a list of tickets
+    - There must be one or more tickets
+    - All tickets must be expired
+
+Actions:
+- Open `/logout` (to invalidate any previous session)
+- Open `/login` and log in as test user as per procedure defined in x...
+- Open `/`
+- Validate that the page does not show element `table#tickettable`
+- Validate that the page does show element `#no_tickets_available`
+- Open `/logout` (cleanup)
+
+## R3.5.4: This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. (test case with zero total tickets)
+Mocking:
+- Mock backend.get_user to return the test user
+- Mock backend.get_all_tickets to create a list of tickets
+    - There must be zero tickets
+
+Actions:
+- Open `/logout` (to invalidate any previous session)
+- Open `/login` and log in as test user as per procedure defined in x...
+- Open `/`
+- Validate that the page does not show element `table#tickettable`
+- Validate that the page does show element `#no_tickets_available`
+- Open `/logout` (cleanup)
 
 ## R3.6: This page contains a form that a user can submit new tickets for sell. Fields: name, quantity, price, expiration date
 Mocking:
-
-N/A
+- Mock backend.get_user to return the test user
 
 Actions:
-
-N/A
+- Open `/logout` (to invalidate any previous session)
+- Open `/login` and log in as test user as per procedure defined in x...
+- Open `/`
+- Validate that the page does show element `#sellform`
+- Validate that the page does show element `#sellform_label_name` with text "Ticket Name:"
+- Validate that the page does show element `#sellform_input_name`
+- Validate that the page does show element `#sellform_label_quantity` with text "Quantity:"
+- Validate that the page does show element `#sellform_input_quantity`
+- Validate that the page does show element `#sellform_label_price` with text "Price Per Ticket:"
+- Validate that the page does show element `#sellform_input_price`
+- Validate that the page does show element `#sellform_label_expiry` with text "Expiry Date:"
+- Validate that the page does show element `#sellform_input_expiry`
+- Validate that the page does show element `input#sellform_submit[action=submit]`
+- Open `/logout` (cleanup)
 
 ## R3.7: This page contains a form that a user can buy new tickets. Fields: name, quantity
 Mocking:
-
-N/A
+- Mock backend.get_user to return the test user
 
 Actions:
-
-N/A
+- Open `/logout` (to invalidate any previous session)
+- Open `/login` and log in as test user as per procedure defined in x...
+- Open `/`
+- Validate that the page does show element `#buyform`
+- Validate that the page does show element `#buyform_label_name` with text "Ticket Name:"
+- Validate that the page does show element `#buyform_input_name`
+- Validate that the page does show element `#buyform_label_quantity` with text "Quantity:"
+- Validate that the page does show element `#buyform_input_quantity`
+- Validate that the page does show element `input#buyform_submit[action=submit]`
+- Open `/logout` (cleanup)
 
 ## R3.8: The ticket-selling form can be posted to /sell
-Mocking:
+Additional Test Data:
+```
+test_ticket = Ticket(
+    owner='test_frontend@example.com',
+    name='test_ticket_yo',
+    quantity=10,
+    price=10,
+    expiry='20200901'
+)
+```
 
-N/A
+Mocking:
+- Mock backend.get_user to return the test user
 
 Actions:
-
-N/A
+- Open `/logout` (to invalidate any previous session)
+- Open `/login` and log in as test user as per procedure defined in x...
+- Open `/`
+- Fill fields
+    - Fill element `#sellform_input_name` with the ticket name
+    - Fill element `#sellform_input_quantity` with the quantity
+    - Fill element `#sellform_input_price` with the ticket price
+    - Fill element `#sellform_input_expiry` with the ticket expiry date
+- Click element `#sellform_submit`
+- Validate that a POST request is sent to `/sell` with the correct information as specified in the fields listed above
+- Open `/logout` (cleanup)
 
 ## R3.9: The ticket-buying form can be posted to /buy
-Mocking:
+Additional Test Data:
+```
+test_ticket = Ticket(
+    owner='test_frontend@example.com',
+    name='test_ticket_yo',
+    quantity=10,
+    price=10,
+    expiry='20200901'
+)
+```
 
-N/A
+Mocking:
+- Mock backend.get_user to return the test user
 
 Actions:
+- Open `/logout` (to invalidate any previous session)
+- Open `/login` and log in as test user as per procedure defined in x...
+- Open `/`
+- Fill fields
+    - Fill element `#buyform_input_name` with the ticket name
+    - Fill element `#buyform_input_quantity` with the quantity
+- Click element `#buyform_submit`
+- Validate that a POST request is sent to `/buy` with the correct information as specified in the fields listed above
+- Open `/logout` (cleanup)
 
-N/A
+## R3.10.1: The ticket-update form can be posted to /update (existence)
+There was no requirement given for the existence of this ticket update form, so this test case will serve to check the existence of said form.
 
-## R3.10: The ticket-update form can be posted to /update
 Mocking:
-
-N/A
+- Mock backend.get_user to return the test user
 
 Actions:
+- Open `/logout` (to invalidate any previous session)
+- Open `/login` and log in as test user as per procedure defined in x...
+- Open `/`
+- Validate that the page does show element `#updateform`
+- Validate that the page does show element `#updateform_label_name` with text "Ticket Name:"
+- Validate that the page does show element `#updateform_input_name`
+- Validate that the page does show element `#updateform_label_quantity` with text "Quantity:"
+- Validate that the page does show element `#updateform_input_quantity`
+- Validate that the page does show element `#updateform_label_price` with text "Price Per Ticket:"
+- Validate that the page does show element `#updateform_input_price`
+- Validate that the page does show element `#updateform_label_expiry` with text "Expiry Date:"
+- Validate that the page does show element `#updateform_input_expiry`
+- Validate that the page does show element `input#updateform_submit[action=submit]`
+- Open `/logout` (cleanup)
 
-N/A
+## R3.10.2: The ticket-update form can be posted to /update (posting)
+Additional Test Data:
+```
+test_ticket = Ticket(
+    owner='test_frontend@example.com',
+    name='test_ticket_yo',
+    quantity=10,
+    price=10,
+    expiry='20200901'
+)
+```
 
+Mocking:
+- Mock backend.get_user to return the test user
+
+Actions:
+- Open `/logout` (to invalidate any previous session)
+- Open `/login` and log in as test user as per procedure defined in x...
+- Open `/`
+- Fill fields
+    - Fill element `#updateform_input_name` with the ticket name
+    - Fill element `#updateform_input_quantity` with the quantity
+    - Fill element `#updateform_input_price` with the ticket price
+    - Fill element `#updateform_input_expiry` with the ticket expiry date
+- Click element `#updateform_submit`
+- Validate that a POST request is sent to `/update` with the correct information as specified in the fields listed above
+- Open `/logout` (cleanup)
 
