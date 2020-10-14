@@ -4,6 +4,14 @@ Description:  user can update a ticket for sale. Fields: name, quantity, price, 
 
 
 ### Test Data
+```
+test_user = User(
+    email='test_frontend@test.com',
+    name='test_frontend',
+    password=generate_password_hash('test_frontend')
+)
+```  
+
 Note: This test ticket will be a ticket that is already in the moch database, so that it can be updated. 
 ```
 the test_tickets = [
@@ -107,7 +115,7 @@ Actions:
 - Validate that current page contains a #ticket-name header matching the tickets name.
 - Open /logout (clean up)
 
-### Test Case R5.2:  The name of the ticket is no longer than 60 characters.
+### Test Case R5.2:  The name of the ticket is no longer than 60 characters - Negative.
 Mocking:    
 - Mock backend.get_user to return a test_user instance 
 - Mock backend.get_ticket to return a the test_ticket instance
@@ -140,7 +148,7 @@ Actions:
 - Open /
 - Navigate to the update ticket form
 - Enter the test_ticket's name in element `#ticket-to-update`
-- Enter a number less than or equal to 0 (ex.:1) into the element `#update-quantity`
+- Enter a number less than or equal to 0 (ex.-1) into the element `#update-quantity`
 - Click element `input[type="submit"]
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element shows and error message stating  “The quantity of the tickets has to be more than 0, and less than or equal to 100”.
