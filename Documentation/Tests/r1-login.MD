@@ -99,13 +99,13 @@ Actions
 
 ### R1.6.2 : Password cannot be empty:
 
-  - Open /logout
+ - Open /logout
 
 - Open /login
 
 - Enter “” into element #password
 
-- Enter “test@gmail.com” into element #email
+- Enter test_user's email into element #email
 
 - Click element input[type = “submit”]
 
@@ -172,7 +172,7 @@ Actions:
 
   - open /logout
 
-  #### R1.8.2: If email/password are not correct, redirect to /login 
+### R1.8.2: If email/password are not correct, redirect to /login 
 
 
 Mocking:
