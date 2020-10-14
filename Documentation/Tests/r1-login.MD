@@ -87,7 +87,7 @@ Actions
 
 - Open /login
 
-- Enter “12345678” into element #password
+- Enter test_user's password into element #password
 
 - Enter “” into element #email
 
