@@ -87,7 +87,7 @@ Mocking:
 Actions
 - Open /logout
 - Open /login
--  ##### TODO: go to url with custom parameters for email and password
+- Post request "/login ? email=test_user'email $ password= test_user's password" (spaces are added for readability )
 - Validate that current page contains #profile-page element
 
 
