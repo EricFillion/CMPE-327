@@ -1,7 +1,7 @@
 ##  Login R1
 
 
-### **R1.1: if the user hasn’t logged in, show the login page**
+### R1.1: if the user hasn’t logged in, show the login page
 
 
 Mocking:
@@ -16,7 +16,7 @@ Actions:
 
 
 
-### **R1.2: The login page has a message that by default says ‘please login’**
+### R1.2: The login page has a message that by default says ‘please login’
 
 
 Mocking:
@@ -32,8 +32,8 @@ Mocking:
 
 
 
-### **R1.3: If the user has logged in, redirect to the user profile page
-#### Given in the example
+### R1.3: If the user has logged in, redirect to the user profile page
+#### Given as an example
 
 Mocking:
 
@@ -56,7 +56,7 @@ Actions:
 
 
 
-#### **R1.4 The login page provides a login form which requests two field: email and password**
+#### R1.4 The login page provides a login form which requests two field: email and password
 
  Mocking:
 - Mock backend.get_user to return a test_user instance
@@ -68,7 +68,7 @@ Actions
 
 
 
-#### **R1.5: The login form can be submitted as a post request to the current URL (/login)**
+#### R1.5: The login form can be submitted as a post request to the current URL (/login)
 
 Mocking:
 - Mock backend.get_user to return a test_user instance
@@ -81,7 +81,7 @@ Actions
 
 
 
-#### **R1.6.1 : Email cannot be empty:**
+#### R1.6.1 : Email cannot be empty:
 
 - Open /logout
 
@@ -97,7 +97,7 @@ Actions
 
 
 
-#### **R1.6.2 : Password cannot be empty:**
+#### R1.6.2 : Password cannot be empty:
 
   - Open /logout
 
@@ -112,13 +112,13 @@ Actions
 - Validate that the #warning element is equal to “email/password format is incorrect.”
 
 
-#### **R1.7 : Email has to follow addr-specs defined in RFC 5322**
+#### R1.7 : Email has to follow addr-specs defined in RFC 5322**
 
 This one is going to be time consuming to create
 
 
 
-#### **R1.8 : Password has to meet required complexity: minimum length 6, at least one upper case, at least one lower case and at least one special character-**
+#### *R1.8 : Password has to meet required complexity: minimum length 6, at least one upper case, at least one lower case and at least one special character 
 
 
 - Open /logout
@@ -150,7 +150,7 @@ This one is going to be time consuming to create
 
 - open /logout
 
-#### **R1.8.1: If email/password are correct, redirect to / **
+#### R1.8.1: If email/password are correct, redirect to / 
 
 Mocking:
 
@@ -172,7 +172,7 @@ Actions:
 
   - open /logout
 
-  #### **R1.8.2: If email/password are not correct, redirect to /login **
+  #### R1.8.2: If email/password are not correct, redirect to /login 
 
 
 Mocking:
