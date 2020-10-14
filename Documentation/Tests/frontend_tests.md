@@ -11,7 +11,7 @@ All of the documentation of the test cases are in the ***Documentation/Tests*** 
 **Our understanding of how the chosen testing framework works to test the frontend, including yur understandings of when and how the test cases will be running directly on GitHub**
 
 **How we are going to organize different test case code files?**
-All of our test case code files are going to be put in ***/qa327_test/frontend***. We will have individal files for each requirement. The file's names will be in the format "test_{requirementNumber}_{requirementType}.py" (ex. ***test_r1_login.py***). 
+All of our test case code files are going to be put in ***/qa327_test/frontend***. We will have individual files for each requirement. The file's names will be in the format "test_{requirementNumber}_{requirementType}.py" (ex. ***test_r1_login.py***). 
 
 ## Issues
 *The conflicts and issues related to the specification that we found. For these issue we created an issue on GitHub for the on site customer and then documented what we found here*
