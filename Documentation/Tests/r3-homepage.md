@@ -234,7 +234,7 @@ Actions:
     - Fill element `#sellform_input_quantity` with the quantity
     - Fill element `#sellform_input_price` with the ticket price
     - Fill element `#sellform_input_expiry` with the ticket expiry date
-- Click element `#sellform_submit`
+- Click element `input#sellform_submit[action=submit]`
 - Validate that a POST request is sent to `/sell` with the correct information as specified in the fields listed above
 - Open `/logout` (cleanup)
 
@@ -263,7 +263,7 @@ Actions:
 - Fill fields
     - Fill element `#buyform_input_name` with the ticket name
     - Fill element `#buyform_input_quantity` with the quantity
-- Click element `#buyform_submit`
+- Click element `input#buyform_submit[action=submit]`
 - Validate that a POST request is sent to `/buy` with the correct information as specified in the fields listed above
 - Open `/logout` (cleanup)
 
@@ -294,6 +294,6 @@ Actions:
     - Fill element `#updateform_input_quantity` with the quantity
     - Fill element `#updateform_input_price` with the ticket price
     - Fill element `#updateform_input_expiry` with the ticket expiry date
-- Click element `#updateform_submit`
+- Click element `input#updateform_submit[action=submit]`
 - Validate that a POST request is sent to `/update` with the correct information as specified in the fields listed above
 - Open `/logout` (cleanup)
