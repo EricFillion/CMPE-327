@@ -12,7 +12,7 @@ test_user = User(
 )
 ```  
 
-Note: This test ticket will be a ticket that is already in the moch database, so that it can be updated. 
+Note: This test ticket will be a ticket that is already in the mock database, so that it can be updated. 
 ```
 the test_tickets = [
     {'name': 't1', 'price': '100', date: '20301001', quantity: '90'}
