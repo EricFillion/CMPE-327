@@ -32,9 +32,10 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type="submit"]`
 - Open /
+- Navigate to the form `#updateform`
 - Enter the test_ticket's name in element `#ticket-to-update`
-- Enter a string containing symbols (ex. "t!cket_1") into the element `#update-name`
-- Click element `input[type="submit"]`
+- Enter a string containing symbols (ex. "t!cket_1") into the element ``#updateform_input_name``
+- Click element `input#updateform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element shows an error message stating “The name of the ticket has to be alphanumeric only”.
 - Open /logout (clean up)
@@ -51,8 +52,8 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type="submit"]`
 - Enter the test_ticket's name in element `#ticket-to-update`
-- Enter a string, that is less than 60 characters, containing only alphanumeric symbols that has a space for the first character  (ex. " t1")in the element `#update-name`
-- Click element `input[type="submit"]`
+- Enter a string, that is less than 60 characters, containing only alphanumeric symbols that has a space for the first character  (ex. " t1")in the element ``#updateform_input_name``
+- Click element `input#updateform_submit[action=submit]`
 - Validate that the page has been redirected back to'/'and shows an error message stating “The name of the ticket is only allowed spaces if it is not the first or last character”.
 - Open /logout (clean up)
 
@@ -68,9 +69,10 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type="submit"]`
 - Open /
+- Navigate to the form `#updateform`
 - Enter the test_ticket's name in element `#ticket-to-update`
-- Enter a string that is less than 60 characters, containing only alphanumeric symbols that has a space for the last character (ex. "t1 ") in the element `#update-name`
-- Click element `input[type="submit"]`
+- Enter a string that is less than 60 characters, containing only alphanumeric symbols that has a space for the last character (ex. "t1 ") in the element ``#updateform_input_name``
+- Click element `input#updateform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element shows an error message stating  “The name of the ticket is only allowed spaces if it is not the first or last character”.
  - Open /logout (clean up)
@@ -87,9 +89,10 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type="submit"]`
 - Open /
+- Navigate to the form `#updateform`
 - Enter the test_ticket's name in element `#ticket-to-update`
-- Enter a string that is less than 60 characters, containing only alphanumeric symbols that contains spaces that are not the first and last character (ex. "ticket 1") in the element `#update-name`
-- Click element `input[type="submit"]`
+- Enter a string that is less than 60 characters, containing only alphanumeric symbols that contains spaces that are not the first and last character (ex. "ticket 1") in the element ``#updateform_input_name``
+- Click element `input#updateform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element shows successful
 - Open /logout (clean up)
@@ -107,9 +110,10 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type="submit"]`
 - Open /
+- Navigate to the form `#updateform`
 - Enter the test_ticket's name in element `#ticket-to-update`
-- Enter a the valid string "updatedName" into the element `#update-name`
-- Click element `input[type="submit"]`
+- Enter a the valid string "updatedName" into the element ``#updateform_input_name``
+- Click element `input#updateform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element shows successful
 - Validate that current page contains a #ticket-name header matching the tickets name.
@@ -127,9 +131,10 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type="submit"]`
 - Open /
+- Navigate to the form `#updateform`
 - Enter the test_ticket's name in element `#ticket-to-update`
-- Enter a string that containing only alphanumeric symbols that is more than 60 characters in the element `#update-name`
-- Click element `input[type="submit"]`
+- Enter a string that containing only alphanumeric symbols that is more than 60 characters in the element ``#updateform_input_name``
+- Click element `input#updateform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element shows an error message stating  “The name of the ticket should be no longer than 60 characters”.
 - Open /logout (clean up)
@@ -146,10 +151,10 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type="submit"]`
 - Open /
-- Navigate to the update ticket form
+- Navigate to the form `#updateform`
 - Enter the test_ticket's name in element `#ticket-to-update`
-- Enter a number less than or equal to 0 (ex.-1) into the element `#update-quantity`
-- Click element `input[type="submit"]`
+- Enter a number less than or equal to 0 (ex.-1) into the element `#updateform_input_quantity`
+- Click element `input#updateform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element shows an error message stating  “The quantity of the tickets has to be more than 0, and less than or equal to 100”.
 - Open /logout (clean up)
@@ -166,10 +171,10 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type="submit"]`
 - Open /
-- Navigate to the update ticket form
+- Navigate to the form `#updateform`
 - Enter the test_ticket's name in element `#ticket-to-update`
-- Enter a number greater than 100 (ex. 101) into the element `#update-quantity`
-- Click element `input[type="submit"]`
+- Enter a number greater than 100 (ex. 101) into the element `#updateform_input_quantity`
+- Click element `input#updateform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element shows an error message stating  “The quantity of the tickets has to be more than 0, and less than or equal to 100”.
 - Open /logout (clean up)
@@ -187,10 +192,10 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type="submit"]`
 - Open /
-- Navigate to the update ticket form
+- Navigate to the form `#updateform`
 - Enter the test_ticket's name in element `#ticket-to-update`
-- Enter the number 50 into the element `#update-quantity`
-- Click element `input[type="submit"]`
+- Enter the number 50 into the element `#updateform_input_quantity`
+- Click element `input#updateform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element shows successful
 - Validate that current page contains a #ticket-name header matching the tickets name.
@@ -208,10 +213,10 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type="submit"]`
 - Open /
-- Navigate to the update ticket form
+- Navigate to the form `#updateform`
 - Enter the test_ticket's name in element `#ticket-to-update`
-- Enter a number below 10 (ex. 9) into the element `#update-price`
-- Click element `input[type="submit"]`
+- Enter a number below 10 (ex. 9) into the element `#updateform_input_price`
+- Click element `input#updateform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element shows an error message stating  “The price of the ticket must be between 10 and 100”.
 - Open /logout (clean up)
@@ -228,10 +233,10 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type="submit"]`
 - Open /
-- Navigate to the update ticket form
+- Navigate to the form `#updateform`
 - Enter the test_ticket's name in element `#ticket-to-update`
-- Enter a number above 100 (ex. 101) into the element `#update-price`
-- Click element `input[type="submit"]`
+- Enter a number above 100 (ex. 101) into the element `#updateform_input_price`
+- Click element `input#updateform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element shows an error message stating  “The price of the ticket must be between 10 and 100”.
 - Open /logout (clean up)
@@ -249,10 +254,10 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type="submit"]`
 - Open /
-- Navigate to the update ticket form
+- Navigate to the form `#updateform`
 - Enter the test_ticket's name in element `#ticket-to-update`
-- Enter the number 50 into the element `#update-price`
-- Click element `input[type="submit"]`
+- Enter the number 50 into the element `#updateform_input_price`
+- Click element `input#updateform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element shows successful
 - Validate that current page contains a #ticket-name header matching the tickets name.
@@ -270,10 +275,10 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type="submit"]`
 - Open /
-- Navigate to the update ticket form
+- Navigate to the form `#updateform`
 - Enter the test_ticket's name in element `#ticket-to-update`
-- Enter a date in an invald format (ex. 20201331) into the element `#update-date`
-- Click element `input[type="submit"]`
+- Enter a date in an invald format (ex. 20201331) into the element `#updateform_input_expiry`
+- Click element `input#updateform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element shows an error message stating  “Date must be given in the format YYYYMMDD (e.g. 20200901)”.
 - Open /logout (clean up)
@@ -290,10 +295,10 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type="submit"]`
 - Open /
-- Navigate to the update ticket form
+- Navigate to the form `#updateform`
 - Enter the test_ticket's name in element `#ticket-to-update`
-- Call function to get todays date and enter date into the element `#update-date`. Todays date is used so that the date is never in the past. 
-- Click element `input[type="submit"]`
+- Call function to get todays date and enter date into the element `#updateform_input_expiry`. Todays date is used so that the date is never in the past. 
+- Click element `input#updateform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element shows successful
 - Validate that current page contains a #ticket-name header matching the tickets name.
@@ -312,13 +317,13 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type="submit"]`
 - Open /
-- Navigate to the update ticket form
+- Navigate to the form `#updateform`
 - Enter generate a random string and check that it is not a name in get_all_tickets, if it is regenerate the string until it does not match. Enter the string in `#ticket-to-update`
-- Enter the test_ticket's name in element `#update-name`
-- Enter the test_ticket’s price into the element `#update-price`
-- Enter the test_ticket’s quantity into the element `#update-quantity`
-- Enter the test_ticket’s date into the element `#update-date`
-- Click element `input[type="submit"]`
+- Enter the test_ticket's name in element ``#updateform_input_name``
+- Enter the test_ticket’s price into the element `#updateform_input_price`
+- Enter the test_ticket’s quantity into the element `#updateform_input_quantity`
+- Enter the test_ticket’s date into the element `#updateform_input_expiry`
+- Click element `input#updateform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element shows an error message stating "The ticket of the given name must exist."
 - Open /logout (clean up)
@@ -336,13 +341,13 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type="submit"]`
 - Open /
-- Navigate to the update ticket form
+- Navigate to the form `#updateform`
 - Enter " no!tATicket " `#ticket-to-update`
-- Enter " no!tATicket " in element `#update-name`
-- Enter the test_ticket’s price into the element `#update-price`
-- Enter the test_ticket’s quantity into the element `#update-quantity`
-- Enter the test_ticket’s date into the element `#update-date`
-- Click element `input[type="submit"]`
+- Enter " no!tATicket " in element ``#updateform_input_name``
+- Enter the test_ticket’s price into the element `#updateform_input_price`
+- Enter the test_ticket’s quantity into the element `#updateform_input_quantity`
+- Enter the test_ticket’s date into the element `#updateform_input_expiry`
+- Click element `input#updateform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element shows contains an error message."
 - Open /logout (clean up)
