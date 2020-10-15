@@ -123,9 +123,7 @@ Actions:
 - Click element input[type = “submit”]
 -  open / 
 
-- Enter “abc1234#” in the element `#sellform_input_name`
-
-- Enter “abc1234 ” in the element #name
+- Enter “abc1234 ” in the element `#sellform_input_name`
 
 - Enter test_ticket’s quantity into the element `#sellform_input_quantity`
 
