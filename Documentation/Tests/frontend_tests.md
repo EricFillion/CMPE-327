@@ -29,11 +29,9 @@ Actions:
 
 ### R5. /update
 
-### R6. /buy
+### R6. /logout
 
-### R7. /logout
-
-### R8. /*
+### R7. /*
 
 ## Test Plan
 
