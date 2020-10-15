@@ -23,7 +23,7 @@ the test_tickets = [
 
 Mocking:      
 - Mock backend.get_user to return a test_user instance 
-- Mock backend.get_ticket to return a the test_ticket instance
+- Mock backend.get_ticket to return the test_ticket instance
 
 Actions:        
 - Open /logout (to invalid any logged-in sessions may exist)
