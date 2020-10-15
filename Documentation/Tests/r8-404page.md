@@ -1,4 +1,7 @@
 # Requirement 8 - 404 Page
+
+**Description**: Redirects to 404 page when the user attempts to access invalid pages. 
+
 ## R8.1.1 - For any requests except those in the specification's routes table, the system should return a 404 error (GET, non-existent page)
 Mocking:
 
