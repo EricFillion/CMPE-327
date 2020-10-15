@@ -38,7 +38,7 @@ Actions:
 - Navigate to element `#buyform`
 - Enter a string containing symbols (ex. "t!cket_1") into the element  `#buyform_input_name`
 - Enter the test_user_ticket's quantity into the element  `#buyform_input_quantity`
-- Click element `input[type="submit"]`
+- Click element `input#buyform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#buy_message` element shows an errormessage stating “The name of the ticket has to be alphanumeric only”.
 - Open /logout (clean up)
@@ -58,7 +58,7 @@ Actions:
 - Navigate to element `#buyform`
 - Enter a string, that is less than 60 characters, containing only alphanumeric symbols that has a space for the first character (ex. " t1") in the element  `#buyform_input_name`
 - Enter the test_user_ticket's quantity into the element  `#buyform_input_quantity`
-- Click element `input[type="submit"]`
+- Click element `input#buyform_submit[action=submit]`
 - Validate that the page has been redirected back to'/'and shows an error message stating “The name of the ticket is only allowed spaces if it is not the first or last character”.
 - Open /logout (clean up)
 
@@ -77,7 +77,7 @@ Actions:
 - Navigate to element `#buyform`
 - Enter a string that is less than 60 characters, containing only alphanumeric symbols that has a space for the last character (ex. "t1 ") in the element  `#buyform_input_name`
 - Enter the test_user_ticket's quantity into the element  `#buyform_input_quantity`
-- Click element `input[type="submit"]`
+- Click element `input#buyform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#buy_message` element shows an errormessage stating  “The name of the ticket is only allowed spaces if it is not the first or last character”.
  - Open /logout (clean up)
@@ -97,7 +97,7 @@ Actions:
 - Navigate to element `#buyform`
 - Enter a string that is less than 60 characters, containing only alphanumeric symbols that contains spaces that are not the first and last character (ex. "ticket 1") in the element  `#buyform_input_name`
 - Enter the test_user_ticket's quantity into the element  `#buyform_input_quantity`
-- Click element `input[type="submit"]`
+- Click element `input#buyform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#buy_message` element shows successful
 - Open /logout (clean up)
@@ -118,7 +118,7 @@ Actions:
 - Navigate to element `#buyform`
 - Enter the test_user_ticket's name in element  `#buyform_input_name`
 - Enter the test_user_ticket's quantity into the element  `#buyform_input_quantity`
-- Click element `input[type="submit"]`
+- Click element `input#buyform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#buy_message` element shows successful
 - Open /logout (clean up)
@@ -138,7 +138,7 @@ Actions:
 - Navigate to element `#buyform`
 - Enter a string that containing only alphanumeric symbols that is more than 60 characters in the element  `#buyform_input_name`
 - Enter the test_user_ticket's quantity into the element  `#buyform_input_quantity`
-- Click element `input[type="submit"]`
+- Click element `input#buyform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#buy_message` element shows an errormessage stating  “The name of the ticket should be no longer than 60 characters”.
 - Open /logout (clean up)
@@ -158,7 +158,7 @@ Actions:
 - Navigate to element `#buyform`
 - Enter the test_user_ticket's name in element  `#buyform_input_name`
 - Enter a number less than or equal to 0 (ex.-1) into the element  `#buyform_input_quantity`
-- Click element `input[type="submit"]`
+- Click element `input#buyform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#buy_message` element shows an errormessage stating  “The quantity of the tickets has to be more than 0, and less than or equal to 100”.
 - Open /logout (clean up)
@@ -178,7 +178,7 @@ Actions:
 - Navigate to element `#buyform`
 - Enter the test_user_ticket's name in element  `#buyform_input_name`
 - Enter a number greater than 100 (ex. 101) into the element  `#buyform_input_quantity`
-- Click element `input[type="submit"]`
+- Click element `input#buyform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#buy_message` element shows an errormessage stating  “The quantity of the tickets has to be more than 0, and less than or equal to 100”.
 - Open /logout (clean up)
@@ -199,7 +199,7 @@ Actions:
 - Navigate to element `#buyform`
 - Enter the test_user_ticket's name in element  `#buyform_input_name`
 - Enter the number 50 into the element  `#buyform_input_quantity`
-- Click element `input[type="submit"]`
+- Click element `input#buyform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#buy_message` element shows successful
 - Open /logout (clean up)
@@ -219,7 +219,7 @@ Actions:
 - Navigate to element `#buyform`
 - Enter test_user_ticket's name into element  `#buyform_input_name`
 - Enter test_user_ticket's quantity into element  `#buyform_input_quantity`
-- Click element `#buy_submit`
+- Click element `input#buyform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#buy_message` element shows successful
 - Open /logout (clean up)
@@ -239,7 +239,7 @@ Actions:
 - Navigate to element `#buyform`
 - Enter "testTicketNonexisted" into element  `#buyform_input_name`
 - Enter test_user_ticket's quantity into element  `#buyform_input_quantity`
-- Click element #buy_submit
+- Click element `input#buyform_submit[action=submit]`
 - Validate that the `#buy_message` element shows an error message stating "The ticket does not exist". 
 - Open /logout (clean up)
 
@@ -269,7 +269,7 @@ Actions:
 - Navigate to element `#buyform`
 - Enter test_user_ticket's name into element  `#buyform_input_name`
 - Enter test_user_ticket's quantity into element  `#buyform_input_quantity`
-- Click element `#buy_submit`
+- Click element `input#buyform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#buy_message` element shows successful
 - Open /logout (clean up)
@@ -300,7 +300,7 @@ Actions:
 - Navigate to element `#buyform`
 - Enter "testTicketNonexisted" into element  `#buyform_input_name`
 - Enter 60 into element  `#buyform_input_quantity`
-- Click element #buy_submit
+- Click element `input#buyform_submit[action=submit]`
 - Validate that the `#buy_message` element shows an error message stating "The quantity is less than the quantity requested". 
 - Open /logout (clean up)
 
@@ -320,7 +320,7 @@ Actions:
 - Navigate to element `#buyform`
 - Enter test_user_ticket's name into element  `#buyform_input_name`
 - Enter test_user_ticket's quantity into element  `#buyform_input_quantity`
-- Click element `#buy_submit`
+- Click element `input#buyform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#buy_message` element shows successful
 - Open /logout (clean up)
@@ -347,7 +347,7 @@ Actions:
 - Enter test_user2's password into element `#password`
 - Click element input[type="submit"]
 - Open /
-- Navigate to element `#buyform`
+- Navigate to element `input#buyform_submit[action=submit]`
 - Enter test_user_ticket's name into element  `#buyform_input_name`
 - Enter test_user_ticket's quantity into element  `#buyform_input_quantity`
 - Click element #buy_submit
@@ -369,7 +369,7 @@ Actions:
 - Navigate to element `#buyform`
 - Enter " no!tATicket " in element  `#buyform_input_name`
 - Enter -1 quantity into the element  `#buyform_input_quantity`
-- Click element `input[type="submit"]`
+- Click element `input#buyform_submit[action=submit]`
 - Validate that the page has been redirected to /
 - Validate that the `#update_message` element contains an error message."
 - Open /logout (clean up)
