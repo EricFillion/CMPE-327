@@ -20,8 +20,6 @@ Actions:
 
 - Open /logout
 
-- check current session
-
 - check that the current page is /login
 
 - validate whether the page has elements #email, #password
