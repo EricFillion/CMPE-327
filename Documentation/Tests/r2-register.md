@@ -1,5 +1,7 @@
 ### Register 
 
+**Description**: Allows a user to create an account using an email and password, so long that they are both valid. 
+
 #### **R2.1 If the user has logged in, redirect back to the user profile page /**
 
 Mocking:
