@@ -267,7 +267,7 @@ Actions:
 - Validate that a POST request is sent to `/buy` with the correct information as specified in the fields listed above
 - Open `/logout` (cleanup)
 
-## R3.11: The ticket-update form can be posted to /update (posting)
+## R3.11: The ticket-update form can be posted to /update
 Additional Test Data:
 ```
 test_ticket = Ticket(
@@ -297,4 +297,3 @@ Actions:
 - Click element `#updateform_submit`
 - Validate that a POST request is sent to `/update` with the correct information as specified in the fields listed above
 - Open `/logout` (cleanup)
-
