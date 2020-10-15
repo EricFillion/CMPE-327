@@ -376,7 +376,7 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- check current page is /
+- check current page is /login
 
 - validate page whether have element #email, #password
 
