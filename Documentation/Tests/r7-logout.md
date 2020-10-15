@@ -20,12 +20,10 @@ Actions:
 
 - Open /logout
 
-- check that the current page is /login
-
 - validate whether the page has elements #email, #password
 
 - open / again
 
-- check that the current page is /login
+- validate whether page have element #welcome-header
 
-- validate page whether have element #email, #password
+- validate whether page have element #email, #password
