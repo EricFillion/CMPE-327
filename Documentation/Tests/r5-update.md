@@ -30,7 +30,7 @@ Actions:
 - Open /login
 - Enter test_user's email into element `#email`
 - Enter test_user's password into element `#password`
-- Click element `input[type="submit"]
+- Click element `input[type="submit"]`
 - Open /
 - Enter the test_ticket's name in element `#ticket-to-update`
 - Enter a string containing symbols (ex. "t!cket_1") into the element `#update-name`
