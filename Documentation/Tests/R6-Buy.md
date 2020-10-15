@@ -115,7 +115,6 @@ Actions:
 - Click element `input[type="submit"]`
 - Validate that the page has been redirected to /
 - Validate that the `#buy_message` element shows successful
-- Validate that current page contains a #ticket-name header matching the tickets name.
 - Open /logout (clean up)
 
 ### Test Case R5.2:  The name of the ticket is no longer than 60 characters - Negative.
@@ -196,7 +195,6 @@ Actions:
 - Click element `input[type="submit"]`
 - Validate that the page has been redirected to /
 - Validate that the `#buy_message` element shows successful
-- Validate that current page contains a #ticket-name header matching the tickets name.
 - Open /logout (clean up)
 
 ### Test Cases R6.4.1: /buy[post] The ticket name exists in the database - Positive.
