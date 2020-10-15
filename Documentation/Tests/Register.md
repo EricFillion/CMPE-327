@@ -41,6 +41,8 @@ Actions:
 
 - Click element input[type = “submit”]
 
+- Check where current url still /register
+
 - Validate existence of element #password, #password2, #name, #email
 
 - Validate that the #message element is equal to “Email format is incorrect"
@@ -60,6 +62,8 @@ Actions:
 
 - Click element input[type = “submit”]
 
+- Check where current url still /register
+
 - Validate existence of element #password, #password2, #name, #email
 
 - Validate that the #message element is equal to “Password format is incorrect”
@@ -76,9 +80,11 @@ Actions:
 
 - Enter “a” into element #email
 
-- Enter "a" into element #name
+- Enter "aaa" into element #name
 
 - Click element input[type = “submit”]
+
+- Check where current url still /register
 
 - Validate existence of element #password, #password2, #name, #email
 
@@ -101,6 +107,8 @@ Actions:
 
 - Click element input[type = “submit”]
 
+- Check where current url still /register
+
 - Validate existence of element #password, #password2, #name, #email
 
 - Validate that the #message element is equal to “password format is incorrect"
@@ -119,6 +127,8 @@ Actions:
 - Enter "aaaa" into element #name
 
 - Click element input[type = “submit”]
+
+- Check where current url still /register
 
 - Validate existence of element #password, #password2, #name, #email
 
@@ -139,6 +149,8 @@ Actions:
 
 - Click element input[type = “submit”]
 
+- Check where current url still /register
+
 - Validate existence of element #password, #password2, #name, #email
 
 - Validate that the #message element is equal to “password format is incorrect”
@@ -157,6 +169,8 @@ Actions:
 - Enter "a" into element #name
 
 - Click element input[type = “submit”]
+
+- Check where current url still /register
 
 - Validate existence of element #password, #password2, #name, #email
 
@@ -179,6 +193,8 @@ Actions:
 
 - Click element input[type = “submit”]
 
+- Check where current url still /register
+
 - Validate existence of element #password, #password2, #name, #email
 
 - Validate that the #message element is equal to “username format is incorrect.”
@@ -188,15 +204,17 @@ Actions:
 
 - Open /register
 
-- Enter “1” into element #password
+- Enter “A1230o!” into element #password
 
-- Enter “1” into element #password2
+- Enter “A1230o!” into element #password2
 
-- Enter “2” into element #email
+- Enter “2@qq.com” into element #email
 
 - Enter "22" into element #name
 
 - Click element input[type = “submit”]
+
+- Check where current url still /register
 
 - Validate existence of element #password, #password2, #name, #email
 
@@ -216,6 +234,8 @@ Actions:
 - Enter " aaaa " into element #name
 
 - Click element input[type = “submit”]
+
+- Check where current url still /register
 
 - Validate existence of element #password, #password2, #name, #email
 
@@ -269,6 +289,8 @@ Actions:
 
 - Click element input[type = “submit”]
 
+- Check where current url still /register
+
 - Validate existence of element #password, #password2, #name, #email
 
 - Validate that the #message element is equal to “username format is incorrect.”
@@ -287,6 +309,8 @@ Actions:
 - Enter "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" into element #name
 
 - Click element input[type = “submit”]
+
+- Check where current url still /register
 
 - Validate existence of element #password, #password2, #name, #email
 
@@ -307,6 +331,8 @@ Actions:
 - Enter "aaaa" into element #name
 
 - Click element input[type = “submit”]
+
+- Check where current url still /register
 
 - Validate existence of element #password, #password2, #name, #email
 
@@ -329,6 +355,8 @@ Actions:
 - Click element input[type = “submit”]
 
 - validate whether a post request is sent to /register in backend through ajax interceptor
+
+- Check where current url is /login
 
 - validate page whether have element #email, #password
 
