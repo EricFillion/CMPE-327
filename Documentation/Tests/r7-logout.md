@@ -15,12 +15,12 @@ Actions:
 
 - Open /logout
 
-- check current page is /login
+- check that the current page is /login
 
-- validate page whether have element #email, #password
+- validate whether the page has elements #email, #password
 
 - open / again
 
-- check current page is /login
+- check that the current page is /login
 
 - validate page whether have element #email, #password
