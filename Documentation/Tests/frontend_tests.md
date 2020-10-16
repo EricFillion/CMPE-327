@@ -40,7 +40,17 @@ Actions:
 
 **How our team organized the documentations of the test cases**
 
-**Our understanding of how the chosen testing framework works to test the frontend, including yur understandings of when and how the test cases will be running directly on GitHub**
+**Our understanding of how the chosen testing framework works to test the frontend, including your understandings of when and how the test cases will be running directly on GitHub**
+
+Our chosen testing framework is a combination of PyTest, SeleniumBase, and unittest's mocking functionality.
+It will allow us to have an instance of the server running, with certain backend functions mocked dynamically for each unit test.
+Using SeleniumBase for the unit test, we can manipulate a web browser to click on and enter text into different inputs and assert that the correct text or webpage is displayed.
+This will allow us to ensure that our front-end user interface works the way we intended.
+
+The test cases will be executed automatically as a GitHub Action whenever a pull request is created.
+GitHub Actions will provide a clean environment for testing, fetching the requirements, and running the test cases.
+Each action outputs a report that indicates if any errors occurred, so that the team can quickly identify potential bugs.
+GitHub Actions will ensure that all commits going into the codebase are safe and do not break any existing system functionality while saving the team time.
 
 **How we are going to organize different test case code files?**
 
