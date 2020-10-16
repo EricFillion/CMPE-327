@@ -23,7 +23,26 @@
 
 
 ### R2: /register
-
+| Specification                              | Test Case ID | Purpose                                                                                                 |
+|------------------------------------|--------------|---------------------------------------------------------------------------------------------------------|
+| If the user has logged in, redirect back to the user profile page| R2.1 | To avoid repeat login, if they have logged |
+| otherwise, show the user registration page the registration page shows a registration form requesting: email, user name, password, password2 | R2.2,R2.3 |  To make sure everyone can register if they haven’t login |
+| check email not empty validation | R2.4.1 | Email cannot be empty for registration  
+| check password not empty validation | R2.4.2 | Password cannot be empty for registration
+| Email has to follow addr-spec defined in RFC 5322 | R2.4.3  |  Email must be real, follow rules
+| Password has minimum length 6 | R2.4.4.1  |  Password must be save enough,make it hard to decode
+| Password has at least one upper case  |   R2.4.4.2  | Password must be save enough,make it hard to decode
+| Password has at least one lower case  | R2.4.4.3  | Password must be save enough,make it hard to decode
+| Password has  at least one special letter | R2.4.4.4  | Password must be save enough,make it hard to decode
+| User name has to be non-empty | R2.5.1  | User cannot have empty username
+| User name has to be alphanumeric-only | R2.5.2  | User should have formal username
+| User name has to be space allowed only if it is not the first or the last character | R2.5.3  | User cannot have a name with spaces at head or end of it, we don’t offer trim
+| If the email already exists, show message 'this email has been ALREADY used'  | R2.6  | User cannot have two accounts with same email for out website
+| User name has to be longer than 2 characters  | R2.7.1  | User should have a longer name
+| User name has to be less than 20 characters | R2.7.2  | User cannot have a very long name 
+| check password repeat validation  | R2.8  | If passwords are not same then impossible for website to confirm
+| The registration form can be submitted as a POST request to the current URL (/register) | R2.9  |The form must be submitted to specific endpoint, otherwise the form action is useless
+| If no error regarding the inputs following the rules above, create a new user, set the balance to 5000, and go back to the /login page  | R2.10 | User must login after they register a account
 
 
 ### R3: /
@@ -81,6 +100,10 @@
 
 
 ### R7 /logout
+| Specification                                                                     | Test Case ID | Purpose                                                                                                 |
+|-----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------|
+| Logout will invalid the current session and redirect to the login page. After logout, the user shouldn't be able to access restricted pages.  | R7  | User cannot access any restricted page after they logout
+
 
 
 ### R8 /* (404 Page)
