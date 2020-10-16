@@ -1,4 +1,7 @@
 # Requirement 3 - User's Home Page
+
+**Description**: The user's home page is the main UI page, with which the user can view, buy, sell, and update tickets.
+
 ## Notes:
 When the testcases under R3 refer to the "test user", it refers to this user:
 ```python
