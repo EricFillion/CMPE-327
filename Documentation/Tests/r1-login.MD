@@ -87,7 +87,10 @@ Mocking:
 Actions
 - Open /logout
 - Open /login
-- Post request "/login ? email=test_user'email $ password= test_user's password" (spaces are added for readability )
+- Enter test_user's email into element #email
+- Enter test_user's password into element #password
+- Click element input[type = "submit"]
+- Validate that a POST request is sent to `/login` with the user's email and password
 - Validate that current page contains #profile-page element
 
 
