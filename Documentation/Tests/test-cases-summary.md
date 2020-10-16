@@ -27,6 +27,22 @@
 
 
 ### R3: /
+| Specification                                                                     | Test Case ID | Purpose                                                                                                 |
+|-----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------|
+| If the user is not logged in, redirect to login page | R3.1 | The homepage can't be accessed unless the user is logged in and has a valid session |
+| This page shows a header 'Hi {}'.format(user.name) | R3.2 | The homepage should greet the user :) |
+| This page shows user balance | R3.3 | The user must be able to see their balance on the homepage (since this is where they buy and sell tickets) |
+| This page shows a logout link, pointing to /logout | R3.4 | The user must be able to log out of the service |
+| This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. | R3.5.1 | This is a positive test case with only valid tickets, to ensure that all of the correct information is displayed for all of the tickets. |
+| This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. | R3.5.2 | This is a test case that exercises the frontend's exclusion of expired tickets. Both expired and valid tickets will be present, and there are checks to ensure no expired tickets are displayed. |
+| This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. | R3.5.3 | This is a test case that exercises the frontend's exclusion of expired tickets. Only expired tickets will be present, and there is a check to ensure that the ticket table is not shown and instead a message stating there are no tickets available is shown. |
+| This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. | R3.5.4 | This is a test case that exercises the frontend's ability to display an empty ticket list. No tickets will be present, and there is a check to ensure that the ticket table is not shown and instead a message stating there are no tickets available is shown. |
+| This page contains a form that a user can submit new tickets for sell. Fields: name, quantity, price, expiration date | R3.6 | This tests that the sale form is present and has all the required fields. |
+| This page contains a form that a user can buy new tickets. Fields: name, quantity | R3.7 | This tests that the purchase form is present and has all the required fields. |
+| This page contains a form that a user can update existing tickets. Fields: name, quantity, price, expiration date | R3.8 | This tests that the update form is present and has all the required fields. |
+| The ticket-selling form can be posted to /sell | R3.9 | This tests that the sale form can be posted successfully to the /sell endpoint. |
+| The ticket-buying form can be posted to /buy | R3.10 | This tests that the purchase form can be posted successfully to the /buy endpoint. |
+| The ticket-update form can be posted to /update | R3.11 | This tests that the update form can be posted successfully to the /update endpoint. |
 
 
 ### R4: /sell
@@ -67,4 +83,8 @@
 ### R7 /logout
 
 
-### /*
+### R8 /* (404 Page)
+| Specification                                                                     | Test Case ID | Purpose                                                                                                 |
+|-----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------|
+| For any requests except those in the specification's routes table, the system should return a 404 error | R8.1.1 | This test confirms that a non-existent page returns the 404 page. |
+| For any requests except those in the specification's routes table, the system should return a 404 error | R8.1.2 | This test confirms that performing an HTTP GET on a POST-only endpoint results in a 404. |
