@@ -43,8 +43,6 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Check where current url still /register
-
 - Validate existence of element #password, #password2, #name, #email
 
 - Validate that the #message element is equal to “Email format is incorrect"
@@ -63,8 +61,6 @@ Actions:
 - Enter "aaaa" into element #name
 
 - Click element input[type = “submit”]
-
-- Check where current url still /register
 
 - Validate existence of element #password, #password2, #name, #email
 
@@ -85,8 +81,6 @@ Actions:
 - Enter "aaa" into element #name
 
 - Click element input[type = “submit”]
-
-- Check where current url still /register
 
 - Validate existence of element #password, #password2, #name, #email
 
@@ -109,8 +103,6 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Check where current url still /register
-
 - Validate existence of element #password, #password2, #name, #email
 
 - Validate that the #message element is equal to “password format is incorrect"
@@ -129,8 +121,6 @@ Actions:
 - Enter "aaaa" into element #name
 
 - Click element input[type = “submit”]
-
-- Check where current url still /register
 
 - Validate existence of element #password, #password2, #name, #email
 
@@ -151,8 +141,6 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Check where current url still /register
-
 - Validate existence of element #password, #password2, #name, #email
 
 - Validate that the #message element is equal to “password format is incorrect”
@@ -172,7 +160,6 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Check where current url still /register
 
 - Validate existence of element #password, #password2, #name, #email
 
@@ -195,8 +182,6 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Check where current url still /register
-
 - Validate existence of element #password, #password2, #name, #email
 
 - Validate that the #message element is equal to “username format is incorrect.”
@@ -216,8 +201,6 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Check where current url still /register
-
 - Validate existence of element #password, #password2, #name, #email
 
 - Validate that the #message element is equal to “username format is incorrect.”
@@ -236,8 +219,6 @@ Actions:
 - Enter " aaaa " into element #name
 
 - Click element input[type = “submit”]
-
-- Check where current url still /register
 
 - Validate existence of element #password, #password2, #name, #email
 
@@ -291,8 +272,6 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Check where current url still /register
-
 - Validate existence of element #password, #password2, #name, #email
 
 - Validate that the #message element is equal to “username format is incorrect.”
@@ -311,8 +290,6 @@ Actions:
 - Enter "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" into element #name
 
 - Click element input[type = “submit”]
-
-- Check where current url still /register
 
 - Validate existence of element #password, #password2, #name, #email
 
@@ -333,8 +310,6 @@ Actions:
 - Enter "aaaa" into element #name
 
 - Click element input[type = “submit”]
-
-- Check where current url still /register
 
 - Validate existence of element #password, #password2, #name, #email
 
@@ -358,8 +333,6 @@ Actions:
 
 - validate whether a post request is sent to /register in backend through ajax interceptor
 
-- Check where current url is /login
-
 - validate page whether have element #email, #password
 
 
@@ -377,8 +350,6 @@ Actions:
 - Enter "Joe Kar" into element #name
 
 - Click element input[type = “submit”]
-
-- check current page is /login
 
 - validate page whether have element #email, #password
 
