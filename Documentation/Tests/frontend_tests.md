@@ -15,7 +15,7 @@ We are going to have our test cases in *qa327_test/frontend*.  In this folder th
 
 In each of the python test case code files we will import all the necessary testing libraries, desribed above, such as pytest, seleniumbase, and unitttest.mock.
 
-We will also create a YAML configuration file for the automatic running of the testcases using github actions. It will be located at */.github/workflows/tests.yml*. This file will be set up similar to the example given here https://www.techiediaries.com/python-unit-tests-github-actions/.
+We will also create a YAML configuration file for the automatic running of the testcases using github actions. It will be located at */.github/workflows/tests.yml*. This file will be set up similar to the example given here: https://www.techiediaries.com/python-unit-tests-github-actions/
 
 
 
