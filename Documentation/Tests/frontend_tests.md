@@ -13,7 +13,7 @@ We are also have a separate file that summarizes the test cases under *Documenta
 **How we are going to organize different test case code files?**  
 We are going to have our test cases in *qa327_test/frontend*.  In this folder there will be  subfolders, one for each route/requirement. These folders will have python files for each of the request types for that requirement. For example there will be a login folder with a file for the get request tests and the post request tests. The files will all have the same name convention. They will be named *test_{requirement_number}_{requirement_name}_{request_type}*.py. For instance for the login example the get test file will be called *test_r2_login_get.py*.
 
-In each of the python test case code files we will import all the necessary testing libraries, desribed above, such as pytest, seleniumbase, and unitttest.mock.
+In each of the python test case code files we will import all the necessary testing libraries, described above, such as pytest, seleniumbase, and unitttest.mock.
 
 We will also create a YAML configuration file for the automatic running of the testcases using github actions. It will be located at */.github/workflows/tests.yml*. This file will be set up similar to the example given here: https://www.techiediaries.com/python-unit-tests-github-actions/
 
