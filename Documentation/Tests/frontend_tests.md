@@ -3,7 +3,7 @@
 ## Test Plan
 
 **How our team organized the documentations of the test cases**  
-All of the documentation of the test cases are in the *Documentation/Tests* folder. We created the Documentation folder to have a centralized place to have all our documentation. The subfolder called *Tests* was created as a place for all our test documentation. For our documentation we have one main file called *frontend_tests.md* (this file) which contains our test case summarization table, our test plan, and issues that we encountered. We also created individual md files for each requirement/specification. These files are also located in */Documentation/Tests/* and are named based on the requirement in the form "R{requirment_number} {route}.md" (ex. *R1-login.md*). 
+All of the documentation of the test cases are in the *Documentation/Tests* folder. We created the Documentation folder to have a centralized place to have all our documentation. The subfolder called *Tests* was created as a place for all our test documentation. For our documentation we have one main file called *frontend_tests.md* (this file) which contains our test case summarization table, our test plan, and issues that we encountered. We also created individual md files for each requirement/specification. These files are also located in */Documentation/Tests/* and are named based on the requirement in the form "R{requirement_number} {route}.md" (ex. *R1-login.md*). 
 
 We are also have a separate file that summarizes the test cases under *Documentation/Tests/test-cases-summary.md*. This table has its own dedicated file to make it easier to manage and to make our files more readable by not being too long. 
 
