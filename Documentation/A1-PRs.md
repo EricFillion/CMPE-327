@@ -6,9 +6,9 @@
 | [#13](https://github.com/EricFillion/CMPE-327/pull/13): [A1] Add 404 page testcase |
 | [#16](https://github.com/EricFillion/CMPE-327/pull/16): [A1] Add homepage testcases |
 | [#18](https://github.com/EricFillion/CMPE-327/pull/18): [A1] Add section about the testing framework |
+| [#31](https://github.com/EricFillion/CMPE-327/pull/31): [A1] Add PR list file |
 
 ** TODO: add issues to issue tracking part of document **
-** TODO: add this PR once it's created **
 
 ## Jolene Lammers (jolenelammers)
 | PR name |
