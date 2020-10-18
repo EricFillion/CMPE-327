@@ -12,7 +12,7 @@ test_user = User(
 )
 ```
 
-## R3.1: If the user is not logged in, redirect to login page
+### R3.1: If the user is not logged in, redirect to login page
 Mocking:
 
 N/A
@@ -22,7 +22,7 @@ Actions:
 - Open `/`
 - Sleep 3 seconds, then validate that current URL is `/login`
 
-## R3.2: This page shows a header 'Hi {}'.format(user.name)
+### R3.2: This page shows a header 'Hi {}'.format(user.name)
 Mocking:
 - Mock backend.get_user to return the test user
 
@@ -50,7 +50,7 @@ Actions:
 - Validate that the page shows element `#balance` with text: `"Your balance is ${:.2f}".format(user.balance)`
 - Open `/logout` (cleanup)
 
-## R3.4: This page shows a logout link, pointing to /logout
+### R3.4: This page shows a logout link, pointing to /logout
 Mocking:
 - Mock backend.get_user to return the test user
 
@@ -64,7 +64,7 @@ Actions:
 - Validate that the page shows element `a#logout` with text "Logout" and `href='/logout'`
 - Open `/logout` (cleanup)
 
-## R3.5.1: This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. (positive, ensure tickets in database show properly)
+### R3.5.1: This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. (positive, ensure tickets in database show properly)
 Mocking:
 - Mock backend.get_user to return the test user
 - Mock backend.get_all_tickets to create a list of tickets
@@ -89,7 +89,7 @@ Actions:
     - Validate price by looking under the ticket's `tr` and validating that the element `td.tt_price` has text: `"${:.2f}".format(ticket.price)`
 - Open `/logout` (cleanup)
 
-## R3.5.2: This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. (negative, ensure expired ticket is not displayed)
+### R3.5.2: This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. (negative, ensure expired ticket is not displayed)
 Mocking:
 - Mock backend.get_user to return the test user
 - Mock backend.get_all_tickets to create a list of tickets
@@ -110,7 +110,7 @@ Actions:
     - Search for `tr` of ticket by looking up ticket's name under the ticket table, and ensure it can not be found
 - Open `/logout` (cleanup)
 
-## R3.5.3: This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. (ensure table is not displayed if there are zero valid tickets)
+### R3.5.3: This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. (ensure table is not displayed if there are zero valid tickets)
 Mocking:
 - Mock backend.get_user to return the test user
 - Mock backend.get_all_tickets to create a list of tickets
@@ -128,7 +128,7 @@ Actions:
 - Validate that the page does show element `#no_tickets_available`
 - Open `/logout` (cleanup)
 
-## R3.5.4: This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. (test case with zero total tickets)
+### R3.5.4: This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. (test case with zero total tickets)
 Mocking:
 - Mock backend.get_user to return the test user
 - Mock backend.get_all_tickets to create a list of tickets
@@ -145,7 +145,7 @@ Actions:
 - Validate that the page does show element `#no_tickets_available`
 - Open `/logout` (cleanup)
 
-## R3.6: This page contains a form that a user can submit new tickets for sell. Fields: name, quantity, price, expiration date
+### R3.6: This page contains a form that a user can submit new tickets for sell. Fields: name, quantity, price, expiration date
 Mocking:
 - Mock backend.get_user to return the test user
 
@@ -168,7 +168,7 @@ Actions:
 - Validate that the page does show element `input#sellform_submit[action=submit]`
 - Open `/logout` (cleanup)
 
-## R3.7: This page contains a form that a user can buy new tickets. Fields: name, quantity
+### R3.7: This page contains a form that a user can buy new tickets. Fields: name, quantity
 Mocking:
 - Mock backend.get_user to return the test user
 
@@ -187,7 +187,7 @@ Actions:
 - Validate that the page does show element `input#buyform_submit[action=submit]`
 - Open `/logout` (cleanup)
 
-## R3.8: This page contains a form that a user can update existing tickets. Fields: name, quantity, price, expiration date
+### R3.8: This page contains a form that a user can update existing tickets. Fields: name, quantity, price, expiration date
 Mocking:
 - Mock backend.get_user to return the test user
 
@@ -210,7 +210,7 @@ Actions:
 - Validate that the page does show element `input#updateform_submit[action=submit]`
 - Open `/logout` (cleanup)
 
-## R3.9: The ticket-selling form can be posted to /sell
+### R3.9: The ticket-selling form can be posted to /sell
 Additional Test Data:
 ```
 test_ticket = Ticket(
@@ -241,7 +241,7 @@ Actions:
 - Validate that a POST request is sent to `/sell` with the correct information as specified in the fields listed above
 - Open `/logout` (cleanup)
 
-## R3.10: The ticket-buying form can be posted to /buy
+### R3.10: The ticket-buying form can be posted to /buy
 Additional Test Data:
 ```
 test_ticket = Ticket(
@@ -270,7 +270,7 @@ Actions:
 - Validate that a POST request is sent to `/buy` with the correct information as specified in the fields listed above
 - Open `/logout` (cleanup)
 
-## R3.11: The ticket-update form can be posted to /update
+### R3.11: The ticket-update form can be posted to /update
 Additional Test Data:
 ```
 test_ticket = Ticket(
