@@ -7,8 +7,8 @@
 | [#16](https://github.com/EricFillion/CMPE-327/pull/16): [A1] Add homepage testcases |
 | [#18](https://github.com/EricFillion/CMPE-327/pull/18): [A1] Add section about the testing framework |
 | [#31](https://github.com/EricFillion/CMPE-327/pull/31): [A1] Add PR list file |
-
-** TODO: add issues to issue tracking part of document **
+| [#32](https://github.com/EricFillion/CMPE-327/pull/32): [A1] Rename r1 and r4 files to change .MD to .md |
+| [#33](https://github.com/EricFillion/CMPE-327/pull/33): [A1] Add issue with logout to issues list |
 
 ## Jolene Lammers (jolenelammers)
 | PR name |
