@@ -3,7 +3,7 @@
 **Description**: A user can logout.
 
 
-#### R7.1 Logout will invalid the current session and redirect to the login page. After logout, the user shouldn't be able to access restricted pages.
+### R7.1 Logout will invalid the current session and redirect to the login page. After logout, the user shouldn't be able to access restricted pages.
 
 Mocking:
 - Mock backend.get_user to return a test_user instance
