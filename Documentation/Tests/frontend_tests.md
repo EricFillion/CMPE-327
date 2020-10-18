@@ -28,4 +28,4 @@ We will also create a YAML configuration file for the automatic running of the t
 ## Issues
 *The conflicts and issues related to the specification that we found. For these issue we created an issue on GitHub for the on site customer and then documented what we found here*
 - Issue 1: Unsure of the need to check R6:1-3(Buy requirments) as these requirements are checked when the ticket is created. We were informed that these needed to be checked in case of issues such as user trying to enter a data with malicious intent. 
-
+- [Issue 2](https://github.com/EricFillion/CMPE-327/issues/9): There was a discrepancy between the specifications provided for the logout endpoint, where the routing table stated both GET and POST support but the requirement only stated POST support. The resolution was to add GET support to the requirement.
