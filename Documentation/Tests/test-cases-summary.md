@@ -20,11 +20,6 @@
 | Password must contain one upper case                                              | R1.8.4       | Login automatically fails if password does not contain at least one uppercase letter                    |
 | If email/password are correct, redirect to /                                      | R1.9         | Confirm that the web application redirect to the home page if the user logs in successfully             |
 | If email/password are not correct, redirect to /login                             | R1.10        | Check that the web application redirects to the login page if the user does not successfully login      |
-
-
-### R2: /register
-| Specification                              | Test Case ID | Purpose                                                                                                 |
-|------------------------------------|--------------|---------------------------------------------------------------------------------------------------------|
 | If the user has logged in, redirect back to the user profile page| R2.1 | To avoid repeat login, if they have logged |
 | otherwise, show the user registration page the registration page shows a registration form requesting: email, user name, password, password2 | R2.2,R2.3 |  To make sure everyone can register if they haven’t login |
 | check email not empty validation | R2.4.1 | Email cannot be empty for registration  
@@ -43,11 +38,6 @@
 | check password repeat validation  | R2.8  | If passwords are not same then impossible for website to confirm
 | The registration form can be submitted as a POST request to the current URL (/register) | R2.9  |The form must be submitted to specific endpoint, otherwise the form action is useless
 | If no error regarding the inputs following the rules above, create a new user, set the balance to 5000, and go back to the /login page  | R2.10 | User must login after they register a account
-
-
-### R3: /
-| Specification                                                                     | Test Case ID | Purpose                                                                                                 |
-|-----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------|
 | If the user is not logged in, redirect to login page | R3.1 | The homepage can't be accessed unless the user is logged in and has a valid session |
 | This page shows a header 'Hi {}'.format(user.name) | R3.2 | The homepage should greet the user :) |
 | This page shows user balance | R3.3 | The user must be able to see their balance on the homepage (since this is where they buy and sell tickets) |
@@ -62,11 +52,6 @@
 | The ticket-selling form can be posted to /sell | R3.9 | This tests that the sale form can be posted successfully to the /sell endpoint. |
 | The ticket-buying form can be posted to /buy | R3.10 | This tests that the purchase form can be posted successfully to the /buy endpoint. |
 | The ticket-update form can be posted to /update | R3.11 | This tests that the update form can be posted successfully to the /update endpoint. |
-
-
-### R4: /sell
-| Specification                                                                     | Test Case ID | Purpose                                                                                                 |
-|-----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------|
 | The name of the ticket must be alphanumeric-only, and space is only allowed if it’s not the first or last character. | R4.1.1       | Confirm that selling action fails if the ticket’s name is non-alphanumeric                                                                 |
 | The name of the ticket must be alphanumeric-only, and space is only allowed if it’s not the first or last character. | R4.1.2       | Confirm that ticket selling actions succeeds if there is a space in the middle of alphanumeric text                                        |
 | The name of the ticket must be alphanumeric-only, and space is only allowed if it’s not the first or last character. | R4.1.3       | Selling actions fails if the first character is space                                                                                      |
@@ -84,12 +69,6 @@
 | The date must be given in the format YYYYMMDD                                                                        | R4.5.1       | Selling actions fails if the ticket’s date does not match the YYYYMMDD format                                                              |
 | The date must be given in the format YYYYMMDD                                                                        | R4.5.2       | Selling actions succeeds if the ticket’s date matches the  YYYYMMDD format                                                                 |
 | The added new ticket information will be posted on the user’s profile   
-
-
-### R5/update
-
-| Specification  | Test Case ID | Purpose  |
-|-|-|-|
 | The name of the ticket must be alphanumeric-only, and space is only allowed if it’s not the first or last character.   | R5.1.1 | Confirm that updating action fails if the ticket’s name is non-alphanumeric  |
 | The name of the ticket must be alphanumeric-only, and space is only allowed if it’s not the first or last character.   | R5.1.2 | Confirm updating actions fails if the first character is space. |
 | The name of the ticket must be alphanumeric-only, and space is only allowed if it’s not the first or last character.   | R5.1.3 | Confirm updating actions fails if the last character is space. |
@@ -107,11 +86,6 @@
 | The date must be given in the format YYYYMMDD | R5.5.2 | Confirm updating actions succeeds if the ticket’s date matches the  YYYYMMDD format |
 | The ticket of the given name must exist | R5.6.1 | Confirm updating action fails if the ticket does not exist  |
 | The ticket of the given name must exist | R5.6.2 | Confirm updating action succeeds if the ticket of the given name exists |
-
-
-### R6/Buy
-| Specification  | Test Case ID | Purpose  |
-|-|-|-|
 | The name of the ticket must be alphanumeric-only, and space is only allowed if it’s not the first or last character.   | R6.1.1 | Confirm that buying action fails if the ticket’s name is non-alphanumeric  |
 | The name of the ticket must be alphanumeric-only, and space is only allowed if it’s not the first or last character.   | R6.1.2 | Confirm buying actions fails if the first character is space. |
 | The name of the ticket must be alphanumeric-only, and space is only allowed if it’s not the first or last character.   | R6.1.3 | Confirm buying actions fails if the last character is space. |
@@ -128,18 +102,6 @@
 | The user has more balance than the ticket price * quantity + service fee (35%) + tax (5%) | R6.5.1 | Confirm buying action succeeds if the user has more than the required balance.  |
 | The user has more balance than the ticket price * quantity + service fee (35%) + tax (5%) | R6.5.2 | Confirm buying action fails if the user has less than the required balance.  |
 | For any errors, redirect back to / and show an error message | R6.6 | Confirm that page is redirected to / and shows an error message if there is an error.  |
-
-
-
-### R7 /logout
-| Specification                                                                     | Test Case ID | Purpose                                                                                                 |
-|-----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------|
 | Logout will invalid the current session and redirect to the login page. After logout, the user shouldn't be able to access restricted pages.  | R7  | User cannot access any restricted page after they logout
-
-
-
-### R8 /* (404 Page)
-| Specification                                                                     | Test Case ID | Purpose                                                                                                 |
-|-----------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------|
 | For any requests except those in the specification's routes table, the system should return a 404 error | R8.1.1 | This test confirms that a non-existent page returns the 404 page. |
 | For any requests except those in the specification's routes table, the system should return a 404 error | R8.1.2 | This test confirms that performing an HTTP GET on a POST-only endpoint results in a 404. |
