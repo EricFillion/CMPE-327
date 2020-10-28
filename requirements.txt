@@ -28,6 +28,7 @@ wcwidth==0.1.7
 Werkzeug==1.0.1
 wrapt==1.11.2
 zipp==0.6.0
+email-validator==1.1.1
 
 flask-pytest
 seleniumbase

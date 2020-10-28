@@ -1,6 +1,7 @@
 from flask import render_template, request, session, redirect
 from qa327 import app
 import qa327.backend as bn
+from qa327.validate_login_format import validate_login_format
 
 """
 This file defines the front-end part of the service.
@@ -56,24 +57,31 @@ def login_get():
 def login_post():
     email = request.form.get('email')
     password = request.form.get('password')
-    user = bn.login_user(email, password)
-    if user:
-        session['logged_in'] = user.email
-        """
-        Session is an object that contains sharing information 
-        between browser and the end server. Typically it is encrypted 
-        and stored in the browser cookies. They will be past 
-        along between every request the browser made to this services.
 
-        Here we store the user object into the session, so we can tell
-        if the client has already login in the following sessions.
+    error_message = ""
 
-        """
-        # success! go back to the home page
-        # code 303 is to force a 'GET' request
-        return redirect('/', code=303)
+    if not validate_login_format(email, password):
+        error_message = "email/password format incorrect"
     else:
-        return render_template('login.html', message='login failed')
+        user = bn.login_user(email, password)
+        if user:
+            session['logged_in'] = user.email
+            """
+            Session is an object that contains sharing information 
+            between browser and the end server. Typically it is encrypted 
+            and stored in the browser cookies. They will be past 
+            along between every request the browser made to this services.
+    
+            Here we store the user object into the session, so we can tell
+            if the client has already login in the following sessions.
+    
+            """
+            # success! go back to the home page
+            # code 303 is to force a 'GET' request
+            return redirect('/', code=303)
+        else:
+            error_message = "email/password combination incorrect"
+    return render_template('login.html', message=error_message)
 
 
 @app.route('/logout')
