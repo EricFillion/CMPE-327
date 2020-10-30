@@ -97,7 +97,10 @@ def __contains_special_char(password):
     :param password: a string for the user's password
     :return: True if valid, else False
     """
-    # Use regex to remove all chars that letters or numbers
-    special_string = re.findall('[^A-Za-z0-9]', password)
-    # Return True if there is at least one special character
-    return len(special_string) > 0
+    # Special characters for a password are from the Open Web Application Security Project
+    # Source: https://owasp.org/www-community/password-special-characters
+    special_chars = [" ", "!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"]
+
+    res = any(ele in password for ele in special_chars)
+    return res
+
