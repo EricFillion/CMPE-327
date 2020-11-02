@@ -137,10 +137,8 @@ def profile(user):
     tickets = bn.get_all_tickets()
     return render_template('index.html', user=user, tickets=tickets)
 
-# Custom 404 Page
-@app.errorhandler(404) 
+#Custom 404 not found page
+@app.errorhandler(404)
 
-#inbuilt function which takes error as a parameter
-def not_found(e): 
-# display 404 page 
-  return render_template("404.html") 
+def page_not_found(e):
+    return render_template('404.html'), 404
