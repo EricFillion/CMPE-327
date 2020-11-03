@@ -11,6 +11,7 @@ The html templates are stored in the 'templates' folder.
 """
 
 
+
 @app.route('/register', methods=['GET'])
 def register_get():
     # templates are stored in the templates folder
@@ -135,3 +136,9 @@ def profile(user):
     # front-end portals
     tickets = bn.get_all_tickets()
     return render_template('index.html', user=user, tickets=tickets)
+
+#Custom 404 not found page
+@app.errorhandler(404)
+
+def page_not_found(e):
+    return render_template('404.html'), 404
