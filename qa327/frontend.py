@@ -117,9 +117,12 @@ def authenticate(inner_function):
                 # if the user exists, call the inner_function
                 # with user as parameter
                 return inner_function(user)
-        else:
-            # else, redirect to the login page
-            return redirect('/login')
+            else:
+                # If user does not exist, reset logged_in
+                del session['logged_in']
+        # if we haven't returned a value yet (invalid token or not logged in),
+        # redirect to the login page
+        return redirect('/login')
 
     # return the wrapped version of the inner_function:
     return wrapped_inner
@@ -133,5 +136,6 @@ def profile(user):
     # by using @authenticate, we don't need to re-write
     # the login checking code all the time for other
     # front-end portals
+    # The authentication functionality above satisfies R3.1
     tickets = bn.get_all_tickets()
     return render_template('index.html', user=user, tickets=tickets)

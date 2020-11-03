@@ -5,18 +5,79 @@
 {% endblock %}
 
 {% block content %}
-<h2 id="welcome-header">Welcome {{ user.name }} !</h2>
+<!-- This welcome header satisfies R3.2 -->
+<h2 id="welcome">Hi {{ user.name }}!</h2>
+
+<!-- This logout link satisfies R3.4 -->
+<p><a id="logout" href="/logout">Logout</a></p>
+
+<!-- This user balance display satisfies R3.3 -->
+<p id="balance">Your balance is ${{ "{:.2f}".format(user.balance/100) }}.</p>
 
 
-<h2 >Here are all available tickets</h2>
+<h2 class="space_before">Available tickets:</h2>
+{% if tickets|length > 0 %}
+<!-- This ticket table satisfies R3.5.1 and R3.5.2 -->
+<table class="table" id="tickettable">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Owner</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ticket in tickets %}
+        <tr>
+            <td class="tt_name">{{ ticket.name }}</td>
+            <td class="tt_quantity">{{ ticket.quantity }}</td>
+            <td class="tt_owner">{{ ticket.owner.name }}</td>
+            <td class="tt_price">${{ "{:.2f}".format(ticket.price/100) }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<!-- This informational message helps satisfy R3.5.3 and R3.5.4 -->
+<p id="no_tickets_available">There are no tickets available at this time.</p>
+{% endif %}
 
-<div id="tickets">
-{% for ticket in tickets %}
-    <div>
-        <h4>{{ ticket.name }} {{ ticket.price }}</h4>
-    </div>
-{% endfor %}
-</div>
+<!-- The sell form satisfies R3.6 -->
+<h2 class="space_before">Sell Tickets:</h2>
+<form id="sellform">
+    <table>
+        <tr><td><label id="sellform_label_name">Ticket Name:</label></td><td><input id="sellform_input_name" type="text"></td></tr>
+        <tr><td><label id="sellform_label_quantity">Quantity:</label></td><td><input id="sellform_input_quantity" type="number"></td></tr>
+        <tr><td><label id="sellform_label_price">Price Per Ticket:</label></td><td><input id="sellform_input_price" type="number"></td></tr>
+        <tr><td><label id="sellform_label_expiry">Expiry Date:</label></td><td><input id="sellform_input_expiry" type="date"></td></tr>
+    </table>
+    <!-- The formaction and formmethod of this sellform comply with R3.9 -->
+    <input id="sellform_submit" type="submit" value="Sell" formaction="/sell" formmethod="POST">
+</form>
+<!-- The buy form satisfies R3.7 -->
+<h2 class="space_before">Buy Tickets:</h2>
+<form id="buyform">
+    <table>
+        <tr><td><label id="buyform_label_name">Ticket Name:</label></td><td><input id="buyform_input_name" type="text"></td></tr>
+        <tr><td><label id="buyform_label_quantity">Quantity:</label></td><td><input id="buyform_input_quantity" type="number"></td></tr>
+    </table>
+    <!-- The formaction and formmethod of this buyform comply with R3.10 -->
+    <input id="buyform_submit" type="submit" value="Buy" formaction="/buy" formmethod="POST">
+</form>
+<!-- The update form satisfies R3.8 -->
+<h2 class="space_before">Update Tickets:</h2>
+<form id="updateform">
+    <table>
+        <tr><td><label id="updateform_label_name">Ticket Name:</label></td><td><input id="updateform_input_name" type="text"></td></tr>
+        <tr><td><label id="updateform_label_quantity">Quantity:</label></td><td><input id="updateform_input_quantity" type="number"></td></tr>
+        <tr><td><label id="updateform_label_price">Price Per Ticket:</label></td><td><input id="updateform_input_price" type="number"></td></tr>
+        <tr><td><label id="updateform_label_expiry">Expiry Date:</label></td><td><input id="updateform_input_expiry" type="date"></td></tr>
+    </table>
+    <!-- The formaction and formmethod of this sellform comply with R3.11 -->
+    <input id="updateform_submit" type="submit" value="Update" formaction="/update" formmethod="POST">
+</form>
 
-<a href='/logout'>logout</a>
+<br>
+
 {% endblock %}
