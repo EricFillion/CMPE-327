@@ -104,3 +104,7 @@ def __contains_special_char(password):
     res = any(ele in password for ele in special_chars)
     return res
 
+
+def validate_name_fail(name):
+    return (not re.match("^[a-zA-Z0-9][a-zA-Z0-9_ ]+[a-zA-Z0-9]$", name)) or len(name)<2 or len(name)>20 
+

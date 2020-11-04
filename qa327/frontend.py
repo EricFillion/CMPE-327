@@ -1,8 +1,8 @@
 from flask import render_template, request, session, redirect
 from qa327 import app
 import qa327.backend as bn
-from qa327.validate_login_format import validate_login_format
-import re
+from qa327.validate_login_format import validate_login_format,validate_name_fail
+
 """
 This file defines the front-end part of the service.
 It elaborates how the services should handle different
@@ -33,14 +33,9 @@ def register_post():
     if password != password2:
         error_message = "The passwords do not match"
 
-    # elif len(email) < 1:
-    #     error_message = "Email format error"
-
-    # elif len(password) < 1:
-    #     error_message = "Password not strong enough"
     elif not validate_login_format(email, password):
         error_message = "email/password format incorrect"
-    elif (not re.match("^[a-zA-Z0-9][a-zA-Z0-9_ ]+[a-zA-Z0-9]$", name)) or len(name)<2 or len(name)>20 :
+    elif validate_name_fail(name) :
         error_message="username format incorrect"
     else:
         user = bn.get_user(email)
