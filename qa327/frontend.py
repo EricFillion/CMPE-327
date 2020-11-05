@@ -35,7 +35,7 @@ def register_post():
 
     elif not validate_login_format(email, password):
         error_message = "email/password format incorrect"
-    elif validate_name_format(name) :
+    elif not validate_name_format(name) :
         error_message="username format incorrect"
     else:
         user = bn.get_user(email)
