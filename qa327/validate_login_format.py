@@ -105,7 +105,7 @@ def __contains_special_char(password):
     return res
 
 
-def validate_name_fail(name):
+def validate_name_format(name):
     """
     Returns True if the name strings conform to the formatting guidelines.
     Otherwise, returns False.
@@ -116,11 +116,11 @@ def validate_name_fail(name):
     """
     # first or last letter cannot be space , can have space in middle, not empty name, and alphanumeric-only 
     if not re.match("^[a-zA-Z0-9][a-zA-Z0-9_ ]+[a-zA-Z0-9]$", name):
-        return True
+        return False
     # name must longer than 2 less than 20 characters
     elif len(name)<2 or len(name) > 20 :
-        return True
+        return False
     
     else:
-        return False
+        return True
 

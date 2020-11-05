@@ -1,7 +1,7 @@
 from flask import render_template, request, session, redirect
 from qa327 import app
 import qa327.backend as bn
-from qa327.validate_login_format import validate_login_format,validate_name_fail
+from qa327.validate_login_format import validate_login_format,validate_name_format
 
 """
 This file defines the front-end part of the service.
@@ -35,7 +35,7 @@ def register_post():
 
     elif not validate_login_format(email, password):
         error_message = "email/password format incorrect"
-    elif validate_name_fail(name) :
+    elif validate_name_format(name) :
         error_message="username format incorrect"
     else:
         user = bn.get_user(email)
