@@ -42,8 +42,7 @@ def register_user(email, name, password, password2):
 
     hashed_pw = generate_password_hash(password, method='sha256')
     # store the encrypted password rather than the plain password
-    new_user = User(email=email, name=name, password=hashed_pw, balance=0)
-
+    new_user = User(email=email, name=name, password=hashed_pw, balance=5000)
     db.session.add(new_user)
     db.session.commit()
     return None
