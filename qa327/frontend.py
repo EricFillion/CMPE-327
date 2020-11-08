@@ -2,6 +2,7 @@ from flask import render_template, request, session, redirect
 from qa327 import app
 import qa327.backend as bn
 from qa327.validate_login_format import validate_login_format,validate_name_format
+from datetime import date
 
 """
 This file defines the front-end part of the service.
@@ -140,8 +141,12 @@ def profile(user):
     # the login checking code all the time for other
     # front-end portals
     # The authentication functionality above satisfies R3.1
+    
+    # Get all tickets from backend
     tickets = bn.get_all_tickets()
-    return render_template('index.html', user=user, tickets=tickets)
+    # We need to filter out expired tickets as per R3.5.2-3.5.3
+    valid_tickets = list(filter(lambda x: x.expiry >= date.today(), tickets))
+    return render_template('index.html', user=user, tickets=valid_tickets)
 
 #Custom 404 not found page
 @app.errorhandler(404)

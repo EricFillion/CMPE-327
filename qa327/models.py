@@ -33,6 +33,7 @@ class Ticket(db.Model):
     name = db.Column(db.String(100), unique=True)
     quantity = db.Column(db.Integer)
     price = db.Column(db.Integer)
+    expiry = db.Column(db.Date)
     owner_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     owner = db.relationship('User')
 
