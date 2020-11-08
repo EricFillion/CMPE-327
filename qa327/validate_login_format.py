@@ -104,3 +104,23 @@ def __contains_special_char(password):
     res = any(ele in password for ele in special_chars)
     return res
 
+
+def validate_name_format(name):
+    """
+    Returns True if the name strings conform to the formatting guidelines.
+    Otherwise, returns False.
+
+    :param name: a string for the user's name
+   
+    :return: True if valid, else False
+    """
+    # first or last letter cannot be space , can have space in middle, not empty name, and alphanumeric-only 
+    if not re.match("^[a-zA-Z0-9][a-zA-Z0-9_ ]+[a-zA-Z0-9]$", name):
+        return False
+    # name must longer than 2 less than 20 characters
+    elif len(name)<2 or len(name) > 20 :
+        return False
+    
+    else:
+        return True
+

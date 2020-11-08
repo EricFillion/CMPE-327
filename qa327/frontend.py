@@ -1,7 +1,7 @@
 from flask import render_template, request, session, redirect
 from qa327 import app
 import qa327.backend as bn
-from qa327.validate_login_format import validate_login_format
+from qa327.validate_login_format import validate_login_format,validate_name_format
 from datetime import date
 
 """
@@ -16,7 +16,10 @@ The html templates are stored in the 'templates' folder.
 @app.route('/register', methods=['GET'])
 def register_get():
     # templates are stored in the templates folder
-    return render_template('register.html', message='')
+    if 'logged_in' in session:
+        return redirect('/',code=303)
+    else:
+        return render_template('register.html', message='')
 
 
 @app.route('/register', methods=['POST'])
@@ -31,11 +34,10 @@ def register_post():
     if password != password2:
         error_message = "The passwords do not match"
 
-    elif len(email) < 1:
-        error_message = "Email format error"
-
-    elif len(password) < 1:
-        error_message = "Password not strong enough"
+    elif not validate_login_format(email, password):
+        error_message = "email/password format incorrect"
+    elif not validate_name_format(name) :
+        error_message="username format incorrect"
     else:
         user = bn.get_user(email)
         if user:
