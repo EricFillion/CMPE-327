@@ -1,4 +1,4 @@
-name: SeekGeek-Build
+name: SeetGeek-Build
 
 on: [push]
 
