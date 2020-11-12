@@ -1,6 +1,13 @@
 # Description
 
-Include a summary of what the pull request changes. Include any sections of the assignment's guidelines the pull requests addresses and also any github issues it resolves.  
+Include a summary of what the pull request changes.
+
+
+List any sections of the assignment's guidelines this pull request addresses: 
+
+
+List any issues this pull request addresses:
+
 
 ## Type
 Select the categorie(s) that best describe this pull request. 
