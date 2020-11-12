@@ -1,4 +1,4 @@
-name: QA Project
+name: SeekGeek-Build
 
 on: [push]
 
