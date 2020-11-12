@@ -1,4 +1,4 @@
-name: CMPE 327
+name: QA Project
 
 on: [push]
 
