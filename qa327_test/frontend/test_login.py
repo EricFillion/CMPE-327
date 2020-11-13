@@ -75,7 +75,6 @@ class FrontEndLoginPageTest(BaseCase):
         # Press submit button
         self.click('input[type="submit"]')
 
-        # self.assert_element("#profile-page") #TODO why does this not work?
         self.assert_title("Profile")
         # self.assert_element("#welcome")
 
