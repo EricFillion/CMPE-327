@@ -112,7 +112,7 @@ Actions:
 
 - Enter test_user's password into element #password
 
-- Enter “” into element #email
+- Enter “ ” into element #email
 
 - Click element input[type = “submit”]
 
