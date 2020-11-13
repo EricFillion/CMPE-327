@@ -10,7 +10,7 @@ from werkzeug.security import generate_password_hash
 This file defines all unit tests for the login page
 """
 
-# Moch a sample user
+# Mock a sample user
 test_user = User(
     email='testFrontend@test.com',
     name='testFrontend',
