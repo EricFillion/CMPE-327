@@ -63,7 +63,7 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Validate that current page contains #welcome element
+- Validate that current page's title is "Profile"
 
 
 
