@@ -206,8 +206,8 @@ class RegisterTest(BaseCase):
         self.click('input[type="submit"]')
        # should find error message
         self.assert_element("#message")
-        # should have message: email/password format incorrect
-        self.assert_text("email/password format incorrect", "#message")
+        # should have message: username format incorrect
+        self.assert_text("username format incorrect", "#message")
 
     """
     R2.5.2 User name has to be alphanumeric-only
@@ -227,8 +227,8 @@ class RegisterTest(BaseCase):
         self.click('input[type="submit"]')
        # should find error message
         self.assert_element("#message")
-        # should have message: email/password format incorrect
-        self.assert_text("email/password format incorrect", "#message")
+        # should have message: username format incorrect
+        self.assert_text("username format incorrect", "#message")
 
     """
     R2.5.3 User name has to be space allowed only if it is not the first or the last character
@@ -244,8 +244,8 @@ class RegisterTest(BaseCase):
         self.click('input[type="submit"]')
        # should find error message
         self.assert_element("#message")
-        # should have message: email/password format incorrect
-        self.assert_text("email/password format incorrect", "#message")
+        # should have message: username format incorrect
+        self.assert_text("username format incorrect", "#message")
 
     """
     R2.6 If the email already exists, show message 'this email has been ALREADY used'
@@ -285,8 +285,8 @@ class RegisterTest(BaseCase):
         self.click('input[type="submit"]')
        # should find error message
         self.assert_element("#message")
-        # should have message: email/password format incorrect
-        self.assert_text("email/password format incorrect", "#message")
+        # should have message: username format incorrect
+        self.assert_text("username format incorrect", "#message")
 
     """
     R2.7.2 User name has to be less than 20 characters
@@ -306,8 +306,8 @@ class RegisterTest(BaseCase):
         self.click('input[type="submit"]')
         # should find error message
         self.assert_element("#message")
-        # should have message: email/password format incorrect
-        self.assert_text("email/password format incorrect", "#message")
+        # should have message: username format incorrect
+        self.assert_text("username format incorrect", "#message")
 
     """
     R2.8 test password repeat validation
