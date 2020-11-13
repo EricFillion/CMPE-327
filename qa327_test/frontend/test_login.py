@@ -27,7 +27,8 @@ class FrontEndLoginPageTest(BaseCase):
         """
          R1.1: if the user hasn’t logged in, show the login page
         """
-        # open login page
+        # open /logout to ensure that the user is logged out
         self.open(base_url + '/logout')
 
+        # since the user is logged out, they should be redirected to the log-in page
         self.assert_element("#log-in")
