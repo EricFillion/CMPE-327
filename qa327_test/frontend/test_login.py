@@ -34,6 +34,7 @@ class FrontEndLoginPageTest(BaseCase):
         # since the user is logged out, they should be redirected to the log-in page
         self.assert_element("#log-in")
 
+
     def test_login_page_message(self):
         """
          R1.2: The login page has a message that by default says ‘please login’
@@ -50,6 +51,7 @@ class FrontEndLoginPageTest(BaseCase):
 
         # reset
         self.open(base_url + '/logout')
+
 
     @patch('qa327.backend.login_user', return_value=test_user)
     def test_login_page_success(self, *_):
@@ -129,6 +131,7 @@ class FrontEndLoginPageTest(BaseCase):
 
         self.open(base_url + '/logout')
 
+
     def test_login_page_email_not_empty(self):
         """
         R1.6.1 : Email cannot be empty:
@@ -155,6 +158,7 @@ class FrontEndLoginPageTest(BaseCase):
 
 
         self.open(base_url + '/logout')
+
 
     def test_login_page_password_not_empty(self):
         """
@@ -183,3 +187,111 @@ class FrontEndLoginPageTest(BaseCase):
 
         self.open(base_url + '/logout')
 
+
+
+    def test_login_page_email_format_n_1(self):
+        """
+        R1.7.1 : Password cannot start with a period:
+
+        """
+        # open /logout to ensure that the user is logged out
+        self.open(base_url + '/logout')
+
+        # open login page
+        self.open(base_url + '/login')
+
+        # Enter a blank string into element #email
+        self.type("#email", ".test@gmail.com")
+
+        # Enter test_user’s password into element #password
+        self.type("#password",
+                  "pbkdf2:sha256:150000$5k3UNNZX$3cd6eddedc80568d0fb6bb0896a64702cdc7e8632fd3914b73cd1cfb57a48058")
+
+        # Press submit button
+        self.click('input[type="submit"]')
+
+        # Assert that the proper warning message is displayed
+        self.assert_text("email/password format is incorrect.", "#message")
+
+        self.open(base_url + '/logout')
+
+
+    def test_login_page_email_format_n_2(self):
+        """
+        R1.7.2 : Email must have an @ symbol
+
+        """
+        # open /logout to ensure that the user is logged out
+        self.open(base_url + '/logout')
+
+        # open login page
+        self.open(base_url + '/login')
+
+        # Enter a blank string into element #email
+        self.type("#email", "testgmail.com")
+
+        # Enter test_user’s password into element #password
+        self.type("#password",
+                  "pbkdf2:sha256:150000$5k3UNNZX$3cd6eddedc80568d0fb6bb0896a64702cdc7e8632fd3914b73cd1cfb57a48058")
+
+        # Press submit button
+        self.click('input[type="submit"]')
+
+        # Assert that the proper warning message is displayed
+        self.assert_text("email/password format is incorrect.", "#message")
+
+        self.open(base_url + '/logout')
+
+
+    def test_login_page_email_format_n_3(self):
+        """
+        R1.7.3 : Email cannot have an "!" symbol
+
+        """
+        # open /logout to ensure that the user is logged out
+        self.open(base_url + '/logout')
+
+        # open login page
+        self.open(base_url + '/login')
+
+        # Enter a blank string into element #email
+        self.type("#email", "tes!tgmail.com")
+
+        # Enter test_user’s password into element #password
+        self.type("#password",
+                  "pbkdf2:sha256:150000$5k3UNNZX$3cd6eddedc80568d0fb6bb0896a64702cdc7e8632fd3914b73cd1cfb57a48058")
+
+        # Press submit button
+        self.click('input[type="submit"]')
+
+        # Assert that the proper warning message is displayed
+        self.assert_text("email/password format is incorrect.", "#message")
+
+        self.open(base_url + '/logout')
+
+
+    def test_login_page_email_format_n_4(self):
+        """
+        R1.7.4 : Email must send with a domain name
+
+        """
+        # open /logout to ensure that the user is logged out
+        self.open(base_url + '/logout')
+
+        # open login page
+        self.open(base_url + '/login')
+
+        # Enter a blank string into element #email
+        self.type("#email", "test@gmail")
+
+        # Enter test_user’s password into element #password
+        self.type("#password",
+                  "pbkdf2:sha256:150000$5k3UNNZX$3cd6eddedc80568d0fb6bb0896a64702cdc7e8632fd3914b73cd1cfb57a48058")
+
+        # Press submit button
+        self.click('input[type="submit"]')
+
+        # Assert that the proper warning message is displayed
+        self.assert_text("email/password format is incorrect.", "#message")
+
+        self.open(base_url + '/logout')

@@ -161,7 +161,7 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Validate that the #warning element is equal to “email/password format is incorrect.”
+- Validate that the #message element is equal to “email/password format is incorrect.”
 
 
 #### R1.7.2 : Email has to follow addr-specs defined in RFC 5322  Negative 2
@@ -181,7 +181,7 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Validate that the #warning element is equal to “email/password format is incorrect.”
+- Validate that the #message element is equal to “email/password format is incorrect.”
 
 
 #### R1.7.3 : Email has to follow addr-specs defined in RFC 5322  Negative 3
@@ -201,7 +201,7 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Validate that the #warning element is equal to “email/password format is incorrect.”
+- Validate that the #message element is equal to “email/password format is incorrect.”
 
 
 
@@ -222,7 +222,7 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Validate that the #warning element is equal to “email/password format is incorrect.”
+- Validate that the #message element is equal to “email/password format is incorrect.”
 
 ### R1.8 : Password has to meet required complexity: minimum length 6, at least one upper case, at least one lower case and at least one special character 
 
@@ -302,7 +302,7 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Validate that the #warning element is equal to “email/password format is incorrect.”
+- Validate that the #message element is equal to “email/password format is incorrect.”
 
 - open /logout
 
