@@ -24,7 +24,7 @@
 #
 # # Moch a sample user
 # test_user = User(
-#     email='testFrontend@test.com',
+#     email='test_frontend@test.com',
 #     name='test_frontend',
 #     password=generate_password_hash('test_frontend')
 # )
@@ -84,6 +84,7 @@
 #         # make sure it shows proper error message
 #         self.assert_element("#message")
 #         self.assert_text("login failed", "#message")
+#
 #
 #
 
