@@ -5,9 +5,9 @@
 ### Test Data
 ```
 test_user = User(
-    email='testFrontend@test.com',
-    name='testFrontend',
-    password=generate_password_hash('testFrontend')
+    email='test_frontend@test.com',
+    name='test_frontend',
+    password=generate_password_hash('test_frontend')
     balance = 200
 )
 ```
@@ -27,7 +27,7 @@ Actions:
 
 
 
-### R1.2: The login page has a message that by default says ‘please login’
+### R1.2: The login page has a message that by default says ‘Please login’
 
 
 Mocking:
@@ -38,7 +38,7 @@ Mocking:
 
 - open /logout
 - open /login
-- Validate that the the current page contains the #please-login-h1 element
+- Validate that the the current page contains the #message element says "Please login"
 - open /logout
 
 
@@ -63,7 +63,7 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Validate that current page contains #profile-page element
+- Validate that current page contains #welcome element
 
 
 
