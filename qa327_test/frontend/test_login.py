@@ -23,7 +23,7 @@ class FrontEndLoginPageTest(BaseCase):
     A class that contains the unit tests for the login page
     """
 
-    def test_login_success(self, *_):
+    def test_login_success(self):
         """
          R1.1: if the user hasn’t logged in, show the login page
         """
