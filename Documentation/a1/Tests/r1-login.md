@@ -131,7 +131,7 @@ Actions:
 
 - Open /login
 
-- Enter “” into element #password
+- Enter “ ” into element #password
 
 - Enter test_user's email into element #email
 
