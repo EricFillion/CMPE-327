@@ -6,9 +6,9 @@
 When the testcases under R3 refer to the "test user", it refers to this user:
 ```python
 test_user = User(
-    email='test_frontend@test.com',
-    name='test_frontend',
-    password=generate_password_hash('test_frontend')
+    email='test_frontend@example.com',
+    name='Test Frontend',
+    password=generate_password_hash('q1w2e3Q!W@E#')
 )
 ```
 
@@ -20,7 +20,7 @@ N/A
 Actions:
 - Open `/logout` (to invalidate any previous session)
 - Open `/`
-- Sleep 3 seconds, then validate that current URL is `/login`
+- Sleep 3 seconds, then validate that we're on the login page by checking for `#log-in`
 
 ### R3.2: This page shows a header 'Hi {}'.format(user.name)
 Mocking:
@@ -33,7 +33,7 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type='submit']`
 - Open `/`
-- Validate that the page shows element `#welcome` with text: `'Hi {}'.format(user.name)`
+- Validate that the page shows element `#welcome` with text: `'Hi {}!'.format(user.name)`
 - Open `/logout` (cleanup)
 
 ## R3.3: This page shows user balance
