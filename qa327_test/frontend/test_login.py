@@ -12,14 +12,6 @@ from qa327_test.common import auto_login, TEST_USER
 This file defines all unit tests for the login page
 """
 
-# Mock a sample user
-test_user = User(
-    email='test_frontend@test.com',
-    name='test_frontend',
-    password=generate_password_hash('test_frontend'),
-    balance=200
-)
-
 class FrontEndLoginPageTest(BaseCase):
     """
     A class that contains the unit tests for the login page
