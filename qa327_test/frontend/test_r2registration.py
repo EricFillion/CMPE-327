@@ -3,19 +3,7 @@ from qa327_test.conftest import base_url
 from unittest.mock import patch
 from qa327.models import db, User
 from werkzeug.security import generate_password_hash, check_password_hash
-# should not use this test_user
-test_user = User(
-    email='test_frontend@test.com',
-    name='test_frontend',
-    password=generate_password_hash('test_frontend')
-)
-# this mock user should be OK
-test_user2 = User(
-    email='1820@qq.com',
-    name='kkkkk',
-    password=generate_password_hash('Koj1230!')
-)
-
+from qa327_test.common import TEST_USER as test_user
 
 class RegisterTest(BaseCase):
 
@@ -57,8 +45,8 @@ class RegisterTest(BaseCase):
         self.type("#password2", "J12345678a!")
         # send POST request
         self.click('input[type="submit"]')
-        # should have message: email/password format incorrect
-        self.assert_text("email/password format incorrect", "#message")
+        # should have message: email/password format is incorrect.
+        self.assert_text("email/password format is incorrect.", "#message")
 
     def test_if_password_empty(self):
         """
@@ -78,12 +66,12 @@ class RegisterTest(BaseCase):
         self.type("#password2", " ")
         # send POST request
         self.click('input[type="submit"]')
-        # should have message: email/password format incorrect
-        self.assert_text("email/password format incorrect", "#message")
+        # should have message: email/password format is incorrect.
+        self.assert_text("email/password format is incorrect.", "#message")
 
     def test_if_email_not_follow_rule(self):
         """
-        R2.4.3.1 Email has to follow addr-spec defined in RFC 5322
+        R2.4.3 Email has to follow addr-spec defined in RFC 5322
         """
         # open logout to ensure user is logout
         self.open(base_url+'/logout')
@@ -99,8 +87,8 @@ class RegisterTest(BaseCase):
         self.type("#password2", "J12345678a!")
         # send POST request 
         self.click('input[type="submit"]')
-        # should have message: email/password format incorrect
-        self.assert_text("email/password format incorrect", "#message")
+        # should have message: email/password format is incorrect.
+        self.assert_text("email/password format is incorrect.", "#message")
 
     def test_password_have_enough_length(self):
         """
@@ -120,8 +108,8 @@ class RegisterTest(BaseCase):
         self.type("#password2", "Ja12!")
         # send POST request
         self.click('input[type="submit"]')
-        # should have message: email/password format incorrect
-        self.assert_text("email/password format incorrect", "#message")
+        # should have message: email/password format is incorrect.
+        self.assert_text("email/password format is incorrect.", "#message")
 
     def test_password_have_uppercase(self):
         """
@@ -132,7 +120,7 @@ class RegisterTest(BaseCase):
         # open register page
         self.open(base_url+'/register')
         # if R2.2 R2.3 not fail, then type all the fields in register page
-        self.type("#email", "Abc.@example.com")
+        self.type("#email", "Abc@example.com")
         self.type("#name", "Joe")
         # no uppercase password
         self.type("#password", "aa12!aaaa")
@@ -140,8 +128,8 @@ class RegisterTest(BaseCase):
         self.type("#password2", "aa12!aaaa")
         # send POST request
         self.click('input[type="submit"]')
-        # should have message: email/password format incorrect
-        self.assert_text("email/password format incorrect", "#message")
+        # should have message: email/password format is incorrect.
+        self.assert_text("email/password format is incorrect.", "#message")
 
     """
     R2.4.4.3 Password has at least one lower case
@@ -161,8 +149,8 @@ class RegisterTest(BaseCase):
         self.type("#password2", "JJJ12!1")
         # send POST request
         self.click('input[type="submit"]')
-        # should have message: email/password format incorrect
-        self.assert_text("email/password format incorrect", "#message")
+        # should have message: email/password format is incorrect.
+        self.assert_text("email/password format is incorrect.", "#message")
 
     """
     R2.4.4.4 Password has at least one special letter
@@ -182,8 +170,8 @@ class RegisterTest(BaseCase):
         self.type("#password2", "JJJ12aa")
         # send POST request
         self.click('input[type="submit"]')
-        # should have message: email/password format incorrect
-        self.assert_text("email/password format incorrect", "#message")
+        # should have message: email/password format is incorrect.
+        self.assert_text("email/password format is incorrect.", "#message")
 
     def test_if_username_empty(self):
         """
@@ -203,8 +191,8 @@ class RegisterTest(BaseCase):
         self.type("#password2", "test_frontend1T!")
         # send POST request
         self.click('input[type="submit"]')
-        # should have message: username format incorrect
-        self.assert_text("username format incorrect", "#message")
+        # should have message: username format is incorrect.
+        self.assert_text("username format is incorrect.", "#message")
 
     def test_if_username_alphanumeric_only(self):
         """
@@ -224,8 +212,8 @@ class RegisterTest(BaseCase):
         self.type("#password2", "test_frontend1T!")
         # send POST request
         self.click('input[type="submit"]')
-        # should have message: username format incorrect
-        self.assert_text("username format incorrect", "#message")
+        # should have message: username format is incorrect.
+        self.assert_text("username format is incorrect.", "#message")
 
     def test_username_trim(self):
         """
@@ -245,8 +233,8 @@ class RegisterTest(BaseCase):
         self.type("#password2", "test_frontend1T!")
         # send POST request
         self.click('input[type="submit"]')
-        # should have message: username format incorrect
-        self.assert_text("username format incorrect", "#message")
+        # should have message: username format is incorrect.
+        self.assert_text("username format is incorrect.", "#message")
 
     @patch('qa327.backend.get_user', return_value=test_user)
     def test_registered_before(self, *_):
@@ -258,7 +246,7 @@ class RegisterTest(BaseCase):
         # open register page
         self.open(base_url+'/register')
         # input valid password
-        self.type("#email", "test_frontend@test.com")
+        self.type("#email", test_user.email)
         self.type("#name", "test_frontend")
         # input valid password
         self.type("#password", "test_frontend1T!")
@@ -287,8 +275,8 @@ class RegisterTest(BaseCase):
         self.type("#password2", "test_frontend1T!")
         # send POST request
         self.click('input[type="submit"]')
-        # should have message: username format incorrect
-        self.assert_text("username format incorrect", "#message")
+        # should have message: username format is incorrect.
+        self.assert_text("username format is incorrect.", "#message")
 
     def test_username_max_length(self):
         """
@@ -308,8 +296,8 @@ class RegisterTest(BaseCase):
         self.type("#password2", "test_frontend1T!")
         # send POST request
         self.click('input[type="submit"]')
-        # should have message: username format incorrect
-        self.assert_text("username format incorrect", "#message")
+        # should have message: username format is incorrect.
+        self.assert_text("username format is incorrect.", "#message")
 
    
 
@@ -324,7 +312,7 @@ class RegisterTest(BaseCase):
         # if R2.2 R2.3 not fail, then type all the fields in register page
         self.type("#email", "test_frontend1@test.com")
         # input valid name
-        self.type("#name", "aaaaa")
+        self.type("#name", "aaaa")
         # input valid password
         self.type("#password", "test_frontend1T!")
         # input different password2 
