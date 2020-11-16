@@ -10,7 +10,7 @@ from qa327.models import User
 
 # Mock a sample user
 TEST_USER = User(
-    email='test_frontend@example.com',
+    email='test_frontend@test.com',
     name='Test Frontend',
     balance=2000
 )
