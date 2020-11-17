@@ -65,7 +65,7 @@ def login_post():
     error_message = ""
 
     if not validate_login_format(email, password):
-        error_message = "email/password format incorrect"
+        error_message = "email/password format is incorrect."
     else:
         user = bn.login_user(email, password)
         if user:
