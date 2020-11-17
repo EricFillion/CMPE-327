@@ -237,17 +237,12 @@ Actions:
 - Open /login
 
 - Enter test_user's email into element #email
+
 - Enter “A#cde” into element #password
 
 - Click element input[type = “submit”]
 
-- Validate that the #warning-p1 element is equal to “Password is too short”
-
-- Enter “a#cdef” into element #password
-
-- Click element input[type = “submit”]
-
-- Validate that the #warning element is equal to “email/password format is incorrect.”
+- Validate that the #message element is equal to “email/password format is incorrect.”
 
 - open /logout
 
@@ -264,17 +259,12 @@ Actions:
 - Open /login
 
 - Enter test_user's email into element #email
+
 - Enter “A#CDEF” into element #password
 
 - Click element input[type = “submit”]
 
-- Validate that the #warning-p1 element is equal to “Password is too short”
-
-- Enter “a#cdef” into element #password
-
-- Click element input[type = “submit”]
-
-- Validate that the #warning element is equal to “email/password format is incorrect.”
+- Validate that the #message element is equal to “email/password format is incorrect.”
 
 - open /logout
 
@@ -296,13 +286,7 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Validate that the #warning-p1 element is equal to “Password is too short”
-
-- Enter “a#cdef” into element #password
-
-- Click element input[type = “submit”]
-
-- Validate that the #warning element is equal to “email/password format is incorrect.”
+- Validate that the #message element is equal to “email/password format is incorrect.”
 
 - open /logout
 
@@ -323,13 +307,7 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Validate that the #warning-p1 element is equal to “Password is too short”
-
-- Enter “a#cdef” into element #password
-
-- Click element input[type = “submit”]
-
-- Validate that the #warning element is equal to “email/password format is incorrect.”
+- Validate that the #message element is equal to “email/password format is incorrect.”
 
 - open /logout
 
@@ -353,9 +331,9 @@ Actions:
 
 - Click element input[type = “submit”]
 
-- Validate that current page contains #home-header element
+- Validate that current page contains #welcome element
 
-  - open /logout
+- open /logout
 
 ### R1.10: If email/password are not correct, redirect to /login 
 
@@ -379,5 +357,6 @@ Actions:
 
 - Validate that current page is “/login”
 
-- Validate that the #warning-p1 element is equal to “email/password combination is incorrect.”
+- Validate that the #message element is equal to “email/password combination is incorrect.”
+
 - open /logout

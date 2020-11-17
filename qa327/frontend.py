@@ -35,13 +35,13 @@ def register_post():
         error_message = "The passwords do not match"
 
     elif not validate_login_format(email, password):
-        error_message = "email/password format incorrect"
+        error_message = "email/password format is incorrect."
     elif not validate_name_format(name) :
-        error_message="username format incorrect"
+        error_message="username format is incorrect."
     else:
         user = bn.get_user(email)
         if user:
-            error_message = "User exists"
+            error_message = "this email has been ALREADY used"
         elif not bn.register_user(email, name, password, password2):
             error_message = "Failed to store user info."
     # if there is any error messages when registering new user
@@ -65,7 +65,7 @@ def login_post():
     error_message = ""
 
     if not validate_login_format(email, password):
-        error_message = "email/password format incorrect"
+        error_message = "email/password format is incorrect."
     else:
         user = bn.login_user(email, password)
         if user:
