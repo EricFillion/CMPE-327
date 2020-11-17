@@ -326,7 +326,7 @@ Actions:
 
 - Validate the existence of a form with attribute action equal to '/register'
 
-- Create a post request to current url (/register) with a json data object containing testuser's email, name and password.
+- Create a post request to current url (/register) with data containing testuser's email, name and password.
 
 - Validate that the request returns a status code of 200
 
@@ -347,7 +347,6 @@ Actions:
 - Click element input[type = “submit”]
 
 - Validate that the current page has been redirected to /login
-
 
 
 
