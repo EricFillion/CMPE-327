@@ -92,7 +92,7 @@ class RegisterTest(BaseCase):
 
     def test_password_have_enough_length(self):
         """
-        R2.4.4.1 Password has minimum length 6
+        R2.4.4.1 Password has a minimum length of 6
         """
         # open logout to ensure user is logout
         self.open(base_url+'/logout')
@@ -131,11 +131,12 @@ class RegisterTest(BaseCase):
         # should have message: email/password format is incorrect.
         self.assert_text("email/password format is incorrect.", "#message")
 
-    """
-    R2.4.4.3 Password has at least one lower case
-    """
+
 
     def test_password_have_lowercase(self):
+        """
+        R2.4.4.3 Password has at least one lower case
+        """
         # open logout to ensure user is logout
         self.open(base_url+'/logout')
         # open register page
@@ -152,11 +153,12 @@ class RegisterTest(BaseCase):
         # should have message: email/password format is incorrect.
         self.assert_text("email/password format is incorrect.", "#message")
 
-    """
-    R2.4.4.4 Password has at least one special letter
-    """
+    
 
     def test_password_have_special_letter(self):
+        """
+        R2.4.4.4 Password has at least one special letter
+        """
         # open logout to ensure user is logout
         self.open(base_url+'/logout')
         # open register page
@@ -196,7 +198,7 @@ class RegisterTest(BaseCase):
 
     def test_if_username_alphanumeric_only(self):
         """
-        R2.5.2 User name has to be alphanumeric-only
+        R2.5.2 User name has to be alphanumeric
         """
         # open logout to ensure user is logout
         self.open(base_url+'/logout')
@@ -217,7 +219,7 @@ class RegisterTest(BaseCase):
 
     def test_username_trim(self):
         """
-        R2.5.3 User name has to be space allowed only if it is not the first or the last character
+        R2.5.3 Allow spaces for the user name if the space is not the first or last character
         """
         # logout first ensure not in login state
         self.open(base_url+'/logout')
@@ -303,7 +305,7 @@ class RegisterTest(BaseCase):
 
     def test_password_repeat(self):
         """
-        R2.8 test password repeat validation
+        R2.8 The two inputted passwords must match
         """
         # open logout to ensure user is logout
         self.open(base_url+'/logout')
