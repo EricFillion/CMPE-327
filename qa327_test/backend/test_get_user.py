@@ -38,10 +38,10 @@ class BackEndGetUserTest(BaseCase):
 
     def test_get_user_valid_email(self):
         """
-        Input Partion: valid email
+         Input Partion: valid email
         """
-        #Remove user with name "Test Email Input" if exists
-        sql = "DELETE FROM User WHERE name='Test Email Input'"
+        #Remove user with email "test_backend@example.com" if exists
+        sql = "DELETE FROM User WHERE email='test_backend@example.com'"
         print(db.session.execute(sql))
         
         #Add test user to database
