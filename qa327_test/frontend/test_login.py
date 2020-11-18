@@ -285,6 +285,8 @@ class FrontEndLoginPageTest(BaseCase):
 
         # fill email and password
         self.type("#email", TEST_USER.email)
+
+        # Enter password that is less than 6 characters
         self.type("#password", "A#cde")
 
         # Press submit button
@@ -308,6 +310,8 @@ class FrontEndLoginPageTest(BaseCase):
 
         # fill email and password
         self.type("#email", TEST_USER.email)
+
+        # Enter password that does not contain a lowercase letter
         self.type("#password", "A#CDEF")
 
         # Press submit button
@@ -328,8 +332,10 @@ class FrontEndLoginPageTest(BaseCase):
         # open login page
         self.open(base_url + '/login')
 
-        # fill email and password and click submit
+        # fill in email
         self.type("#email", TEST_USER.email)
+
+        # Enter password that does not contain a special character
         self.type("#password", "Abcdef")
 
         # Press submit button
@@ -350,8 +356,10 @@ class FrontEndLoginPageTest(BaseCase):
         # open login page
         self.open(base_url + '/login')
 
-        # fill email and password and click submit
+        # Enter email
         self.type("#email", TEST_USER.email)
+
+        # Enter password that does not contain an uppercase
         self.type("#password", "a#cdef")
 
         # Press submit button
