@@ -53,6 +53,5 @@ Actions:
  - Remove user with name "Test Email Input" if exists
  - Add user with email: 'test_backend@example.com', name:'Test Email Input', password: 'q1w2e3Q!W@E#' and balance:5000
  - Call get user with input "test_backend@example.com'"
- - Assert that returned user is equal to None  
+ - Assert that returned user is equal to the added user
  - Delete user
-
