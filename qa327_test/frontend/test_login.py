@@ -124,7 +124,6 @@ class FrontEndLoginPageTest(BaseCase):
         self.open(base_url + '/login')
 
         # Enter a blank string into element #email
-
         self.type("#email", " ")
 
         # Enter test_user’s password into element #password
@@ -153,6 +152,7 @@ class FrontEndLoginPageTest(BaseCase):
         # Enter test_user’s email
         self.type("#email", "test_frontend@test.com")
 
+        # enter a blank password
         self.type("#password",
                   " ")
 
@@ -177,7 +177,7 @@ class FrontEndLoginPageTest(BaseCase):
         # open login page
         self.open(base_url + '/login')
 
-        # Enter a blank string into element #email
+        # Enter an email that starts with "."
         self.type("#email", ".test@gmail.com")
 
         # Enter test_user’s password into element #password
@@ -204,7 +204,7 @@ class FrontEndLoginPageTest(BaseCase):
         # open login page
         self.open(base_url + '/login')
 
-        # Enter a blank string into element #email
+        # Enter an email address that does not contain an @  symbol
         self.type("#email", "testgmail.com")
 
         # Enter test_user’s password into element #password
@@ -221,35 +221,10 @@ class FrontEndLoginPageTest(BaseCase):
         self.open(base_url + '/logout')
 
 
-    def test_login_page_email_format_n_3(self):
-        """
-        R1.7.3 : Email cannot have an "!" symbol
-        """
-        # open /logout to ensure that the user is logged out
-        self.open(base_url + '/logout')
-
-        # open login page
-        self.open(base_url + '/login')
-
-        # Enter a blank string into element #email
-        self.type("#email", "tes!tgmail.com")
-
-        # Enter test_user’s password into element #password
-        self.type("#password",
-                  TEST_USER.raw_password)
-
-        # Press submit button
-        self.click('input[type="submit"]')
-
-        # Assert that the proper warning message is displayed
-        self.assert_text("email/password format is incorrect.", "#message")
-
-        self.open(base_url + '/logout')
-
 
     def test_login_page_email_format_n_4(self):
         """
-        R1.7.4 : Email must send with a domain name
+        R1.7.3 : Email must end with a domain name
         """
         # open /logout to ensure that the user is logged out
         self.open(base_url + '/logout')
@@ -257,7 +232,7 @@ class FrontEndLoginPageTest(BaseCase):
         # open login page
         self.open(base_url + '/login')
 
-        # Enter a blank string into element #email
+        # Enter an email address that does not end in a domain
         self.type("#email", "test@gmail")
 
         # Enter test_user’s password into element #password

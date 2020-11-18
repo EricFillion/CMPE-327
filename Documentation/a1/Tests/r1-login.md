@@ -184,28 +184,8 @@ Actions:
 - Validate that the #warning element is equal to “email/password format is incorrect.”
 
 
-#### R1.7.3 : Email has to follow addr-specs defined in RFC 5322  Negative 3
 
-Mocking:
-- Mock backend.get_user to return a test_user instance
-
-Actions:
-
- - Open /logout
-
-- Open /login
-
-- Enter test_user's password into element #password
-
-- Enter "tes!t@gmail.com" into element #email
-
-- Click element input[type = “submit”]
-
-- Validate that the #warning element is equal to “email/password format is incorrect.”
-
-
-
-#### R1.7.4 : Email has to follow addr-specs defined in RFC 5322  Negative 4
+#### R1.7.3 : Email has to follow addr-specs defined in RFC 5322  Negative 4
 
 Mocking:
 - Mock backend.get_user to return a test_user instance
