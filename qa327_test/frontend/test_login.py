@@ -101,10 +101,10 @@ class FrontEndLoginPageTest(BaseCase):
         element = self.find_element("form")
 
         # assert that the above element method attribute is equal to "post"
-        assert(element.get_attribute("method") == "post")
+        assert element.get_attribute("method") == "post"
 
         # assert that the above element action attribute is equal to the bas_url plus "/login"
-        assert(element.get_attribute("action") == base_url + "/login")
+        assert element.get_attribute("action") == base_url + "/login"
 
         # logout to clear session
         self.open(base_url + '/logout')
@@ -124,7 +124,7 @@ class FrontEndLoginPageTest(BaseCase):
         self.type("#email", " ")
 
         # Enter test_user’s password into element #password
-        self.type("#password",  TEST_USER.raw_password)
+        self.type("#password", TEST_USER.raw_password)
 
         # Press submit button
         self.click('input[type="submit"]')
@@ -178,8 +178,7 @@ class FrontEndLoginPageTest(BaseCase):
         self.type("#email", ".test@gmail.com")
 
         # Enter test_user’s password into element #password
-        self.type("#password",
-                   TEST_USER.raw_password)
+        self.type("#password", TEST_USER.raw_password)
 
         # Press submit button
         self.click('input[type="submit"]')
@@ -205,8 +204,7 @@ class FrontEndLoginPageTest(BaseCase):
         self.type("#email", "testgmail.com")
 
         # Enter test_user’s password into element #password
-        self.type("#password",
-                   TEST_USER.raw_password)
+        self.type("#password", TEST_USER.raw_password)
 
         # Press submit button
         self.click('input[type="submit"]')
