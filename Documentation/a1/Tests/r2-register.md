@@ -14,7 +14,8 @@ Actions:
 - Enter test_user’s password into element #password
 - Click element input[type = “submit”]
 - Open /register page 
-- Validate that current page contains #profile-page element
+- Validate that the current page has been redirected to /
+- Open /logout
 
 #### **R2.2 R2.3 otherwise, show the user registration page the registration page shows a registration form requesting: email, user name, password, password2**
 Mocking:
@@ -321,19 +322,13 @@ Actions:
 
 - Open /register
 
-- Enter “jK123!qq” into element #password
+- Validate the existence of a form with attribute method equal to 'post'
 
-- Enter “jK123!qq” into element #password2
+- Validate the existence of a form with attribute action equal to '/register'
 
-- Enter “aaaa@gmail.com” into element #email
+- Create a post request to current url (/register) with data containing testuser's email, name and password.
 
-- Enter "Joe Kar" into element #name
-
-- Click element input[type = “submit”]
-
-- validate whether a post request is sent to /register in backend through ajax interceptor
-
-- validate page whether have element #email, #password
+- Validate that the request returns a status code of 200
 
 
 #### **R2. 10 If no error regarding the inputs following the rules above, create a new user, set the balance to 5000, and go back to the /login page**
@@ -341,18 +336,17 @@ Actions:
 
 - Open /register
 
-- Enter “jK123!qq” into element #password
+- Enter testuser's email into element #email
 
-- Enter “jK123!qq” into element #password2
+- Enter testuser's name into element #name
 
-- Enter “aaaa@gmail.com” into element #email
+- Enter testuser's password into element #password
 
-- Enter "Joe Kar" into element #name
+- Enter testuser's password into element #password2
 
 - Click element input[type = “submit”]
 
-- validate page whether have element #email, #password
-
+- Validate that the current page has been redirected to /login
 
 
 
