@@ -1,12 +1,8 @@
-
 import pytest
 from seleniumbase import BaseCase
-
 from qa327_test.conftest import base_url
-from qa327.models import db, User
-from werkzeug.security import generate_password_hash
 from unittest.mock import patch
-from qa327_test.common import auto_login, TEST_USER
+from qa327_test.common import TEST_USER
 """
 This file defines all unit tests for the login page
 """
@@ -44,6 +40,7 @@ class FrontEndLoginPageTest(BaseCase):
         self.open(base_url + '/logout')
 
 
+    @patch('qa327.backend.get_user', return_value=TEST_USER)
     @patch('qa327.backend.login_user', return_value=TEST_USER)
     def test_login_page_success(self, *_):
         """
