@@ -3,7 +3,7 @@
 {% block content %}
 <h1 id="log-in">{% block title %}Log In{% endblock %}</h1>
 <h4 id='message'>{{message}}</h4>
-<form method="post">
+<form id ="form", method="post", action="/login">
   <div class="form-group">
     <label for="email">Email</label>
     <input class="form-control" name="email" id="email" required>
