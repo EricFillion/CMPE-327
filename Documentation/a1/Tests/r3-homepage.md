@@ -6,11 +6,20 @@
 When the testcases under R3 refer to the "test user", it refers to this user:
 ```python
 test_user = User(
-    email='test_frontend@test.com',
-    name='test_frontend',
-    password=generate_password_hash('test_frontend')
+    email='test_frontend@example.com',
+    name='Test Frontend',
+    password=generate_password_hash('q1w2e3Q!W@E#')
 )
 ```
+
+The following procedure is performed by the auto-login decorator:
+- Open `/login`
+- Enter test user's email into element `#email`
+- Enter test user's password into element `#password`
+- Click element `input[type='submit']`
+- (main test body)
+- Open `/logout` (cleanup)
+The auto-login decorator also patches the `login_user` and `get_user` functions to return the test user.
 
 ### R3.1: If the user is not logged in, redirect to login page
 Mocking:
@@ -20,7 +29,7 @@ N/A
 Actions:
 - Open `/logout` (to invalidate any previous session)
 - Open `/`
-- Sleep 3 seconds, then validate that current URL is `/login`
+- Sleep 3 seconds, then validate that we're on the login page by checking for `#log-in`
 
 ### R3.2: This page shows a header 'Hi {}'.format(user.name)
 Mocking:
@@ -33,7 +42,7 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type='submit']`
 - Open `/`
-- Validate that the page shows element `#welcome` with text: `'Hi {}'.format(user.name)`
+- Validate that the page shows element `#welcome` with text: `'Hi {}!'.format(user.name)`
 - Open `/logout` (cleanup)
 
 ## R3.3: This page shows user balance
@@ -84,9 +93,9 @@ Actions:
 - For each ticket in the list of tickets from the mock backend:
     - Find `tr` of ticket by looking up ticket's name under the ticket table
     - Validate name by looking under the ticket's `tr` and validating that the element `td.tt_name` has text: `"{}".format(ticket.name)`
-    - Validate quantity by looking under the ticket's `tr` and validating that the element `td.tt_quantity` has text: `"{}".format(ticket.balance)`
-    - Validate owner's email by looking under the ticket's `tr` and validating that the element `td.tt_owner` has text: `"{}".format(ticket.owner)`
-    - Validate price by looking under the ticket's `tr` and validating that the element `td.tt_price` has text: `"${:.2f}".format(ticket.price)`
+    - Validate quantity by looking under the ticket's `tr` and validating that the element `td.tt_quantity` has text: `"{}".format(ticket.quantity)`
+    - Validate owner's email by looking under the ticket's `tr` and validating that the element `td.tt_owner` has text: `"{}".format(ticket.owner.name)`
+    - Validate price by looking under the ticket's `tr` and validating that the element `td.tt_price` has text: `"${:.2f}".format(ticket.price / 100)`
 - Open `/logout` (cleanup)
 
 ### R3.5.2: This page lists all available tickets. Information including the quantity of each ticket, the owner's email, and the price, for tickets that are not expired. (negative, ensure expired ticket is not displayed)
@@ -211,17 +220,6 @@ Actions:
 - Open `/logout` (cleanup)
 
 ### R3.9: The ticket-selling form can be posted to /sell
-Additional Test Data:
-```
-test_ticket = Ticket(
-    owner='test_frontend@example.com',
-    name='test_ticket_yo',
-    quantity=10,
-    price=10,
-    expiry='20200901'
-)
-```
-
 Mocking:
 - Mock backend.get_user to return the test user
 
@@ -232,27 +230,12 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type='submit']`
 - Open `/`
-- Fill fields
-    - Fill element `#sellform_input_name` with the ticket name
-    - Fill element `#sellform_input_quantity` with the quantity
-    - Fill element `#sellform_input_price` with the ticket price
-    - Fill element `#sellform_input_expiry` with the ticket expiry date
-- Click element `input#sellform_submit[action=submit]`
-- Validate that a POST request is sent to `/sell` with the correct information as specified in the fields listed above
+- Find the form element `#sellform`
+- Verify that the form's `method` attribute is `post`
+- Verify that the form's `action` attribute is `/sell`
 - Open `/logout` (cleanup)
 
 ### R3.10: The ticket-buying form can be posted to /buy
-Additional Test Data:
-```
-test_ticket = Ticket(
-    owner='test_frontend@example.com',
-    name='test_ticket_yo',
-    quantity=10,
-    price=10,
-    expiry='20200901'
-)
-```
-
 Mocking:
 - Mock backend.get_user to return the test user
 
@@ -263,25 +246,12 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type='submit']`
 - Open `/`
-- Fill fields
-    - Fill element `#buyform_input_name` with the ticket name
-    - Fill element `#buyform_input_quantity` with the quantity
-- Click element `input#buyform_submit[action=submit]`
-- Validate that a POST request is sent to `/buy` with the correct information as specified in the fields listed above
+- Find the form element `#buyform`
+- Verify that the form's `method` attribute is `post`
+- Verify that the form's `action` attribute is `/buy`
 - Open `/logout` (cleanup)
 
 ### R3.11: The ticket-update form can be posted to /update
-Additional Test Data:
-```
-test_ticket = Ticket(
-    owner='test_frontend@example.com',
-    name='test_ticket_yo',
-    quantity=10,
-    price=10,
-    expiry='20200901'
-)
-```
-
 Mocking:
 - Mock backend.get_user to return the test user
 
@@ -292,11 +262,7 @@ Actions:
 - Enter test_user's password into element `#password`
 - Click element `input[type='submit']`
 - Open `/`
-- Fill fields
-    - Fill element `#updateform_input_name` with the ticket name
-    - Fill element `#updateform_input_quantity` with the quantity
-    - Fill element `#updateform_input_price` with the ticket price
-    - Fill element `#updateform_input_expiry` with the ticket expiry date
-- Click element `input#updateform_submit[action=submit]`
-- Validate that a POST request is sent to `/update` with the correct information as specified in the fields listed above
+- Find the form element `#updateform`
+- Verify that the form's `method` attribute is `post`
+- Verify that the form's `action` attribute is `/update`
 - Open `/logout` (cleanup)
