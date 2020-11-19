@@ -1,3 +1,7 @@
+"""
+This file defines all unit tests for the login page
+"""
+
 from unittest.mock import patch
 from seleniumbase import BaseCase
 
@@ -5,10 +9,6 @@ from qa327_test.conftest import base_url
 from qa327_test.common import TEST_USER, auto_login
 from qa327.models import Ticket
 from datetime import date, timedelta
-
-"""
-This file defines all unit tests for the login page
-"""
 
 class FrontEndHomepageTest(BaseCase):
     """
@@ -87,7 +87,7 @@ class FrontEndHomepageTest(BaseCase):
         # - For each ticket in the list of tickets from the mock backend:
         for ticket in self.TEST_3_5_1_TICKETS:
             # - Find `tr` of ticket by looking up ticket's name under the ticket table
-            matching_trs = list(filter(lambda r: ticket.name in r.text, rows))
+            matching_trs = [row for row in rows if ticket.name in row.text]
             self.assert_equal(len(matching_trs), 1)
             tr = matching_trs[0]
             # - Validate name by looking under the ticket's `tr` and validating that the element `td.tt_name` has text: `"{}".format(ticket.name)`
@@ -129,7 +129,7 @@ class FrontEndHomepageTest(BaseCase):
         # - For each expired ticket in the list of tickets from the mock backend:
         for ticket in self.TEST_3_5_2_INVALID_TICKETS:
             # - Search for `tr` of ticket by looking up ticket's name under the ticket table, and ensure it can not be found
-            matching_trs = list(filter(lambda r: ticket.name in r.text, rows))
+            matching_trs = [row for row in rows if ticket.name in row.text]
             self.assert_equal(len(matching_trs), 0)
 
     # - Mock backend.get_all_tickets to create a list of tickets
