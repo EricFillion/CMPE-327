@@ -45,37 +45,37 @@
 
 <!-- The sell form satisfies R3.6 -->
 <h2 class="space_before">Sell Tickets:</h2>
-<form id="sellform">
+<!-- The action and method of this sellform comply with R3.9 -->
+<form id="sellform" action="/sell" method="post">
     <table>
         <tr><td><label id="sellform_label_name">Ticket Name:</label></td><td><input id="sellform_input_name" type="text"></td></tr>
         <tr><td><label id="sellform_label_quantity">Quantity:</label></td><td><input id="sellform_input_quantity" type="number"></td></tr>
         <tr><td><label id="sellform_label_price">Price Per Ticket:</label></td><td><input id="sellform_input_price" type="number"></td></tr>
         <tr><td><label id="sellform_label_expiry">Expiry Date:</label></td><td><input id="sellform_input_expiry" type="date"></td></tr>
     </table>
-    <!-- The formaction and formmethod of this sellform comply with R3.9 -->
-    <input id="sellform_submit" type="submit" value="Sell" formaction="/sell" formmethod="POST">
+    <input id="sellform_submit" type="submit" value="Sell">
 </form>
 <!-- The buy form satisfies R3.7 -->
 <h2 class="space_before">Buy Tickets:</h2>
-<form id="buyform">
+<!-- The action and method of this buyform comply with R3.10 -->
+<form id="buyform" action="/buy" method="post">
     <table>
         <tr><td><label id="buyform_label_name">Ticket Name:</label></td><td><input id="buyform_input_name" type="text"></td></tr>
         <tr><td><label id="buyform_label_quantity">Quantity:</label></td><td><input id="buyform_input_quantity" type="number"></td></tr>
     </table>
-    <!-- The formaction and formmethod of this buyform comply with R3.10 -->
-    <input id="buyform_submit" type="submit" value="Buy" formaction="/buy" formmethod="POST">
+    <input id="buyform_submit" type="submit" value="Buy">
 </form>
 <!-- The update form satisfies R3.8 -->
 <h2 class="space_before">Update Tickets:</h2>
-<form id="updateform">
+<!-- The action and method of this sellform comply with R3.11 -->
+<form id="updateform" action="/update" method="post">
     <table>
         <tr><td><label id="updateform_label_name">Ticket Name:</label></td><td><input id="updateform_input_name" type="text"></td></tr>
         <tr><td><label id="updateform_label_quantity">Quantity:</label></td><td><input id="updateform_input_quantity" type="number"></td></tr>
         <tr><td><label id="updateform_label_price">Price Per Ticket:</label></td><td><input id="updateform_input_price" type="number"></td></tr>
         <tr><td><label id="updateform_label_expiry">Expiry Date:</label></td><td><input id="updateform_input_expiry" type="date"></td></tr>
     </table>
-    <!-- The formaction and formmethod of this sellform comply with R3.11 -->
-    <input id="updateform_submit" type="submit" value="Update" formaction="/update" formmethod="POST">
+    <input id="updateform_submit" type="submit" value="Update">
 </form>
 
 <br>
