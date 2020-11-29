@@ -1,9 +1,9 @@
-from flask import render_template, request, session, redirect
+from flask import render_template, request, session, redirect, flash
 from qa327 import app
 import qa327.backend as bn
 from qa327.validate_login_format import validate_login_format,validate_name_format
 from datetime import date
-
+import qa327.validate_ticket_format as validate_ticket_format
 """
 This file defines the front-end part of the service.
 It elaborates how the services should handle different
@@ -87,6 +87,24 @@ def login_post():
             error_message = "email/password combination incorrect"
     return render_template('login.html', message=error_message)
 
+@app.route('/update', methods=['POST'])
+def update_post():
+    """ 
+    Called when a user clicks update on the update form. If the given inputs match 
+    R5 requirements the quantity, price and expiry date of a ticket of the given name
+    are update, else an error message is shown. 
+    """
+    name = request.form.get('name')
+    quantity = request.form.get('quantity')
+    price = request.form.get('price')
+    expiry = request.form.get('expiry')
+    formatError = validate_ticket_format.check_for_update_ticket_format_error(name, quantity, price, expiry)
+    if(not formatError):
+        bn.update_ticket(name, quantity, price, expiry)
+        return redirect('/')
+    else:
+        flash(formatError)
+        return redirect('/')
 
 @app.route('/logout')
 def logout():
@@ -134,7 +152,7 @@ def authenticate(inner_function):
 
 @app.route('/')
 @authenticate
-def profile(user):
+def profile(user, updateMessage = ""):
     # authentication is done in the wrapper function
     # see above.
     # by using @authenticate, we don't need to re-write
