@@ -168,6 +168,12 @@ def profile(user, updateMessage = ""):
 
 #Custom 404 not found page
 @app.errorhandler(404)
-
 def page_not_found(e):
+    return render_template('404.html'), 404
+
+# This shows 404 error page instead of a 405 method not allowed error when a get or other request is 
+# made to a route that should only have a post request.
+# This is to meet R8 (For any other requests except the ones above, the system should return a 404 error)
+@app.errorhandler(405)
+def method_not_allowed(e):
     return render_template('404.html'), 404
