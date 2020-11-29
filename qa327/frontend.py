@@ -152,7 +152,7 @@ def authenticate(inner_function):
 
 @app.route('/')
 @authenticate
-def profile(user, updateMessage = ""):
+def profile(user):
     # authentication is done in the wrapper function
     # see above.
     # by using @authenticate, we don't need to re-write
