@@ -54,3 +54,17 @@ def get_all_tickets():
     :return: a list containing all tickets in the database
     """
     return list(Ticket.query)
+
+
+def buy_ticket(email,price):
+    """
+    Update balance
+    :param email: email of user
+    :param price: price of ticket
+    """
+    user=User.query.filter_by(email=email).first()
+    user.balance=user.balance-price
+    db.session.commit()
+
+
+
