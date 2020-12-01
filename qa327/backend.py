@@ -1,5 +1,6 @@
 from qa327.models import db, User, Ticket
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
 """
 This file defines all backend logic that interacts with database and other services
@@ -68,3 +69,16 @@ def buy_ticket(email,price):
 
 
 
+def update_ticket(name, quantity, price, expiryDate):
+    """
+    Update the quantity, price and expiry date of a ticket of a given name
+    :param name: the name of the ticket to be updated
+    :param quantity: the new quantity for the ticket
+    :param price: the new price for the ticket
+    :param expiryDate: the new expiry date of the ticket
+    """
+    db.session.query(Ticket)\
+       .filter(Ticket.name==name)\
+       .update({Ticket.quantity: quantity, Ticket.price: float(price)*100, Ticket.expiry: datetime.strptime(expiryDate, '%Y-%m-%d').date()})
+    db.session.commit()
+  
