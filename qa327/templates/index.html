@@ -42,15 +42,22 @@
 <p id="no_tickets_available">There are no tickets available at this time.</p>
 {% endif %}
 
+<!-- Display error message here for buy, sell or update form by flashing message-->
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <h4 style="color:red" id='message'>{{messages[0]}}</h4> 
+    {% endif %}
+{% endwith %}
+
 <!-- The sell form satisfies R3.6 -->
 <h2 class="space_before">Sell Tickets:</h2>
 <!-- The action and method of this sellform comply with R3.9 -->
 <form id="sellform" action="/sell" method="post">
     <table>
-        <tr><td><label id="sellform_label_name">Ticket Name:</label></td><td><input id="sellform_input_name" type="text"></td></tr>
-        <tr><td><label id="sellform_label_quantity">Quantity:</label></td><td><input id="sellform_input_quantity" type="number" min="0"></td></tr>
-        <tr><td><label id="sellform_label_price">Price Per Ticket:</label></td><td><input id="sellform_input_price" type="number" min="0" step="0.01"></td></tr>
-        <tr><td><label id="sellform_label_expiry">Expiry Date:</label></td><td><input id="sellform_input_expiry" type="date"></td></tr>
+        <tr><td><label id="sellform_label_name">Ticket Name:</label></td><td><input required id="sellform_input_name" type="text"></td></tr>
+        <tr><td><label id="sellform_label_quantity">Quantity:</label></td><td><input required id="sellform_input_quantity" type="number" min="0"></td></tr>
+        <tr><td><label id="sellform_label_price">Price Per Ticket:</label></td><td><input required id="sellform_input_price" type="number" min="0" step="0.01"></td></tr>
+        <tr><td><label id="sellform_label_expiry">Expiry Date:</label></td><td><input required id="sellform_input_expiry" type="date"></td></tr>
     </table>
     <input id="sellform_submit" type="submit" value="Sell">
 </form>
@@ -59,19 +66,14 @@
 <!-- The action and method of this buyform comply with R3.10 -->
 <form id="buyform" action="/buy" method="post">
     <table>
-        <tr><td><label id="buyform_label_name">Ticket Name:</label></td><td><input id="buyform_input_name" type="text" ></td></tr>
-        <tr><td><label id="buyform_label_quantity">Quantity:</label></td><td><input id="buyform_input_quantity" type="number" min="0"></td></tr>
+        <tr><td><label id="buyform_label_name">Ticket Name:</label></td><td><input required id="buyform_input_name" type="text" ></td></tr>
+        <tr><td><label id="buyform_label_quantity">Quantity:</label></td><td><input required id="buyform_input_quantity" type="number" min="0"></td></tr>
     </table>
     <input id="buyform_submit" type="submit" value="Buy">
 </form>
 <!-- The update form satisfies R3.8 -->
 <h2 class="space_before">Update Tickets:</h2>
 <!-- The action and method of this sellform comply with R3.11 -->
-{% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <h4 style="color:red" id='update_message'>{{messages[0]}}</h4> <!-- Error message based on  R5-->
-    {% endif %}
-{% endwith %}
 <form id="updateform" action="/update" method="post">
     <table>
         <tr><td><label id="updateform_label_name">Ticket Name:</label></td><td><input required id="updateform_input_name" name="name" type="text"></td></tr>

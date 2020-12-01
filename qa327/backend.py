@@ -1,6 +1,5 @@
 from qa327.models import db, User, Ticket
 from werkzeug.security import generate_password_hash, check_password_hash
-from sqlalchemy import update
 from datetime import datetime
 
 """
