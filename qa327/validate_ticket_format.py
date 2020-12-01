@@ -70,15 +70,19 @@ def check_for_update_ticket_format_error(name, quantity, price, date):
     :return: false if no error, else returns the error as a string message
     """
     nameError = check_for_ticket_name_error(name)
-    quantityError = check_for_ticket_quantity_error(quantity)
-    priceError = check_for_ticket_price_error(price) 
-    dateError = check_for_ticket_date_error(date)
     if(nameError):
         return "Unable to update: " + nameError
+    
+    quantityError = check_for_ticket_quantity_error(quantity)
     if(quantityError):
         return "Unable to update: " + quantityError
+    
+    priceError = check_for_ticket_price_error(price) 
     if(priceError):
         return "Unable to update: " + priceError
+
+    dateError = check_for_ticket_date_error(date)
     if(dateError):
         return "Unable to update: " + dateError
+        
     return False
