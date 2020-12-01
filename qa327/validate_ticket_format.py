@@ -74,11 +74,11 @@ def check_for_update_ticket_format_error(name, quantity, price, date):
     priceError = check_for_ticket_price_error(price) 
     dateError = check_for_ticket_date_error(date)
     if(nameError):
-        return "Unable to Update: " + nameError
+        return "Unable to update: " + nameError
     if(quantityError):
-        return "Unable to Update: " + quantityError
+        return "Unable to update: " + quantityError
     if(priceError):
-        return "Unable to Update: " + priceError
+        return "Unable to update: " + priceError
     if(dateError):
-        return "Unable to Update: " + dateError
+        return "Unable to update: " + dateError
     return False
