@@ -164,11 +164,11 @@ def buy():
     # validate ticket name
     if not validate_ticket_name_format(name):
         error_message="The name of the ticket is invalid."
-        return render_template('index.html',message=error_message)
+        return render_template('index.html',buy_message=error_message)
     # validate ticket quantity
     if not validate_ticket_quantity(int(quantity)):
         error_message="The quantity of ticket is invalid."
-        return render_template('index.html',message=error_message)
+        return render_template('index.html',buy_message=error_message)
     # get all ticket
     tickets = bn.get_all_tickets()
     valid_tickets = list(filter(lambda x: x.expiry >= date.today(), tickets))
@@ -176,19 +176,21 @@ def buy():
     # validate existence of current ticket to buy
     if not current_ticket:
         error_message="The ticket does not exist."
-        return render_template('index.html',message=error_message)
+        return render_template('index.html',buy_message=error_message)
     # validate the number ticket to buy
     if quantity > current_ticket.quantity:
         error_message="The quantity is less than the quantity requested."
-        return render_template('index.html',message=error_message)
+        return render_template('index.html',buy_message=error_message)
     # get current user
     email = session['logged_in']
     user = bn.get_user(email)
-    
+    total_price=calculate_price_ticket(quantity,current_ticket.price)
     # validate balance and ticket price
-    if calculate_price_ticket(quantity,current_ticket.price) > user.balance:
+    if total_price > user.balance:
         error_message="Must have more balance than the ticket price."
-        return render_template('index.html',message=error_message)
-    
+        return render_template('index.html',buy_message=error_message)
+    if not bn.buy_ticket(email,total_price):
+        error_message="Cannot buy ticket"
+        return render_template('index.html',buy_message=error_message)
     return render_template('index.html')
         
