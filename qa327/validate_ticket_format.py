@@ -32,14 +32,14 @@ def check_for_ticket_quantity_error(quantity):
     
 def check_for_ticket_price_error(price):
     """
-    Returns any error message if the ticket's price is not between 0 and 100 else if
+    Returns any error message if the ticket's price is not between 10 and 100 else if
     there is no errors it returns false.
 
     :param price: the ticket's price as a string
     :return: false if no error, else returns the error as a string message
     """
-    if float(price) < 0 or float(price) > 100:   
-        return "The price of the ticket must be between 0 and 100"
+    if float(price) < 10 or float(price) > 100:   
+        return "The price of the ticket must be between 10 and 100"
     return False
 
 
