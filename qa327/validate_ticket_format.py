@@ -82,3 +82,33 @@ def check_for_update_ticket_format_error(name, quantity, price, date):
     if(dateError):
         return "Unable to update: " + dateError
     return False
+
+
+def check_for_sell_ticket_format_error(name, quantity, price, date):
+    """
+    Checks the tickets name, quantity, price and date to ensure they are the correct format.
+    If they are not in the correct format an error message is returned, else false is returned
+    indicating that there are no errors
+
+    :param name: the name of the ticket to be updated
+    :param quantity: the new quantity for the ticket
+    :param price: the new price for the ticket
+    :param expiryDate: the new expiry date of the ticket
+    :return: false if no error, else returns the error as a string message
+    """
+    nameError = check_for_ticket_name_error(name)
+    quantityError = check_for_ticket_quantity_error(quantity)
+    priceError = check_for_ticket_price_error(price)
+    dateError = check_for_ticket_date_error(date)
+    # optional: check at least six chars
+    # optional: the new ticket must not be expired
+
+    if(nameError):
+        return "Unable to sell: " + nameError
+    if(quantityError):
+        return "Unable to sell: " + quantityError
+    if(priceError):
+        return "Unable to sell: " + priceError
+    if(dateError):
+        return "Unable to sell: " + dateError
+    return False
