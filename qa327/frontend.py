@@ -99,12 +99,14 @@ def update_post():
     quantity = request.form.get('quantity')
     price = request.form.get('price')
     expiry = request.form.get('expiry')
-    formatError = validate_ticket_format.check_for_update_ticket_format_error(name, quantity, price, expiry)
-    if(not formatError):
-        bn.update_ticket(name, quantity, price, expiry)
+    error = validate_ticket_format.check_for_update_ticket_format_error(name, quantity, price, expiry)
+    if not error:
+        error = bn.update_ticket(name, quantity, price, expiry)
+    if not error:
+        flash('Ticket was updated successfully.', 'info')
         return redirect('/')
     else:
-        flash(formatError)
+        flash('Unable to update ticket: ' + error, 'error')
         return redirect('/')
 
 @app.route('/logout')
@@ -186,9 +188,10 @@ def sell_post(user):
     if not error:
         error = bn.sell_ticket(user, name, quantity, price, expiry)
     if not error:
+        flash('Ticket was posted for sale successfully.', 'info')
         return redirect('/')
     else:
-        flash('Unable to sell ticket: ' + error)
+        flash('Unable to sell ticket: ' + error, 'error')
         return redirect('/')
 
 #Custom 404 not found page
@@ -209,37 +212,38 @@ def buy_post(user):
     quantity_error=validate_ticket_format.check_for_ticket_quantity_error(quantity)
 
     if name_error:
-        flash(name_error)
+        flash(name_error, 'error')
         return redirect('/')
     if quantity_error:
-        flash(quantity_error)
+        flash(quantity_error, 'error')
         return redirect('/')
     # get current ticket
     current_ticket_obj=bn.get_ticket(name)
     # validate existence of current ticket to buy
     if len(current_ticket_obj)==0:
         error_message="The ticket does not exist."
-        flash(error_message)
+        flash(error_message, 'error')
         return redirect('/')
     current_ticket=current_ticket_obj[0]
     # validate the number ticket to buy
     if int(quantity) > int(current_ticket.quantity):
         error_message="The quantity is less than the quantity requested."
-        flash(error_message)
+        flash(error_message, 'error')
         return redirect('/')
     total_price=calculate_price_ticket(quantity,current_ticket.price)
     # get current user
     # validate balance and ticket price
     if total_price > float(user.balance):
         error_message="Must have more balance than the ticket price."
-        flash(error_message)
+        flash(error_message, 'error')
         return redirect('/')
     # try to buy ticket 
     buy_error=bn.buy_ticket(user.email,total_price,name,quantity)
     if buy_error:
-        flash(buy_error)
+        flash(buy_error, 'error')
         return redirect('/')
 
+    flash('Ticket was purchased successfully.', 'info')
     return redirect('/')
         
 # This shows 404 error page instead of a 405 method not allowed error when a get or other request is 

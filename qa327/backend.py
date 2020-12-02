@@ -57,7 +57,6 @@ def get_all_tickets():
     """
     return list(Ticket.query)
 
-
 def buy_ticket(email,price,name,quantity):
     """
     Update user balance
@@ -88,6 +87,14 @@ def get_ticket(name):
     
 
 
+def get_ticket_by_name(name):
+    """
+    Query the database to get a ticket with a given name
+    :param name: the name of the ticket to get
+    :return: a Ticket object, or None if the ticket was not in the database
+    """
+    matching_ticket = Ticket.query.filter(Ticket.name==name).first()
+    return matching_ticket
 
 def update_ticket(name, quantity, price, expiryDate):
     """
@@ -96,10 +103,17 @@ def update_ticket(name, quantity, price, expiryDate):
     :param quantity: the new quantity for the ticket
     :param price: the new price for the ticket
     :param expiryDate: the new expiry date of the ticket
+    :return: a string describing the error that occurred, or False for no error
     """
-    db.session.query(Ticket)\
-       .filter(Ticket.name==name)\
-       .update({Ticket.quantity: quantity, Ticket.price: float(price)*100, Ticket.expiry: datetime.strptime(expiryDate, '%Y-%m-%d').date()})
+    # Get ticket
+    ticket = get_ticket_by_name(name)
+    if ticket is None:
+        return "The ticket of the given name must exist."
+    # Update ticket data
+    ticket.quantity = quantity
+    ticket.price = float(price)*100
+    ticket.expiry = datetime.strptime(expiryDate, '%Y-%m-%d').date()
+    # Commit ticket to database
     db.session.commit()
   
 
