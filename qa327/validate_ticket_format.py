@@ -20,14 +20,14 @@ def check_for_ticket_name_error(ticket_name):
 
 def check_for_ticket_quantity_error(quantity):
     """
-    Returns any error message if the ticket's quantity is not between 10 and 100 else if
+    Returns any error message if the ticket's quantity is not between 1 and 100 else if
     there is no errors it returns false.
 
     :param quantity: the ticket's quantity as a string
     :return: false if no error, else returns the error as a string message
     """
-    if int(quantity) < 10 or int(quantity) > 100:   
-        return "The quantity of the ticket must be between 10 and 100"
+    if int(quantity) < 1 or int(quantity) > 100:
+        return "The quantity of the ticket must be between 1 and 100"
     return False
     
 def check_for_ticket_price_error(price):
@@ -98,19 +98,19 @@ def check_for_sell_ticket_format_error(name, quantity, price, date):
     """
     nameError = check_for_ticket_name_error(name)
     if(nameError):
-        return "Unable to sell: " + nameError
+        return nameError
 
     quantityError = check_for_ticket_quantity_error(quantity)
     if(quantityError):
-        return "Unable to sell: " + quantityError
+        return quantityError
 
     priceError = check_for_ticket_price_error(price)
     if(priceError):
-        return "Unable to sell: " + priceError
+        return priceError
 
     dateError = check_for_ticket_date_error(date)
     if(dateError):
-        return "Unable to sell: " + dateError
+        return dateError
     # optional: check at least six chars
     # optional: the new ticket must not be expired
     return False
