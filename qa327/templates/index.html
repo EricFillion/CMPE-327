@@ -43,10 +43,10 @@
 {% endif %}
 
 <!-- Display error message here for buy, sell or update form by flashing message-->
-{% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <h4 style="color:red" id='message'>{{messages[0]}}</h4> 
-    {% endif %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+    <h4 class='message_{{category}}'>{{message}}</h4> 
+    {% endfor %}
 {% endwith %}
 
 <!-- The sell form satisfies R3.6 -->

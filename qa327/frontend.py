@@ -99,12 +99,14 @@ def update_post():
     quantity = request.form.get('quantity')
     price = request.form.get('price')
     expiry = request.form.get('expiry')
-    formatError = validate_ticket_format.check_for_update_ticket_format_error(name, quantity, price, expiry)
-    if(not formatError):
-        bn.update_ticket(name, quantity, price, expiry)
+    error = validate_ticket_format.check_for_update_ticket_format_error(name, quantity, price, expiry)
+    if not error:
+        error = bn.update_ticket(name, quantity, price, expiry)
+    if not error:
+        flash('Ticket was updated successfully.', 'info')
         return redirect('/')
     else:
-        flash(formatError)
+        flash('Unable to update ticket: ' + error, 'error')
         return redirect('/')
 
 @app.route('/logout')
