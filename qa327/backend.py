@@ -1,6 +1,6 @@
 from qa327.models import db, User, Ticket
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import datetime
+from datetime import datetime,date
 from sqlalchemy.exc import IntegrityError
 
 """
@@ -57,6 +57,38 @@ def get_all_tickets():
     """
     return list(Ticket.query)
 
+
+def buy_ticket(email,price,name,quantity):
+    """
+    Update user balance
+    :param email: email of user
+    :param price: price of ticket
+    :param name: name of ticket
+    :param quantity: quantity to buy
+    """
+    user=User.query.filter_by(email=email).first()
+    user.balance=int(float(user.balance)-float(price))
+    ticket=Ticket.query.filter_by(name=name).first()
+    ticket.quantity-=int(quantity)
+    try:
+        db.session.commit()
+    except IntegrityError as e:
+        return "Cannot buy tickets"
+        raise e
+    return False
+
+def get_ticket(name):
+    """
+    get a ticket 
+    :param name: ticket name
+    """
+    tickets =get_all_tickets()
+    valid_tickets = list(filter(lambda x: x.expiry >= date.today(), tickets))
+    return list(filter(lambda x:x.name==name,valid_tickets))
+    
+
+
+
 def update_ticket(name, quantity, price, expiryDate):
     """
     Update the quantity, price and expiry date of a ticket of a given name
@@ -69,6 +101,7 @@ def update_ticket(name, quantity, price, expiryDate):
        .filter(Ticket.name==name)\
        .update({Ticket.quantity: quantity, Ticket.price: float(price)*100, Ticket.expiry: datetime.strptime(expiryDate, '%Y-%m-%d').date()})
     db.session.commit()
+  
 
 def sell_ticket(user, name, quantity, price, expiryDate):
     """

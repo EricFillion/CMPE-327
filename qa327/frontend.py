@@ -2,6 +2,7 @@ from flask import render_template, request, session, redirect, flash
 from qa327 import app
 import qa327.backend as bn
 from qa327.validate_login_format import validate_login_format,validate_name_format
+from qa327.ticket_utils import calculate_price_ticket
 from datetime import date
 import qa327.validate_ticket_format as validate_ticket_format
 """
@@ -195,6 +196,52 @@ def sell_post(user):
 def page_not_found(e):
     return render_template('404.html'), 404
 
+@app.route('/buy', methods=['POST'])
+@authenticate
+def buy_post(user):
+    name = request.form.get('name')
+    quantity = request.form.get('quantity')
+
+     # validate ticket name
+    name_error=validate_ticket_format.check_for_ticket_name_error(name)
+
+     # validate ticket quantity
+    quantity_error=validate_ticket_format.check_for_ticket_quantity_error(quantity)
+
+    if name_error:
+        flash(name_error)
+        return redirect('/')
+    if quantity_error:
+        flash(quantity_error)
+        return redirect('/')
+    # get current ticket
+    current_ticket_obj=bn.get_ticket(name)
+    # validate existence of current ticket to buy
+    if len(current_ticket_obj)==0:
+        error_message="The ticket does not exist."
+        flash(error_message)
+        return redirect('/')
+    current_ticket=current_ticket_obj[0]
+    # validate the number ticket to buy
+    if int(quantity) > int(current_ticket.quantity):
+        error_message="The quantity is less than the quantity requested."
+        flash(error_message)
+        return redirect('/')
+    total_price=calculate_price_ticket(quantity,current_ticket.price)
+    # get current user
+    # validate balance and ticket price
+    if total_price > float(user.balance):
+        error_message="Must have more balance than the ticket price."
+        flash(error_message)
+        return redirect('/')
+    # try to buy ticket 
+    buy_error=bn.buy_ticket(user.email,total_price,name,quantity)
+    if buy_error:
+        flash(buy_error)
+        return redirect('/')
+
+    return redirect('/')
+        
 # This shows 404 error page instead of a 405 method not allowed error when a get or other request is 
 # made to a route that should only have a post request.
 # This is to meet R8 (For any other requests except the ones above, the system should return a 404 error)

@@ -66,8 +66,8 @@
 <!-- The action and method of this buyform comply with R3.10 -->
 <form id="buyform" action="/buy" method="post">
     <table>
-        <tr><td><label id="buyform_label_name">Ticket Name:</label></td><td><input required id="buyform_input_name" type="text" ></td></tr>
-        <tr><td><label id="buyform_label_quantity">Quantity:</label></td><td><input required id="buyform_input_quantity" type="number" min="0"></td></tr>
+        <tr><td><label id="buyform_label_name">Ticket Name:</label></td><td><input required id="buyform_input_name" name="name" type="text" ></td></tr>
+        <tr><td><label id="buyform_label_quantity">Quantity:</label></td><td><input required id="buyform_input_quantity" name="quantity" type="number" min="0"></td></tr>
     </table>
     <input id="buyform_submit" type="submit" value="Buy">
 </form>
