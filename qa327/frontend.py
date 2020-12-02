@@ -188,9 +188,10 @@ def sell_post(user):
     if not error:
         error = bn.sell_ticket(user, name, quantity, price, expiry)
     if not error:
+        flash('Ticket was posted for sale successfully.', 'info')
         return redirect('/')
     else:
-        flash('Unable to sell ticket: ' + error)
+        flash('Unable to sell ticket: ' + error, 'error')
         return redirect('/')
 
 #Custom 404 not found page
