@@ -26,7 +26,7 @@ def check_for_ticket_quantity_error(quantity):
     :param quantity: the ticket's quantity as a string
     :return: false if no error, else returns the error as a string message
     """
-    if int(quantity) < 10 or int(quantity) > 100:   
+    if int(quantity) < 1 or int(quantity) > 100:   
         return "The quantity of the ticket must be between 10 and 100"
     return False
     
