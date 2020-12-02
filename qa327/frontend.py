@@ -176,10 +176,13 @@ def page_not_found(e):
 def buy():
     name = request.form.get('name')
     quantity = request.form.get('quantity')
+
      # validate ticket name
     name_error=validate_ticket_format.check_for_ticket_name_error(name)
+
      # validate ticket quantity
     quantity_error=validate_ticket_format.check_for_ticket_quantity_error(quantity)
+
     if name_error:
         flash(name_error)
         return redirect('/')
@@ -190,28 +193,33 @@ def buy():
     # get all ticket
     tickets = bn.get_all_tickets()
     valid_tickets = list(filter(lambda x: x.expiry >= date.today(), tickets))
-    current_ticket = filter(lambda x:x.name==name,valid_tickets)
+    current_ticket = filter(lambda x:x.name==name, valid_tickets)
+
     # validate existence of current ticket to buy
     if not current_ticket:
         error_message="The ticket does not exist."
         flash(error_message)
         return redirect('/')
+
     # validate the number ticket to buy
     if quantity > current_ticket.quantity:
-        error_message="The quantity is less than the quantity requested."
+        error_message = "The quantity is less than the quantity requested."
         flash(error_message)
         return redirect('/')
+
     # get current user
     email = session['logged_in']
     user = bn.get_user(email)
-    total_price=calculate_price_ticket(quantity,current_ticket.price)
+
+    total_price=calculate_price_ticket(quantity, current_ticket.price)
     # validate balance and ticket price
     if total_price > user.balance:
-        error_message="Must have more balance than the ticket price."
+        error_message = "Must have more balance than the ticket price."
         flash(error_message)
         return redirect('/')
-    bn.buy_ticket(email,total_price)
-    bn.update_ticket(name,current_ticket.quantity-quantity,current_ticket.price,current_ticket.expiry)
+
+    bn.buy_ticket(email, total_price)
+    bn.update_ticket(name, current_ticket.quantity-quantity, current_ticket.price, current_ticket.expiry)
  
 
     return redirect('/')
