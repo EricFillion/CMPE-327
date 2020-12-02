@@ -235,12 +235,10 @@ def buy_post(user):
         flash(error_message)
         return redirect('/')
     # try to buy ticket 
-    buy_error=bn.buy_ticket(user.email,total_price)
+    buy_error=bn.buy_ticket(user.email,total_price,name,quantity)
     if buy_error:
         flash(buy_error)
         return redirect('/')
-    # update ticket
-    bn.update_ticket(name,int(current_ticket.quantity)-int(quantity),current_ticket.price,current_ticket.expiry)
 
     return redirect('/')
         

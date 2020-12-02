@@ -58,14 +58,18 @@ def get_all_tickets():
     return list(Ticket.query)
 
 
-def buy_ticket(email,price):
+def buy_ticket(email,price,name,quantity):
     """
     Update user balance
     :param email: email of user
     :param price: price of ticket
+    :param name: name of ticket
+    :param quantity: quantity to buy
     """
     user=User.query.filter_by(email=email).first()
-    user.balance=int(float(user.balance)-price)
+    user.balance=int(float(user.balance)-float(price))
+    ticket=Ticket.query.filter_by(name=name).first()
+    ticket.quantity-=int(quantity)
     try:
         db.session.commit()
     except IntegrityError as e:
@@ -74,6 +78,10 @@ def buy_ticket(email,price):
     return False
 
 def get_ticket(name):
+    """
+    get a ticket 
+    :param name: ticket name
+    """
     tickets =get_all_tickets()
     valid_tickets = list(filter(lambda x: x.expiry >= date.today(), tickets))
     return list(filter(lambda x:x.name==name,valid_tickets))
