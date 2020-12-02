@@ -201,10 +201,13 @@ def page_not_found(e):
 def buy_post(user):
     name = request.form.get('name')
     quantity = request.form.get('quantity')
+
      # validate ticket name
     name_error=validate_ticket_format.check_for_ticket_name_error(name)
+
      # validate ticket quantity
     quantity_error=validate_ticket_format.check_for_ticket_quantity_error(quantity)
+
     if name_error:
         flash(name_error)
         return redirect('/')
