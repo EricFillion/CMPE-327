@@ -2,7 +2,7 @@ from flask import render_template, request, session, redirect, flash
 from qa327 import app
 import qa327.backend as bn
 from qa327.validate_login_format import validate_login_format,validate_name_format
-from qa327.ticket_utils import validate_ticket_name_format,validate_ticket_quantity,calculate_price_ticket
+from qa327.ticket_utils import calculate_price_ticket
 from datetime import date
 import qa327.validate_ticket_format as validate_ticket_format
 """
@@ -176,16 +176,17 @@ def page_not_found(e):
 def buy():
     name = request.form.get('buyform_input_name')
     quantity = request.form.get('buyform_input_quantity')
-
-    error_message = ""
-    # validate ticket name
-    if not validate_ticket_name_format(name):
-        error_message="The name of the ticket is invalid."
-        return render_template('index.html',buy_message=error_message)
-    # validate ticket quantity
-    if not validate_ticket_quantity(int(quantity)):
-        error_message="The quantity of ticket is invalid."
-        return render_template('index.html',buy_message=error_message)
+     # validate ticket name
+    name_error=validate_ticket_format.check_for_ticket_name_error(name)
+     # validate ticket quantity
+    quantity_error=validate_ticket_format.check_for_ticket_quantity_error(quantity)
+    if name_error:
+        flash(name_error)
+        return redirect('/')
+   
+    if quantity_error:
+        flash(quantity_error)
+        return redirect('/')
     # get all ticket
     tickets = bn.get_all_tickets()
     valid_tickets = list(filter(lambda x: x.expiry >= date.today(), tickets))
@@ -193,11 +194,13 @@ def buy():
     # validate existence of current ticket to buy
     if not current_ticket:
         error_message="The ticket does not exist."
-        return render_template('index.html',buy_message=error_message)
+        flash(error_message)
+        return redirect('/')
     # validate the number ticket to buy
     if quantity > current_ticket.quantity:
         error_message="The quantity is less than the quantity requested."
-        return render_template('index.html',buy_message=error_message)
+        flash(error_message)
+        return redirect('/')
     # get current user
     email = session['logged_in']
     user = bn.get_user(email)
@@ -205,11 +208,13 @@ def buy():
     # validate balance and ticket price
     if total_price > user.balance:
         error_message="Must have more balance than the ticket price."
-        return render_template('index.html',buy_message=error_message)
-    if not bn.buy_ticket(email,total_price):
-        error_message="Cannot buy ticket"
-        return render_template('index.html',buy_message=error_message)
-    return render_template('index.html')
+        flash(error_message)
+        return redirect('/')
+    bn.buy_ticket(email,total_price)
+    bn.update_ticket(name,current_ticket.quantity-quantity,current_ticket.price,current_ticket.expiry)
+ 
+
+    return redirect('/')
         
 # This shows 404 error page instead of a 405 method not allowed error when a get or other request is 
 # made to a route that should only have a post request.
