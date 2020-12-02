@@ -420,7 +420,27 @@ Actions
 - validate that the #sell_message element shows "Successfully sold the ticket!"
 - open /logout 
 
-#### R4.6 The added new ticket information will be posted on the user profile page 
+### R4.6 For any errors, redirect back to / and show an error message. 
+Mocking:
+- Mock backend.get_user to return a test_ticket instance
+- Mock backend.get_user to return a test_user instance
+Actions:
+- open `/logout`
+- open `/login`
+- Enter test_user’s email into element `#email`
+- Enter test_user’s password into element `#password`
+- Click element `input[type = “submit”]`
+- open `/` 
+- Enter ' ' in the element `#name`
+- Enter test_ticket’s quantity into the element `#quantity`
+- Enter test_ticket’s expiry date in the element `#date`
+- Enter test_ticket’s price into the element `#price`
+- Click element `input[type = “sell”]`
+- open `/`
+- validate that the `#error_message` element shows "Unable to sell"
+- open `/logout`
+
+### R4.7 The added new ticket information will be posted on the user profile page 
 Mocking:
 
 - Mock backend.get_user to return a test_ticket instance
