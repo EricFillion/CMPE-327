@@ -231,10 +231,12 @@ def buy_post(user):
         error_message="Must have more balance than the ticket price."
         flash(error_message)
         return redirect('/')
+    # try to buy ticket 
     buy_error=bn.buy_ticket(user.email,total_price)
     if buy_error:
         flash(buy_error)
         return redirect('/')
+    # update ticket
     bn.update_ticket(name,current_ticket.quantity-quantity,current_ticket.price,current_ticket.expiry)
 
     return redirect('/')
