@@ -174,8 +174,8 @@ def page_not_found(e):
 
 @app.route('/buy', methods=['POST'])
 def buy():
-    name = request.form.get('buyform_input_name')
-    quantity = request.form.get('buyform_input_quantity')
+    name = request.form.get('name')
+    quantity = request.form.get('quantity')
      # validate ticket name
     name_error=validate_ticket_format.check_for_ticket_name_error(name)
      # validate ticket quantity
