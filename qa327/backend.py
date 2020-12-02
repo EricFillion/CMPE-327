@@ -1,7 +1,7 @@
 from qa327.models import db, User, Ticket
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import datetime
-
+from datetime import datetime,date
+from sqlalchemy.exc import IntegrityError
 """
 This file defines all backend logic that interacts with database and other services
 """
@@ -65,9 +65,18 @@ def buy_ticket(email,price):
     """
     user=User.query.filter_by(email=email).first()
     user.balance=user.balance-price
-    db.session.commit()
+    try:
+        db.session.commit()
+    except IntegrityError as e:
+        return "Cannot buy tickets"
+        raise e
+    return False
 
-
+def get_ticket(name):
+    tickets =get_all_tickets()
+    valid_tickets = list(filter(lambda x: x.expiry >= date.today(), tickets))
+    return list(filter(lambda x:x.name==name,valid_tickets))
+    
 
 
 

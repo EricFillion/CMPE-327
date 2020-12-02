@@ -146,7 +146,7 @@ def authenticate(inner_function):
         # if we haven't returned a value yet (invalid token or not logged in),
         # redirect to the login page
         return redirect('/login')
-
+    wrapped_inner.__name__ = inner_function.__name__
     # return the wrapped version of the inner_function:
     return wrapped_inner
 
@@ -173,7 +173,8 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 @app.route('/buy', methods=['POST'])
-def buy():
+@authenticate
+def buy_post(user):
     name = request.form.get('name')
     quantity = request.form.get('quantity')
      # validate ticket name
@@ -183,36 +184,34 @@ def buy():
     if name_error:
         flash(name_error)
         return redirect('/')
-   
     if quantity_error:
         flash(quantity_error)
         return redirect('/')
-    # get all ticket
-    tickets = bn.get_all_tickets()
-    valid_tickets = list(filter(lambda x: x.expiry >= date.today(), tickets))
-    current_ticket = filter(lambda x:x.name==name,valid_tickets)
+    # get current ticket
+    current_ticket_obj=bn.get_ticket(name)
     # validate existence of current ticket to buy
-    if not current_ticket:
+    if len(current_ticket_obj)==0:
         error_message="The ticket does not exist."
         flash(error_message)
         return redirect('/')
+    current_ticket=current_ticket_obj[0]
     # validate the number ticket to buy
-    if quantity > current_ticket.quantity:
+    if int(quantity) > int(current_ticket.quantity):
         error_message="The quantity is less than the quantity requested."
         flash(error_message)
         return redirect('/')
-    # get current user
-    email = session['logged_in']
-    user = bn.get_user(email)
     total_price=calculate_price_ticket(quantity,current_ticket.price)
+    # get current user
     # validate balance and ticket price
-    if total_price > user.balance:
+    if total_price > int(user.balance):
         error_message="Must have more balance than the ticket price."
         flash(error_message)
         return redirect('/')
-    bn.buy_ticket(email,total_price)
+    buy_error=bn.buy_ticket(user.email,total_price)
+    if buy_error:
+        flash(buy_error)
+        return redirect('/')
     bn.update_ticket(name,current_ticket.quantity-quantity,current_ticket.price,current_ticket.expiry)
- 
 
     return redirect('/')
         
