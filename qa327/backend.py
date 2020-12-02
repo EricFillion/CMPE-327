@@ -65,7 +65,7 @@ def buy_ticket(email,price):
     :param price: price of ticket
     """
     user=User.query.filter_by(email=email).first()
-    user.balance=user.balance-price
+    user.balance=int(float(user.balance)-price)
     try:
         db.session.commit()
     except IntegrityError as e:

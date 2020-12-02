@@ -230,7 +230,7 @@ def buy_post(user):
     total_price=calculate_price_ticket(quantity,current_ticket.price)
     # get current user
     # validate balance and ticket price
-    if total_price > int(user.balance):
+    if total_price > float(user.balance):
         error_message="Must have more balance than the ticket price."
         flash(error_message)
         return redirect('/')
@@ -240,7 +240,7 @@ def buy_post(user):
         flash(buy_error)
         return redirect('/')
     # update ticket
-    bn.update_ticket(name,current_ticket.quantity-quantity,current_ticket.price,current_ticket.expiry)
+    bn.update_ticket(name,int(current_ticket.quantity)-int(quantity),current_ticket.price,current_ticket.expiry)
 
     return redirect('/')
         
