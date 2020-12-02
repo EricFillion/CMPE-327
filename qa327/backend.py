@@ -2,6 +2,7 @@ from qa327.models import db, User, Ticket
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime,date
 from sqlalchemy.exc import IntegrityError
+
 """
 This file defines all backend logic that interacts with database and other services
 """
@@ -93,3 +94,32 @@ def update_ticket(name, quantity, price, expiryDate):
        .update({Ticket.quantity: quantity, Ticket.price: float(price)*100, Ticket.expiry: datetime.strptime(expiryDate, '%Y-%m-%d').date()})
     db.session.commit()
   
+
+def sell_ticket(user, name, quantity, price, expiryDate):
+    """
+    Update the quantity, price and expiry date of a ticket of a given name
+    :param user: the user who is selling the ticket
+    :param name: the name of the ticket to be updated
+    :param quantity: the new quantity for the ticket
+    :param price: the new price for the ticket
+    :param expiryDate: the new expiry date of the ticket
+    :return: a string describing the error that occurred, or False for no error
+    """
+    new_ticket = Ticket()
+    new_ticket.owner = user
+    new_ticket.name = name
+    new_ticket.quantity = quantity
+    new_ticket.price = int(float(price)*100)
+    new_ticket.expiry = datetime.strptime(expiryDate, '%Y-%m-%d').date()
+    db.session.add(new_ticket)
+    try:
+        db.session.commit()
+    except IntegrityError as e:
+        # We got an integrity error. Check if it was due to
+        # UNIQUE constraint being violated.
+        # I can't find a better way to do this unfortunately.
+        args_str = ' '.join(e.args)
+        if 'UNIQUE constraint failed' in args_str:
+            return 'A ticket with that name already exists.'
+        raise e
+    return False

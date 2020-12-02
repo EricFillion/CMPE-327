@@ -20,14 +20,14 @@ def check_for_ticket_name_error(ticket_name):
 
 def check_for_ticket_quantity_error(quantity):
     """
-    Returns any error message if the ticket's quantity is not between 10 and 100 else if
+    Returns any error message if the ticket's quantity is not between 1 and 100 else if
     there is no errors it returns false.
 
     :param quantity: the ticket's quantity as a string
     :return: false if no error, else returns the error as a string message
     """
-    if int(quantity) < 1 or int(quantity) > 100:   
-        return "The quantity of the ticket must be between 10 and 100"
+    if int(quantity) < 1 or int(quantity) > 100:
+        return "The quantity of the ticket must be between 1 and 100"
     return False
     
 def check_for_ticket_price_error(price):
@@ -84,5 +84,38 @@ def check_for_update_ticket_format_error(name, quantity, price, date):
     dateError = check_for_ticket_date_error(date)
     if(dateError):
         return "Unable to update: " + dateError
-        
     return False
+
+
+def check_for_sell_ticket_format_error(name, quantity, price, date):
+    """
+    Checks the tickets name, quantity, price and date to ensure they are the correct format.
+    If they are not in the correct format an error message is returned, else false is returned
+    indicating that there are no errors
+
+    :param name: the name of the ticket to be updated
+    :param quantity: the new quantity for the ticket
+    :param price: the new price for the ticket
+    :param expiryDate: the new expiry date of the ticket
+    :return: false if no error, else returns the error as a string message
+    """
+    nameError = check_for_ticket_name_error(name)
+    if(nameError):
+        return nameError
+
+    quantityError = check_for_ticket_quantity_error(quantity)
+    if(quantityError):
+        return quantityError
+
+    priceError = check_for_ticket_price_error(price)
+    if(priceError):
+        return priceError
+
+    dateError = check_for_ticket_date_error(date)
+    if(dateError):
+        return dateError
+    # optional: check at least six chars
+    # optional: the new ticket must not be expired
+    return False
+        
+

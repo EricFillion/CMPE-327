@@ -146,7 +146,10 @@ def authenticate(inner_function):
         # if we haven't returned a value yet (invalid token or not logged in),
         # redirect to the login page
         return redirect('/login')
+
+    # fix issue when trying to have multiple functions wrapped with authenticate
     wrapped_inner.__name__ = inner_function.__name__
+
     # return the wrapped version of the inner_function:
     return wrapped_inner
 
@@ -166,6 +169,27 @@ def profile(user):
     # We need to filter out expired tickets as per R3.5.2-3.5.3
     valid_tickets = list(filter(lambda x: x.expiry >= date.today(), tickets))
     return render_template('index.html', user=user, tickets=valid_tickets)
+
+@app.route('/sell', methods=['POST'])
+@authenticate
+def sell_post(user):
+    """ 
+    Called when a user submits the sell form. If the given inputs match the R4 requirements,
+    a new ticket is added for sale with the given quantity, price and expiry date.
+    Otherwise an error message is shown. 
+    """
+    name = request.form.get('name')
+    quantity = request.form.get('quantity')
+    price = request.form.get('price')
+    expiry = request.form.get('expiry')
+    error = validate_ticket_format.check_for_sell_ticket_format_error(name, quantity, price, expiry)
+    if not error:
+        error = bn.sell_ticket(user, name, quantity, price, expiry)
+    if not error:
+        return redirect('/')
+    else:
+        flash('Unable to sell ticket: ' + error)
+        return redirect('/')
 
 #Custom 404 not found page
 @app.errorhandler(404)
