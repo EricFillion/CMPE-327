@@ -17,6 +17,7 @@ TEST_USER = User(
 TEST_USER.raw_password = 'q1w2e3Q!W@E#'
 TEST_USER.password = generate_password_hash(TEST_USER.raw_password)
 
+# Mock a sample ticket
 TEST_TICKET = Ticket(
     name="test_ticket",
     quantity=90,
