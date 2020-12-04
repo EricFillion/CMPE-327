@@ -13,7 +13,6 @@ TEST_USER = User(
     email='test_frontend@test.com',
     name='Test Frontend',
     balance=2000
-
 )
 TEST_USER.raw_password = 'q1w2e3Q!W@E#'
 TEST_USER.password = generate_password_hash(TEST_USER.raw_password)
@@ -25,7 +24,6 @@ TEST_TICKET = Ticket(
     expiry=20200101,
     owner_id="test_owener_id",
     owner="test_user",
-
 )
 
 def auto_login(user):
