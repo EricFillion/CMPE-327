@@ -6,16 +6,27 @@ from unittest.mock import patch
 from werkzeug.security import generate_password_hash
 
 from qa327_test.conftest import base_url
-from qa327.models import User
+from qa327.models import User, Ticket
 
 # Mock a sample user
 TEST_USER = User(
     email='test_frontend@test.com',
     name='Test Frontend',
     balance=2000
+
 )
 TEST_USER.raw_password = 'q1w2e3Q!W@E#'
 TEST_USER.password = generate_password_hash(TEST_USER.raw_password)
+
+TEST_TICKET = Ticket(
+    name="test_ticket",
+    quantity=90,
+    price=100,
+    expiry=20200101,
+    owner_id="test_owener_id",
+    owner="test_user",
+
+)
 
 def auto_login(user):
     """
