@@ -19,10 +19,10 @@ TEST_USER.password = generate_password_hash(TEST_USER.raw_password)
 
 # Mock a sample ticket
 TEST_TICKET = Ticket(
-    name="test_ticket",
+    name="t1",
     quantity=90,
     price=100,
-    expiry=20200101,
+    expiry=20301001,
     owner_id="test_owener_id",
     owner="test_user",
 )
