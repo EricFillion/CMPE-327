@@ -24,7 +24,7 @@ TEST_TICKET = Ticket(
     price=100,
     expiry=20301001,
     owner_id="test_owener_id",
-    owner="test_user",
+    owner=TEST_USER,
 )
 
 def auto_login(user):
