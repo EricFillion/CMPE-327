@@ -2,11 +2,12 @@
 qa327_test/common.py:
 A shared space for any common testing code/data.
 """
+from datetime import date
 from unittest.mock import patch
 from werkzeug.security import generate_password_hash
 
 from qa327_test.conftest import base_url
-from qa327.models import User
+from qa327.models import User, Ticket
 
 # Mock a sample user
 TEST_USER = User(
@@ -16,6 +17,17 @@ TEST_USER = User(
 )
 TEST_USER.raw_password = 'q1w2e3Q!W@E#'
 TEST_USER.password = generate_password_hash(TEST_USER.raw_password)
+
+# Mock a sample ticket
+TEST_TICKET = Ticket(
+    name="t1",
+    quantity=90,
+    price=100,
+    expiry=date(2030, 1, 1),
+    owner_id="test_owener_id",
+    owner=TEST_USER,
+)
+TEST_TICKET.raw_expiry = "20301001"
 
 def auto_login(user):
     """
