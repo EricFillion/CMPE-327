@@ -25,7 +25,7 @@ TEST_TICKET = Ticket(
     price=100,
     expiry=date(2030, 1, 1),
     owner_id="test_owener_id",
-    owner="test_user",
+    owner=TEST_USER,
 )
 TEST_TICKET.raw_expiry = "20301001"
 
