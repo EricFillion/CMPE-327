@@ -37,8 +37,12 @@ class Ticket(db.Model):
     owner_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     owner = db.relationship('User')
 
+# This needs to be wrapped in a function so we can create
+# the SQL tables after creating a new database during testing.
+def create_sql_tables():
+    # it creates all the SQL tables if they do not exist
+    with app.app_context():
+        db.create_all()
+        db.session.commit()
 
-# it creates all the SQL tables if they do not exist
-with app.app_context():
-    db.create_all()
-    db.session.commit()
+create_sql_tables()
