@@ -52,7 +52,10 @@ def check_for_ticket_date_error(date):
     :return: false if no error, else returns the error as a string message
     """
     try:
-        datetime.datetime.strptime(date, '%Y-%m-%d')
+        print("1. Date", date)
+        print("type", type(date))
+
+        datetime.datetime.strptime(date, '%Y%m%d')
     except ValueError:
         return "Date must be given in the format YYYYMMDD (e.g. 20200901)"
     return False
