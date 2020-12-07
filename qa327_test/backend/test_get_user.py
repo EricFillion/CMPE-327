@@ -28,9 +28,7 @@ class BackEndGetUserTest(BaseCase):
         """
         Input Partion: nonexistent user email
         """
-        #Make sure user with email not in database
-        sql = "DELETE FROM User WHERE email='nonexistant_user@example.com'"
-        print(db.session.execute(sql))
+        # Test is started with clean table. No need to remove data
 
         #Get user by email and assert equal to the test user 
         user = get_user("nonexistant_user@example.com")
@@ -40,9 +38,7 @@ class BackEndGetUserTest(BaseCase):
         """
          Input Partion: valid email
         """
-        #Remove user with email "test_backend@example.com" if exists
-        sql = "DELETE FROM User WHERE email='test_backend@example.com'"
-        print(db.session.execute(sql))
+        # Test is started with clean table. No need to remove data
         
         #Add test user to database
         hashed_pw = generate_password_hash('q1w2e3Q!W@E#', method='sha256')
