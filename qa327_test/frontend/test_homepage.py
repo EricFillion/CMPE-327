@@ -197,7 +197,7 @@ class FrontEndHomepageTest(BaseCase):
         # Validate that the page does show element `#sellform_input_price`
         self.assert_element("#sellform_input_price")
         # Validate that the page does show element `#sellform_label_expiry` with text "Expiry Date:"
-        self.assert_text("Expiry Date:", "#sellform_label_expiry")
+        self.assert_text("Expiry Date (yyyymmdd):", "#sellform_label_expiry")
         # Validate that the page does show element `#sellform_input_expiry
         self.assert_element("#sellform_input_expiry")
         # Validate that the page does show element `input#sellform_submit[action=submit]`
@@ -251,7 +251,7 @@ class FrontEndHomepageTest(BaseCase):
         # Validate that the page does show element `#updateform_input_price`
         self.assert_element("#updateform_input_price")
         # Validate that the page does show element `#updateform_label_expiry` with text "Expiry Date:"
-        self.assert_text("Expiry Date:", "#updateform_label_expiry")
+        self.assert_text("Expiry Date (yyyymmdd):", "#updateform_label_expiry")
         # Validate that the page does show element `#updateform_input_expiry
         self.assert_element("#updateform_input_expiry")
         # Validate that the page does show element `input#updateform_submit[action=submit]`

@@ -112,7 +112,7 @@ def update_ticket(name, quantity, price, expiryDate):
     # Update ticket data
     ticket.quantity = quantity
     ticket.price = float(price)*100
-    ticket.expiry = datetime.strptime(expiryDate, '%Y-%m-%d').date()
+    ticket.expiry = datetime.strptime(expiryDate, '%Y%m%d').date()
     # Commit ticket to database
     db.session.commit()
   
@@ -132,7 +132,7 @@ def sell_ticket(user, name, quantity, price, expiryDate):
     new_ticket.name = name
     new_ticket.quantity = quantity
     new_ticket.price = int(float(price)*100)
-    new_ticket.expiry = datetime.strptime(expiryDate, '%Y-%m-%d').date()
+    new_ticket.expiry = datetime.strptime(expiryDate, '%Y%m%d').date()
     db.session.add(new_ticket)
     try:
         db.session.commit()
