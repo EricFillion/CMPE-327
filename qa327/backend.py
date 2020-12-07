@@ -112,7 +112,7 @@ def update_ticket(name, quantity, price, expiryDate):
     # Update ticket data
     ticket.quantity = quantity
     ticket.price = float(price)*100
-    ticket.expiry = datetime.strptime(expiryDate, '%Y-%m-%d').date()
+    ticket.expiry = datetime.strptime(expiryDate, '%Y%m%d').date()
     # Commit ticket to database
     db.session.commit()
   
