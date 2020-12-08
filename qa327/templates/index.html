@@ -42,12 +42,7 @@
 <p id="no_tickets_available">There are no tickets available at this time.</p>
 {% endif %}
 
-<!-- Display error message here for buy, sell or update form by flashing message-->
-{% with messages = get_flashed_messages(with_categories=true) %}
-    {% for category, message in messages %}
-    <h4 class='message_{{category}}'>{{message}}</h4> 
-    {% endfor %}
-{% endwith %}
+<h4 class='message_{{category}}' id="message_{{category}}">{{message}}</h4> 
 
 <!-- The sell form satisfies R3.6 -->
 <h2 class="space_before">Sell Tickets:</h2>
