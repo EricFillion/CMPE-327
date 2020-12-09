@@ -64,7 +64,7 @@ Each of these tests has been broken up into "major steps", showing what function
     - Owner ID: [corresponding value for test_seller, set automatically from code]
 ### Initialization
 - Clear all contents from database (done by pytest fixture)
-- Add "test_seller" to database
+- Add "test_seller" and "test_selling_ticket" to database
 - Open `/logout` to ensure there is no previous session
 ### 1. User registers (R2.10)
 - Open `/`
