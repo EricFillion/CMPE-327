@@ -178,7 +178,7 @@ Actions:
 - Enter the test_ticket's expiry date in element `#updateform_input_expiry`
 - Click element `input#updateform_submit[action=submit]`
 - Validate that the page shows element `#welcome`
-- Validate that the `#message_error` element shows an error message stating  “Unable to update ticket: The quantity of the tickets has to be more than 0, and less than or equal to 100”.
+- Validate that the `#message_error` element shows an error message stating  “Unable to update ticket: The quantity of the ticket must be between 1 and 100”.
 - Open /logout (clean up)
 
 ### Test Case R5.3.2: The quantity of the tickets has to be more than 0, and less than or equal to 100 - Negative. Testing quantity above range.  
@@ -200,7 +200,7 @@ Actions:
 - Enter the test_ticket's expiry date in element `#updateform_input_expiry`
 - Click element `input#updateform_submit[action=submit]`
 - Validate that the page shows element `#welcome`
-- Validate that the `#message_error` element shows an error message stating  “Unable to update ticket: The quantity of the tickets has to be more than 0, and less than or equal to 100”.
+- Validate that the `#message_error` element shows an error message stating  “Unable to update ticket: The quantity of the ticket must be between 1 and 100”.
 - Open /logout (clean up)
 
 ### Test Case R5.3.3:  The quantity of the tickets has to be more than 0, and less than or equal to 100 - Positive. 
