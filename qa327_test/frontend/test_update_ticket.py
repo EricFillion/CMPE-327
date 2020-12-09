@@ -5,7 +5,7 @@ from unittest.mock import patch
 from qa327_test.common import TEST_USER, TEST_TICKET, auto_login
 from qa327.models import Ticket
 from datetime import datetime
-
+from qa327_test.conftest import base_url
 
 """
 This file defines all unit tests for the login page
@@ -18,7 +18,7 @@ class FrontEndUpdateTicketTest(BaseCase):
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
     @auto_login(TEST_USER)
-    def test_ticket_name_alphanumeric_negative(self, *_):
+    def test_update_ticket_name_alphanumeric_negative(self, *_):
         """
          R5.1.1: The name of the ticket has to be alphanumeric-only - Negative. 
         """
@@ -42,8 +42,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.assert_element("#welcome")
 
         # Validate that the `#message_error` element shows an error message stating “Unable to update ticket: The name of the ticket has to be alphanumeric only”.
-        self.assert_text("Unable to update ticket: The name of the ticket has to be alphanumeric only", "#message_error")
-        # self.assert_text("Unable to update ticket: The name of the ticket has to be alphanumeric only", "#message_error")
+        self.assert_text("Unable to update ticket: The name of the ticket has to be alphanumeric only", selector = '.message_error')
 
         # Open /logout (clean up)
         self.open(base_url + '/logout')
@@ -51,7 +50,7 @@ class FrontEndUpdateTicketTest(BaseCase):
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
     @auto_login(TEST_USER)
-    def test_ticket_name_space_first_char(self, *_):
+    def test_update_ticket_name_space_first_char(self, *_):
         """
           R5.1.2:  The name is only allowed spaces if it is not the first or the last character - Negative. Testing the first character.
         """
@@ -77,7 +76,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         print(datetime.now().strftime("%Y%m%d"))
 
         # Validate that the `#message_error` element shows an error message stating “Unable to update ticket: The name of the ticket has to be alphanumeric only”.
-        self.assert_text("Unable to update ticket: The name of the ticket is only allowed spaces if it is not the first or last character", "#message_error")
+        self.assert_text("Unable to update ticket: The name of the ticket is only allowed spaces if it is not the first or last character", selector = '.message_error')
 
         # Open /logout (clean up)
         self.open(base_url + '/logout')
@@ -85,7 +84,7 @@ class FrontEndUpdateTicketTest(BaseCase):
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
     @auto_login(TEST_USER)
-    def test_ticket_name_space_last_char(self, *_):
+    def test_update_ticket_name_space_last_char(self, *_):
         """
          R5.1.3:  The name is only allowed spaces if it is not the first or the last character - Negative. Testing the last character.
         """
@@ -110,7 +109,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.assert_element("#welcome")
 
         # Validate that the `#message_error` element shows an error message stating “Unable to update ticket: The name of the ticket has to be alphanumeric only”.
-        self.assert_text("Unable to update ticket: The name of the ticket is only allowed spaces if it is not the first or last character", "#message_error")
+        self.assert_text("Unable to update ticket: The name of the ticket is only allowed spaces if it is not the first or last character", selector = '.message_error')
 
         # Open /logout (clean up)
         self.open(base_url + '/logout')
@@ -118,7 +117,7 @@ class FrontEndUpdateTicketTest(BaseCase):
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
     @auto_login(TEST_USER)
-    def test_ticket_name_space_in_middle(self, *_):
+    def test_update_ticket_name_space_in_middle(self, *_):
         """
         R5.1.4:  The name is only allowed spaces if it is not the first or the last character - Positive.
         """
@@ -143,7 +142,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.assert_element("#welcome")
 
         # Validate that the `#message_info` element shows "Ticket was updated successfully"
-        self.assert_text("Ticket was updated successfully", "#message_info")
+        self.assert_text("Ticket was updated successfully", selector = '.message_info')
 
         # Open /logout (clean up)
         self.open(base_url + '/logout')
@@ -151,7 +150,7 @@ class FrontEndUpdateTicketTest(BaseCase):
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
     @auto_login(TEST_USER)
-    def test_ticket_valid_name(self, *_):
+    def test_update_ticket_valid_name(self, *_):
         """
          R5.1.5: Updating to a valid name - Positive. 
         """
@@ -175,7 +174,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.assert_element("#welcome")
 
         # Validate that the `#message_info` element shows "Ticket was updated successfully"
-        self.assert_text("Ticket was updated successfully", "#message_info")
+        self.assert_text("Ticket was updated successfully", selector = '.message_info')
 
         # Open /logout (clean up)
         self.open(base_url + '/logout')
@@ -183,7 +182,7 @@ class FrontEndUpdateTicketTest(BaseCase):
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
     @auto_login(TEST_USER)  
-    def test_ticket_long_name(self, *_):
+    def test_update_ticket_long_name(self, *_):
         """
          R5.2:  The name of the ticket is no longer than 60 characters - Negative.
         """
@@ -209,7 +208,7 @@ class FrontEndUpdateTicketTest(BaseCase):
 
         # Validate that the `#message_error` element shows an error message stating  
         # “Unable to update ticket: The name of the ticket should be no longer than 60 characters”.
-        self.assert_text("Unable to update ticket: The name of the ticket should be no longer than 60 characters", "#message_error")
+        self.assert_text("Unable to update ticket: The name of the ticket should be no longer than 60 characters", selector = '.message_error')
 
         # Open /logout (clean up)
         self.open(base_url + '/logout')
@@ -217,7 +216,7 @@ class FrontEndUpdateTicketTest(BaseCase):
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
     @auto_login(TEST_USER)  
-    def test_ticket_low_quantity(self, *_):
+    def test_update_ticket_low_quantity(self, *_):
         """
         R5.3.1:  The quantity of the tickets has to be more than 0, and less than or equal to 100 - Negative. Testing quantity below range.
         """
@@ -225,8 +224,8 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Enter the test_ticket's name in element `#updateform_input_name` 
         self.type("#updateform_input_name", TEST_TICKET.name)
 
-        # Enter a number less than or equal to 0 (ex.-1) into the element `#updateform_input_quantity`
-        self.type("#updateform_input_quantity", "-1")
+        # Enter a number less than or equal to 0 into the element `#updateform_input_quantity`
+        self.type("#updateform_input_quantity", "0")
 
         # Enter the test_ticket's price in element `#updateform_input_price`
         self.type("#updateform_input_price", TEST_TICKET.price)
@@ -242,7 +241,7 @@ class FrontEndUpdateTicketTest(BaseCase):
 
         # Validate that the `#message_error` element shows an error message stating  “Unable to update ticket: 
         # The quantity of the ticket must be between 1 and 100”.
-        self.assert_text("Unable to update ticket: The quantity of the ticket must be between 1 and 100", "#message_error")
+        self.assert_text("Unable to update ticket: The quantity of the ticket must be between 1 and 100", selector = '.message_error')
 
         # Open /logout (clean up)
         self.open(base_url + '/logout')
@@ -250,7 +249,7 @@ class FrontEndUpdateTicketTest(BaseCase):
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
     @auto_login(TEST_USER)  
-    def test_ticket_high_quantity(self, *_):
+    def test_update_ticket_high_quantity(self, *_):
         """
         R5.3.2: The quantity of the tickets has to be more than 0, and less than or equal to 100 - Negative. Testing quantity above range.
         """
@@ -275,7 +274,7 @@ class FrontEndUpdateTicketTest(BaseCase):
 
         # Validate that the `#message_error` element shows an error message stating  “Unable to update ticket: 
         # The quantity of the ticket must be between 1 and 100”.
-        self.assert_text("Unable to update ticket: The quantity of the ticket must be between 1 and 100", "#message_error")
+        self.assert_text("Unable to update ticket: The quantity of the ticket must be between 1 and 100", selector = '.message_error')
 
         # Open /logout (clean up)
         self.open(base_url + '/logout')
@@ -283,7 +282,7 @@ class FrontEndUpdateTicketTest(BaseCase):
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
     @auto_login(TEST_USER)
-    def test_ticket_valid_quantity(self, *_):
+    def test_update_ticket_valid_quantity(self, *_):
         """
          R5.3.3:  The quantity of the tickets has to be more than 0, and less than or equal to 100 - Positive.
         """
@@ -307,7 +306,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.assert_element("#welcome")
 
         # Validate that the `#message_info` element shows "Ticket was updated successfully"
-        self.assert_text("Ticket was updated successfully", "#message_info")
+        self.assert_text("Ticket was updated successfully", selector = '.message_info')
 
         # Open /logout (clean up)
         self.open(base_url + '/logout')
@@ -315,7 +314,7 @@ class FrontEndUpdateTicketTest(BaseCase):
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
     @auto_login(TEST_USER)  
-    def test_ticket_low_price(self, *_):
+    def test_update_ticket_low_price(self, *_):
         """
         R5.4.1:  Price has to be of range [10, 100] - Negative. Testing price below the range. 
         """
@@ -340,7 +339,7 @@ class FrontEndUpdateTicketTest(BaseCase):
 
         # Validate that the `#message_error` element shows an error message stating
         # “Unable to update ticket: The price of the ticket must be between 10 and 100”.
-        self.assert_text("Unable to update ticket: The price of the ticket must be between 10 and 100", "#message_error")
+        self.assert_text("Unable to update ticket: The price of the ticket must be between 10 and 100", selector = '.message_error')
 
         # Open /logout (clean up)
         self.open(base_url + '/logout')
@@ -348,7 +347,7 @@ class FrontEndUpdateTicketTest(BaseCase):
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
     @auto_login(TEST_USER)  
-    def test_ticket_high_price(self, *_):
+    def test_update_ticket_high_price(self, *_):
         """
         R5.4.2:  Price has to be of range [10, 100] - Negative. Testing price above the range.
         """
@@ -373,7 +372,7 @@ class FrontEndUpdateTicketTest(BaseCase):
 
         # Validate that the `#message_error` element shows an error message stating
         # “Unable to update ticket: The price of the ticket must be between 10 and 100”.
-        self.assert_text("Unable to update ticket: The price of the ticket must be between 10 and 100", "#message_error")
+        self.assert_text("Unable to update ticket: The price of the ticket must be between 10 and 100", selector = '.message_error')
 
         # Open /logout (clean up)
         self.open(base_url + '/logout')
@@ -381,7 +380,7 @@ class FrontEndUpdateTicketTest(BaseCase):
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
     @auto_login(TEST_USER)
-    def test_ticket_valid_price(self, *_):
+    def test_update_ticket_valid_price(self, *_):
         """
         R5.4.3: Price has to be of range [10, 100] - Positive.  
         """
@@ -405,7 +404,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.assert_element("#welcome")
 
         # Validate that the `#message_info` element shows "Ticket was updated successfully"
-        self.assert_text("Ticket was updated successfully", "#message_info")
+        self.assert_text("Ticket was updated successfully", selector = '.message_info')
 
         # Open /logout (clean up)
         self.open(base_url + '/logout')
@@ -413,7 +412,7 @@ class FrontEndUpdateTicketTest(BaseCase):
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
     @auto_login(TEST_USER)  
-    def test_ticket_incorrect_date_format(self, *_):
+    def test_update_ticket_incorrect_date_format(self, *_):
         """
          R5.5.1:  Date must be given in the format YYYYMMDD (e.g. 20200901) - Negative
         """
@@ -438,7 +437,7 @@ class FrontEndUpdateTicketTest(BaseCase):
 
         # Validate that the `#message_error` element shows an error message stating 
         # “Unable to update ticket: Date must be given in the format YYYYMMDD (e.g. 20200901)”.
-        self.assert_text("Unable to update ticket: Date must be given in the format YYYYMMDD (e.g. 20200901)", "#message_error")
+        self.assert_text("Unable to update ticket: Date must be given in the format YYYYMMDD (e.g. 20200901)", selector = '.message_error')
 
         # Open /logout (clean up)
         self.open(base_url + '/logout')
@@ -446,7 +445,7 @@ class FrontEndUpdateTicketTest(BaseCase):
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
     @auto_login(TEST_USER)
-    def test_ticket_valid_date(self, *_):
+    def test_update_ticket_valid_date(self, *_):
         """
         R5.5.2:  Date must be given in the format YYYYMMDD (e.g. 20200901) - Positive.   
         """
@@ -471,16 +470,15 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.assert_element("#welcome")
 
         # Validate that the `#message_info` element shows "Ticket was updated successfully"
-        self.assert_text("Ticket was updated successfully", "#message_info")
+        self.assert_text("Ticket was updated successfully", selector = '.message_info')
 
         # Open /logout (clean up)
         self.open(base_url + '/logout')
 
 
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
-    @patch('qa327.backend.update_ticket', return_value=None)
     @auto_login(TEST_USER)  
-    def test_ticket_non_existent(self, *_):
+    def test_update_ticket_non_existent(self, *_):
         """
          R5.6.1:  The ticket of the given name must exist - Negative. 
         """
@@ -505,7 +503,7 @@ class FrontEndUpdateTicketTest(BaseCase):
 
         # Validate that the `#message_error` element shows an error message stating 
         #  “Unable to update ticket: The ticket of the given name must exist."
-        self.assert_text("Unable to update ticket: The ticket of the given name must exist.", "#message_error")
+        self.assert_text("Unable to update ticket: The ticket of the given name must exist.", selector = '.message_error')
 
         # Open /logout (clean up)
         self.open(base_url + '/logout')
@@ -514,7 +512,7 @@ class FrontEndUpdateTicketTest(BaseCase):
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
     @auto_login(TEST_USER)  
-    def test_ticket_error_redirect(self, *_):
+    def test_update_ticket_error_redirect(self, *_):
         """
          R5.7.1:  For any errors, redirect back to / and show an error message. 
         """
@@ -534,11 +532,11 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Click element `input#updateform_submit[action=submit]`
         self.click('#updateform_submit')
 
-        # the welcome element is unique to the profile page
-        self.assert_element("#welcome")
+        # Validate that the page has been redirected to '/'
+        self.assert_equal(self.get_current_url(), base_url + '/')
 
         #Validate that the `#message_error` element is shown."
-        self.assert_element("#message_error")
+        self.assert_element(".message_error")
 
         # Open /logout (clean up)
         self.open(base_url + '/logout')
