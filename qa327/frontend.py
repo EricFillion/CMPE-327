@@ -218,16 +218,16 @@ def buy_post(user):
         flash(quantity_error, 'error')
         return redirect('/')
     # get current ticket
-    current_ticket_obj=bn.get_ticket(name)
+    current_ticket=bn.get_ticket_by_name(name)
     # validate existence of current ticket to buy
-    if len(current_ticket_obj)==0:
+    if not current_ticket:
         error_message="The ticket does not exist."
         flash(error_message, 'error')
         return redirect('/')
-    current_ticket=current_ticket_obj[0]
+
     # validate the number ticket to buy
     if int(quantity) > int(current_ticket.quantity):
-        error_message="The quantity is less than the quantity requested."
+        error_message="The ticket quantity is less than the quantity requested."
         flash(error_message, 'error')
         return redirect('/')
     total_price=calculate_price_ticket(quantity,current_ticket.price)
