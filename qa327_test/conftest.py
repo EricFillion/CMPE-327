@@ -65,4 +65,5 @@ def clean_db():
         #    Truncating a table is a faster method of removing all data from the table.""
         sql = "DELETE FROM {};".format(table)
         db.session.execute(sql)
+        db.session.commit()
 
