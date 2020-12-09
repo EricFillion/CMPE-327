@@ -84,12 +84,12 @@ Each of these tests has been broken up into "major steps", showing what function
 - Validate that an element `#balance` shows text `Your balance is $50.00`
 ### 3. User buys ticket (R6.5.1 + R3.5.1 for quantity validation + R3.3 for balance validation)
 - Enter test_ticket’s name in the element `#buyform_input_name`
-- Enter a quantity of 5 into the element `#buyform_input_quantity`
+- Enter a quantity of 2 into the element `#buyform_input_quantity`
 - Click element `#buyform_submit`
 - Validate that an element `.message_info` shows text `Ticket was purchased successfully.`
 - Find `tr` of ticket by looking up ticket's name under the ticket table
-- Validate name by looking under the ticket's `tr` and validating that the element `td.tt_quantity` has text: `85`
-- Validate that an element `#balance` shows text `Your balance is $43.00`
+- Validate quantity by looking under the ticket's `tr` and validating that the element `td.tt_quantity` has text: `88`
+- Validate that an element `#balance` shows text `Your balance is $8.00`
 ### 4. User logs out (R7.1)
 - Click element `#logout`
 - Validate redirection to `/login`
