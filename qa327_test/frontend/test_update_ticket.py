@@ -27,10 +27,10 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.type("#updateform_input_name", "t!cket_1")
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#updateform_input_quantity", TEST_TICKET.quantity)
+        self.type("#updateform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#updateform_input_price", TEST_TICKET.price)
+        self.type("#updateform_input_price", str(TEST_TICKET.price))
         
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
@@ -59,10 +59,10 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.type("#updateform_input_name", " t1")
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#updateform_input_quantity", TEST_TICKET.quantity)
+        self.type("#updateform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#updateform_input_price", TEST_TICKET.price)
+        self.type("#updateform_input_price", str(TEST_TICKET.price))
         
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
@@ -94,10 +94,10 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.type("#updateform_input_name", "t1 ")
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#updateform_input_quantity", TEST_TICKET.quantity)
+        self.type("#updateform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#updateform_input_price", TEST_TICKET.price)
+        self.type("#updateform_input_price", str(TEST_TICKET.price))
         
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
@@ -127,10 +127,10 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.type("#updateform_input_name", "ticket 1")
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#updateform_input_quantity", TEST_TICKET.quantity)
+        self.type("#updateform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#updateform_input_price", TEST_TICKET.price)
+        self.type("#updateform_input_price", str(TEST_TICKET.price))
         
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
@@ -159,10 +159,10 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.type("#updateform_input_name", TEST_TICKET.name)
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#updateform_input_quantity", TEST_TICKET.quantity)
+        self.type("#updateform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#updateform_input_price", TEST_TICKET.price)
+        self.type("#updateform_input_price", str(TEST_TICKET.price))
         
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
@@ -192,10 +192,10 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.type("#updateform_input_name", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#updateform_input_quantity", TEST_TICKET.quantity)
+        self.type("#updateform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#updateform_input_price", TEST_TICKET.price)
+        self.type("#updateform_input_price", str(TEST_TICKET.price))
         
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
@@ -228,7 +228,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.type("#updateform_input_quantity", "0")
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#updateform_input_price", TEST_TICKET.price)
+        self.type("#updateform_input_price", str(TEST_TICKET.price))
         
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
@@ -261,7 +261,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.type("#updateform_input_quantity", "101")
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#updateform_input_price", TEST_TICKET.price)
+        self.type("#updateform_input_price", str(TEST_TICKET.price))
         
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
@@ -294,7 +294,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.type("#updateform_input_quantity", "50")
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#updateform_input_price", TEST_TICKET.price)
+        self.type("#updateform_input_price", str(TEST_TICKET.price))
         
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
@@ -323,7 +323,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.type("#updateform_input_name", TEST_TICKET.name)
 
         # Enter the test_ticket's quantity in element `updateform_input_quantity`
-        self.type("#updateform_input_quantity", TEST_TICKET.quantity)
+        self.type("#updateform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter a number below 10 (ex. 9) into the element `#updateform_input_price`
         self.type("#updateform_input_price", "9")
@@ -356,7 +356,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.type("#updateform_input_name", TEST_TICKET.name)
 
         # Enter the test_ticket's quantity in element `updateform_input_quantity`
-        self.type("#updateform_input_quantity", TEST_TICKET.quantity)
+        self.type("#updateform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter a number above 100 (ex. 101) into the element `#updateform_input_price`
         self.type("#updateform_input_price", "101")
@@ -389,7 +389,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.type("#updateform_input_name", TEST_TICKET.name)
 
         # Enter the test_ticket's quantity in element `updateform_input_quantity`
-        self.type("#updateform_input_quantity", TEST_TICKET.quantity)
+        self.type("#updateform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the number 50 into the element `#updateform_input_price`
         self.type("#updateform_input_price", "50")
@@ -421,10 +421,10 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.type("#updateform_input_name", TEST_TICKET.name)
 
         # Enter the test_ticket's quantity in element `updateform_input_quantity`
-        self.type("#updateform_input_quantity", TEST_TICKET.quantity)
+        self.type("#updateform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#updateform_input_price", TEST_TICKET.price)
+        self.type("#updateform_input_price", str(TEST_TICKET.price))
         
         # Enter a date in an invalid format (ex. 20201331) into the element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", "20201331")
@@ -454,10 +454,10 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.type("#updateform_input_name", TEST_TICKET.name)
 
         # Enter the test_ticket's quantity in element `updateform_input_quantity`
-        self.type("#updateform_input_quantity", TEST_TICKET.quantity)
+        self.type("#updateform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#updateform_input_price", TEST_TICKET.price)
+        self.type("#updateform_input_price", str(TEST_TICKET.price))
         
         # Call function to get todays date and enter date into the element 
         # `#updateform_input_expiry`. Todays date is used so that the date is never in the past.
@@ -487,10 +487,10 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.type("#updateform_input_name", "nonExistentTicket")
 
         # Enter the test_ticket's quantity in element `updateform_input_quantity`
-        self.type("#updateform_input_quantity", TEST_TICKET.quantity)
+        self.type("#updateform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#updateform_input_price", TEST_TICKET.price)
+        self.type("#updateform_input_price", str(TEST_TICKET.price))
         
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
@@ -521,10 +521,10 @@ class FrontEndUpdateTicketTest(BaseCase):
         self.type("#updateform_input_name", " no!tATicket ")
 
         # Enter the test_ticket's quantity in element `updateform_input_quantity`
-        self.type("#updateform_input_quantity", TEST_TICKET.quantity)
+        self.type("#updateform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#updateform_input_price", TEST_TICKET.price)
+        self.type("#updateform_input_price", str(TEST_TICKET.price))
         
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
