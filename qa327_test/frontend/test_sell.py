@@ -20,13 +20,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", "abc1234#")
 
         # Enter  TEST_TICKET's quantity into the sellform_input_quantity element
-        self.type("#sellform_input_quantity", TEST_TICKET.quantity)
+        self.type("#sellform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter  TEST_TICKET's expiry date into the sellform_input_expiry element
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
 
         # Enter  TEST_TICKET's price into the sellform_input_price element
-        self.type("#sellform_input_price", TEST_TICKET.price)
+        self.type("#sellform_input_price", str(TEST_TICKET.price))
 
         # Press submit
         self.click('#sellform_submit')
@@ -43,13 +43,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", "abc 1234")
 
         # Enter valid information for other elements
-        self.type("#sellform_input_quantity", str(TEST_TICKET.quantity))
+        self.type("#sellform_input_quantity", str(str(TEST_TICKET.quantity)))
 
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#sellform_input_expiry", str(TEST_TICKET.raw_expiry))
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#sellform_input_price", str(TEST_TICKET.price))
+        self.type("#sellform_input_price", str(str(TEST_TICKET.price)))
 
         # Press submit
         self.click('#sellform_submit')
@@ -66,13 +66,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", " abc1234")
 
         # Enter valid information for other elements
-        self.type("#sellform_input_quantity", TEST_TICKET.quantity)
+        self.type("#sellform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#sellform_input_price", TEST_TICKET.price)
+        self.type("#sellform_input_price", str(TEST_TICKET.price))
 
         # Press submit
         self.click('#sellform_submit')
@@ -89,13 +89,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", "abc1234 ")
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#sellform_input_quantity", TEST_TICKET.quantity)
+        self.type("#sellform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#sellform_input_price", TEST_TICKET.price)
+        self.type("#sellform_input_price", str(TEST_TICKET.price))
 
 
         # Press submit
@@ -112,13 +112,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#sellform_input_quantity", TEST_TICKET.quantity)
+        self.type("#sellform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#sellform_input_price", TEST_TICKET.price)
+        self.type("#sellform_input_price", str(TEST_TICKET.price))
 
 
 
@@ -138,13 +138,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#sellform_input_quantity", TEST_TICKET.quantity)
+        self.type("#sellform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#sellform_input_price", TEST_TICKET.price)
+        self.type("#sellform_input_price", str(TEST_TICKET.price))
 
 
         self.click('#sellform_submit')
@@ -161,13 +161,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", TEST_TICKET.name)
 
         # Enter quantity of 0, which is the lowest negative value
-        self.type("#sellform_input_quantity", 0)
+        self.type("#sellform_input_quantity", str(0))
 
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#sellform_input_price", TEST_TICKET.price)
+        self.type("#sellform_input_price", str(TEST_TICKET.price))
 
 
         # submit
@@ -194,7 +194,7 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#sellform_input_price", str(TEST_TICKET.price))
+        self.type("#sellform_input_price", str(str(TEST_TICKET.price)))
 
 
         # submit
@@ -211,13 +211,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", TEST_TICKET.name)
 
         # Enter quantity of 101, which is the lowest negative value
-        self.type("#sellform_input_quantity", 101)
+        self.type("#sellform_input_quantity", str(101))
 
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#sellform_input_price", TEST_TICKET.price)
+        self.type("#sellform_input_price", str(TEST_TICKET.price))
 
         # submit
         self.click('#sellform_submit')
@@ -236,13 +236,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", TEST_TICKET.name)
 
         # Enter quantity of 100, which is the highest positive value
-        self.type("#sellform_input_quantity", 100)
+        self.type("#sellform_input_quantity", str(100))
 
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#sellform_input_price", TEST_TICKET.price)
+        self.type("#sellform_input_price", str(TEST_TICKET.price))
 
         # submit
         self.click('#sellform_submit')
@@ -260,13 +260,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", TEST_TICKET.name)
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#sellform_input_quantity", TEST_TICKET.quantity)
+        self.type("#sellform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
 
         # Enter price of 10, which is the lowest positive value
-        self.type("#sellform_input_price", 10)
+        self.type("#sellform_input_price", str(10))
 
 
         # submit
@@ -285,13 +285,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", TEST_TICKET.name)
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#sellform_input_quantity", TEST_TICKET.quantity)
+        self.type("#sellform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
 
         # Enter price of 9, which is the highest negative value
-        self.type("#sellform_input_price", 9)
+        self.type("#sellform_input_price", str(9))
 
         # submit
         self.click('#sellform_submit')
@@ -310,13 +310,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", TEST_TICKET.name)
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#sellform_input_quantity", TEST_TICKET.quantity)
+        self.type("#sellform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
 
         # Enter price of 100, which is the lowest positive value
-        self.type("#sellform_input_price", 100)
+        self.type("#sellform_input_price", str(100))
 
         # submit
         self.click('#sellform_submit')
@@ -334,13 +334,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", TEST_TICKET.name)
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#sellform_input_quantity", TEST_TICKET.quantity)
+        self.type("#sellform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
 
         # Enter price of 9, which is the highest negative value
-        self.type("#sellform_input_price", 101)
+        self.type("#sellform_input_price", str(101))
 
         # submit
         self.click('#sellform_submit')
@@ -357,13 +357,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", TEST_TICKET.name)
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#sellform_input_quantity", TEST_TICKET.quantity)
+        self.type("#sellform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter expiry in a long format with full words
         self.type("#sellform_input_expiry", "January 1st, 2021")
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#sellform_input_price", TEST_TICKET.price)
+        self.type("#sellform_input_price", str(TEST_TICKET.price))
 
         # submit
         self.click('#sellform_submit')
@@ -382,13 +382,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", TEST_TICKET.name)
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#sellform_input_quantity", TEST_TICKET.quantity)
+        self.type("#sellform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter a valid date
         self.type("#sellform_input_expiry", "20210101")
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#sellform_input_price", TEST_TICKET.price)
+        self.type("#sellform_input_price", str(TEST_TICKET.price))
 
         # submit
         self.click('#sellform_submit')
@@ -405,13 +405,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", " ")
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#sellform_input_quantity", TEST_TICKET.quantity)
+        self.type("#sellform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#sellform_input_price", TEST_TICKET.price)
+        self.type("#sellform_input_price", str(TEST_TICKET.price))
 
         # submit
         self.click('#sellform_submit')
@@ -435,13 +435,13 @@ class FrontEndSellTest(BaseCase):
         self.type("#sellform_input_name", TEST_TICKET.name)
 
         # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#sellform_input_quantity", TEST_TICKET.quantity)
+        self.type("#sellform_input_quantity", str(TEST_TICKET.quantity))
 
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
 
         # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#sellform_input_price", TEST_TICKET.price)
+        self.type("#sellform_input_price", str(TEST_TICKET.price))
 
         # submit
         self.click('#sellform_submit')
