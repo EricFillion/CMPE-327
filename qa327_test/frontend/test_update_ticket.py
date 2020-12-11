@@ -35,7 +35,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
 
-        # Click element `input#updateform_submit[action=submit]`
+        # Click element `input[type = "updateform_submit"]`
         self.click('#updateform_submit')
 
         # the welcome element is unique to the profile page
@@ -44,8 +44,6 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Validate that the `#message_error` element shows an error message stating “Unable to update ticket: The name of the ticket has to be alphanumeric only”.
         self.assert_text("Unable to update ticket: The name of the ticket has to be alphanumeric only", selector = '.message_error')
 
-        # Open /logout (clean up)
-        self.open(base_url + '/logout')
 
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
@@ -67,7 +65,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
 
-        # Click element `input#updateform_submit[action=submit]`
+        # Click element `input[type = "updateform_submit"]`
         self.click('#updateform_submit')
 
         # the welcome element is unique to the profile page
@@ -78,8 +76,6 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Validate that the `#message_error` element shows an error message stating “Unable to update ticket: The name of the ticket has to be alphanumeric only”.
         self.assert_text("Unable to update ticket: The name of the ticket is only allowed spaces if it is not the first or last character", selector = '.message_error')
 
-        # Open /logout (clean up)
-        self.open(base_url + '/logout')
 
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
@@ -102,7 +98,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
 
-        # Click element `input#updateform_submit[action=submit]`
+        # Click element `input[type = "updateform_submit"]`
         self.click('#updateform_submit')
 
         # the welcome element is unique to the profile page
@@ -111,8 +107,6 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Validate that the `#message_error` element shows an error message stating “Unable to update ticket: The name of the ticket has to be alphanumeric only”.
         self.assert_text("Unable to update ticket: The name of the ticket is only allowed spaces if it is not the first or last character", selector = '.message_error')
 
-        # Open /logout (clean up)
-        self.open(base_url + '/logout')
 
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
@@ -135,7 +129,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
 
-        # Click element `input#updateform_submit[action=submit]`
+        # Click element `input[type = "updateform_submit"]`
         self.click('#updateform_submit')
 
         # the welcome element is unique to the profile page
@@ -144,8 +138,6 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Validate that the `#message_info` element shows "Ticket was updated successfully"
         self.assert_text("Ticket was updated successfully", selector = '.message_info')
 
-        # Open /logout (clean up)
-        self.open(base_url + '/logout')
 
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
@@ -167,7 +159,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
 
-        # Click element `input#updateform_submit[action=submit]`
+        # Click element `input[type = "updateform_submit"]`
         self.click('#updateform_submit')
 
         # the welcome element is unique to the profile page
@@ -176,8 +168,6 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Validate that the `#message_info` element shows "Ticket was updated successfully"
         self.assert_text("Ticket was updated successfully", selector = '.message_info')
 
-        # Open /logout (clean up)
-        self.open(base_url + '/logout')
 
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
@@ -200,7 +190,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
 
-        # Click element `input#updateform_submit[action=submit]`
+        # Click element `input[type = "updateform_submit"]`
         self.click('#updateform_submit')
 
         # the welcome element is unique to the profile page
@@ -210,8 +200,6 @@ class FrontEndUpdateTicketTest(BaseCase):
         # “Unable to update ticket: The name of the ticket should be no longer than 60 characters”.
         self.assert_text("Unable to update ticket: The name of the ticket should be no longer than 60 characters", selector = '.message_error')
 
-        # Open /logout (clean up)
-        self.open(base_url + '/logout')
 
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
@@ -233,7 +221,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
 
-        # Click element `input#updateform_submit[action=submit]`
+        # Click element `input[type = "updateform_submit"]`
         self.click('#updateform_submit')
 
         # the welcome element is unique to the profile page
@@ -243,8 +231,6 @@ class FrontEndUpdateTicketTest(BaseCase):
         # The quantity of the ticket must be between 1 and 100”.
         self.assert_text("Unable to update ticket: The quantity of the ticket must be between 1 and 100", selector = '.message_error')
 
-        # Open /logout (clean up)
-        self.open(base_url + '/logout')
 
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
@@ -266,7 +252,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
 
-        # Click element `input#updateform_submit[action=submit]`
+        # Click element `input[type = "updateform_submit"]`
         self.click('#updateform_submit')
 
         # the welcome element is unique to the profile page
@@ -276,8 +262,6 @@ class FrontEndUpdateTicketTest(BaseCase):
         # The quantity of the ticket must be between 1 and 100”.
         self.assert_text("Unable to update ticket: The quantity of the ticket must be between 1 and 100", selector = '.message_error')
 
-        # Open /logout (clean up)
-        self.open(base_url + '/logout')
 
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
@@ -299,7 +283,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
 
-        # Click element `input#updateform_submit[action=submit]`
+        # Click element `input[type = "updateform_submit"]`
         self.click('#updateform_submit')
 
         # the welcome element is unique to the profile page
@@ -308,8 +292,6 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Validate that the `#message_info` element shows "Ticket was updated successfully"
         self.assert_text("Ticket was updated successfully", selector = '.message_info')
 
-        # Open /logout (clean up)
-        self.open(base_url + '/logout')
 
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
@@ -331,7 +313,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
 
-        # Click element `input#updateform_submit[action=submit]`
+        # Click element `input[type = "updateform_submit"]`
         self.click('#updateform_submit')
 
         # the welcome element is unique to the profile page
@@ -341,8 +323,6 @@ class FrontEndUpdateTicketTest(BaseCase):
         # “Unable to update ticket: The price of the ticket must be between 10 and 100”.
         self.assert_text("Unable to update ticket: The price of the ticket must be between 10 and 100", selector = '.message_error')
 
-        # Open /logout (clean up)
-        self.open(base_url + '/logout')
 
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
@@ -364,7 +344,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
 
-        # Click element `input#updateform_submit[action=submit]`
+        # Click element `input[type = "updateform_submit"]`
         self.click('#updateform_submit')
 
         # the welcome element is unique to the profile page
@@ -374,8 +354,6 @@ class FrontEndUpdateTicketTest(BaseCase):
         # “Unable to update ticket: The price of the ticket must be between 10 and 100”.
         self.assert_text("Unable to update ticket: The price of the ticket must be between 10 and 100", selector = '.message_error')
 
-        # Open /logout (clean up)
-        self.open(base_url + '/logout')
 
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
@@ -397,7 +375,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
 
-        # Click element `input#updateform_submit[action=submit]`
+        # Click element `input[type = "updateform_submit"]`
         self.click('#updateform_submit')
 
         # the welcome element is unique to the profile page
@@ -406,8 +384,6 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Validate that the `#message_info` element shows "Ticket was updated successfully"
         self.assert_text("Ticket was updated successfully", selector = '.message_info')
 
-        # Open /logout (clean up)
-        self.open(base_url + '/logout')
 
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
@@ -429,7 +405,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Enter a date in an invalid format (ex. 20201331) into the element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", "20201331")
 
-        # Click element `input#updateform_submit[action=submit]`
+        # Click element `input[type = "updateform_submit"]`
         self.click('#updateform_submit')
 
         # the welcome element is unique to the profile page
@@ -439,8 +415,6 @@ class FrontEndUpdateTicketTest(BaseCase):
         # “Unable to update ticket: Date must be given in the format YYYYMMDD (e.g. 20200901)”.
         self.assert_text("Unable to update ticket: Date must be given in the format YYYYMMDD (e.g. 20200901)", selector = '.message_error')
 
-        # Open /logout (clean up)
-        self.open(base_url + '/logout')
 
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
     @patch('qa327.backend.update_ticket', return_value=None)
@@ -463,7 +437,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         # `#updateform_input_expiry`. Todays date is used so that the date is never in the past.
         self.type("#updateform_input_expiry", datetime.now().strftime("%Y%m%d"))
 
-        # Click element `input#updateform_submit[action=submit]`
+        # Click element `input[type = "updateform_submit"]`
         self.click('#updateform_submit')
 
         # the welcome element is unique to the profile page
@@ -471,9 +445,6 @@ class FrontEndUpdateTicketTest(BaseCase):
 
         # Validate that the `#message_info` element shows "Ticket was updated successfully"
         self.assert_text("Ticket was updated successfully", selector = '.message_info')
-
-        # Open /logout (clean up)
-        self.open(base_url + '/logout')
 
 
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
@@ -495,7 +466,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
 
-        # Click element `input#updateform_submit[action=submit]`
+        # Click element `input[type = "updateform_submit"]`
         self.click('#updateform_submit')
 
         # the welcome element is unique to the profile page
@@ -504,9 +475,6 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Validate that the `#message_error` element shows an error message stating 
         #  “Unable to update ticket: The ticket of the given name must exist."
         self.assert_text("Unable to update ticket: The ticket of the given name must exist.", selector = '.message_error')
-
-        # Open /logout (clean up)
-        self.open(base_url + '/logout')
 
 
     @patch('qa327.backend.get_all_tickets', return_value=[TEST_TICKET])
@@ -529,7 +497,7 @@ class FrontEndUpdateTicketTest(BaseCase):
         # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
         self.type("#updateform_input_expiry", TEST_TICKET.raw_expiry)
 
-        # Click element `input#updateform_submit[action=submit]`
+        # Click element `input[type = "updateform_submit"]`
         self.click('#updateform_submit')
 
         # Validate that the page has been redirected to '/'
@@ -537,8 +505,5 @@ class FrontEndUpdateTicketTest(BaseCase):
 
         #Validate that the `#message_error` element is shown."
         self.assert_element(".message_error")
-
-        # Open /logout (clean up)
-        self.open(base_url + '/logout')
 
 
