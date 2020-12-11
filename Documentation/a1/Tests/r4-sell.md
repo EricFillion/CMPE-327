@@ -418,21 +418,4 @@ Actions:
 - open `/logout`
 
 ### R4.7 The added new ticket information will be posted on the user profile page 
-Mocking:
-
-- Mock backend.get_user to return a TEST_TICKET instance
-- Mock backend.get_user to return a test_user instance
-Actions
- - open /logout 
-- open /login
-- Enter test_user’s email into element #email
-- Enter test_user’s password into element #password
-- Click element input[type = “submit”]
--  open / 
-- Enter TEST_TICKET’s  name in the element #name
-- Enter TEST_TICKET’s quantity into the element #quantity
-- Enter TEST_TICKET’s quantity  in the element #date
-- Enter  TEST_TICKET’s price into the element #price
-- Click element #sellform_submit
-- validate that the #td.tt_name element is equal to TEST_TICKET’s name
-- open /logout 
+- Covered in integration tests since it's not frontend specific 
