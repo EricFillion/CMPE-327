@@ -394,7 +394,6 @@ class FrontEndSellTest(BaseCase):
         self.click('#sellform_submit')
 
         self.assert_text("Successfully sold the ticket", selector='.message_info')
-    #
 
     @auto_login(TEST_USER)
     def test_4_6_redirect(self, *_):
@@ -421,28 +420,3 @@ class FrontEndSellTest(BaseCase):
 
         # assert that a message error is being shown
         self.assert_element(selector='.message_error')
-
-    @patch('qa327.backend.sell_ticket', return_value=False)
-    @auto_login(TEST_USER)
-    def test_4_7_add_ticket_info(self, *_):
-        """
-        R4.7 The added new ticket information will be posted on the user profile page
-        """
-
-        # Enter valid information for all elements
-
-        # Enter the test_ticket's name in element `#updateform_input_name`
-        self.type("#sellform_input_name", TEST_TICKET.name)
-
-        # Enter the test_ticket's quantity in element `#updateform_input_quantity`
-        self.type("#sellform_input_quantity", str(TEST_TICKET.quantity))
-
-        # Enter the test_ticket's expiry date in element `#updateform_input_expiry`
-        self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
-
-        # Enter the test_ticket's price in element `#updateform_input_price`
-        self.type("#sellform_input_price", str(TEST_TICKET.price))
-
-        # submit
-        self.click('#sellform_submit')
-        # todo assert
