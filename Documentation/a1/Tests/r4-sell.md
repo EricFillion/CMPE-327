@@ -46,7 +46,7 @@ Actions:
 - Enter TEST_TICKET’s quantity into the element `#sellform_input_quantity`
 - Enter TEST_TICKET’s date in the element `#sellform_input_expiry`
 - Enter TEST_TICKET’s price into the element `#sellform_input_price`
-- Click element input[type = “sellform_submit”]
+- Click element #sellform_submit
 - validate that the #message_error shows "Unable to sell ticket: The name of the ticket has to be alphanumeric only"
 - open /logout 
 
@@ -67,7 +67,7 @@ Actions:
 - Enter TEST_TICKET’s quantity into the element `#sellform_input_quantity`
 - Enter TEST_TICKET’s date in the element `#sellform_input_expiry`
 - Enter TEST_TICKET’s price into the element `#sellform_input_price`
-- Click element input[type = "sellform_submit"]
+- Click element #sellform_submit
 - validate that the #message_info shows "Successfully sold the ticket"
 - open /logout 
 
@@ -88,7 +88,7 @@ Actions:
 - Enter TEST_TICKET’s quantity into the element `#sellform_input_quantity`
 - Enter TEST_TICKET’s date in the element `#sellform_input_expiry`
 - Enter TEST_TICKET’s price into the element `#sellform_input_price`
-- Click element input[type = "sellform_submit"]
+- Click element #sellform_submit
 - validate that the #message_error shows "Unable to sell ticket: The name of the ticket is only allowed spaces if it is not the first or last character"
 - open /logout 
 
@@ -111,7 +111,7 @@ Actions:
 - Enter TEST_TICKET’s quantity into the element `#sellform_input_quantity`
 - Enter TEST_TICKET’s date in the element `#sellform_input_expiry`
 - Enter TEST_TICKET’s price into the element `#sellform_input_price`
-- Click element input[type = "sellform_submit"]
+- Click element #sellform_submit
 - validate that the #message_info shows "Unable to sell ticket: The name of the ticket is only allowed spaces if it is not the first or last character"
 - open /logout 
   
@@ -136,7 +136,7 @@ Actions
 - Enter TEST_TICKET’s quantity into the element #quantity
 - Enter TEST_TICKET’s date in the element #date
 - Enter TEST_TICKET’s price into the element #price
-- Click element input[type = "sellform_submit"]
+- Click element #sellform_submit
 - validate that the #message_info shows "Unable to sell ticket: The name of the ticket should be no longer than 60 characters"
 - open /logout 
 
@@ -160,7 +160,7 @@ Actions
 - Enter TEST_TICKET’s quantity into the element #quantity
 - Enter TEST_TICKET’s date in the element #date
 - Enter TEST_TICKET’s price into the element #price
-- Click element input[type = "sellform_submit"]
+- Click element #sellform_submit
 - validate that the #message_info element shows "Successfully sold the ticket"
 - - open /logout 
 
@@ -186,7 +186,7 @@ Actions
 - Enter 0 into the element #quantity
 - Enter TEST_TICKET’s date in the element #date
 - Enter TEST_TICKET’s price into the element #price
-- Click element input[type = "sellform_submit"]
+- Click element #sellform_submit
 - validate that the #sell_message element shows "Unable to sell ticket: The quantity of the ticket must be between 1 and 100"
 - - open /logout 
 
@@ -208,7 +208,7 @@ Actions
 - Enter 1 into the element #quantity
 - Enter TEST_TICKET’s date in the element #date
 - Enter TEST_TICKET’s price into the element #price
-- Click element input[type = "sellform_submit"]
+- Click element #sellform_submit
 - validate that the #message_info element shows "Successfully sold the ticket"
 - open /logout 
 
@@ -232,7 +232,7 @@ Actions
 - Enter 101 into the element #quantity
 - Enter TEST_TICKET’s date in the element #date
 - Enter TEST_TICKET’s price into the element #price
-- Click element input[type = "sellform_submit"]
+- Click element #sellform_submit
 - validate that the #sell_message element shows "Unable to sell ticket: The quantity of the ticket must be between 1 and 100"
 - open /logout
 
@@ -256,7 +256,7 @@ Actions
 - Enter 100 into the element #quantity
 - Enter TEST_TICKET’s date in the element #date
 - Enter TEST_TICKET’s price into the element #price
-- Click element input[type = "sellform_submit"]
+- Click element #sellform_submit
 - validate that the #message_info element shows "Successfully sold the ticket"
 - open /logout 
 
@@ -281,7 +281,7 @@ Actions
 - Enter TEST_TICKET's quantity into the element #quantity
 - Enter TEST_TICKET’s date in the element #date
 - Enter 10 into the element #price
-- Click element input[type = "sellform_submit"]
+- Click element #sellform_submit
 - validate that the #message_info element shows "Successfully sold the ticket"
 - open /logout 
 
@@ -304,7 +304,7 @@ Actions
 - Enter TEST_TICKET’s quantity into the element #quantity
 - Enter TEST_TICKET’s date in the element #date
 - Enter 9 price into the element #price
-- Click element input[type = "sellform_submit"]
+- Click element #sellform_submit
 - validate that the #sell_message element shows "Unable to sell ticket: The price of the ticket must be between 10 and 100"
 - open /logout
 
@@ -326,7 +326,7 @@ Actions
 - Enter TEST_TICKET’s quantity into the element #quantity
 - Enter TEST_TICKET’s date in the element #date
 - Enter 100 into the element #price
-- Click element input[type = "sellform_submit"]
+- Click element #sellform_submit
 - validate that the #message_info element shows "Successfully sold the ticket"
 - open /logout 
 - 
@@ -348,7 +348,7 @@ Actions
 - Enter TEST_TICKET’s quantity into the element #quantity
 - Enter TEST_TICKET’s date in the element #date
 - Enter 101 into the element #price
-- Click element input[type = "sellform_submit"]
+- Click element #sellform_submit
 - validate that the #sell_message element shows "Unable to sell ticket: The price of the ticket must be between 10 and 100"
 - open /logout 
 
@@ -372,7 +372,7 @@ Actions
 - Enter TEST_TICKET’s quantity into the element #quantity
 - Enter "January 1st, 2021" in the element #date
 - Enter  TEST_TICKET’s price into the element #price
-- Click element input[type = "sellform_submit"]
+- Click element #sellform_submit
 - validate that the #sell_message element shows "Date must be given in the format YYYYMMDD (e.g. 20200901)"
 - open /logout 
 
@@ -393,8 +393,8 @@ Actions
 - Enter TEST_TICKET’s quantity into the element #quantity
 - Enter "20210101" in the element #date
 - Enter  TEST_TICKET’s price into the element #price
-- Click element input[type = "sellform_submit"]
-- validate that the #message_info element shows "Successfully sold the ticket!"
+- Click element #sellform_submit
+- validate that the #message_info element shows "Successfully sold the ticket"
 - open /logout 
 
 ### R4.6 For any errors, redirect back to / and show an error message. 
@@ -412,7 +412,7 @@ Actions:
 - Enter TEST_TICKET’s quantity into the element `#quantity`
 - Enter TEST_TICKET’s expiry date in the element `#date`
 - Enter TEST_TICKET’s price into the element `#price`
-- Click element `input[type = "sellform_submit"]`
+- Click element `#sellform_submit`
 - validate that the current url is "base url + /"
 - Assert that a message_error element is being shown 
 - open `/logout`
@@ -433,6 +433,6 @@ Actions
 - Enter TEST_TICKET’s quantity into the element #quantity
 - Enter TEST_TICKET’s quantity  in the element #date
 - Enter  TEST_TICKET’s price into the element #price
-- Click element input[type = "sellform_submit"]
+- Click element #sellform_submit
 - validate that the #td.tt_name element is equal to TEST_TICKET’s name
 - open /logout 
