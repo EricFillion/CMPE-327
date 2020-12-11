@@ -65,5 +65,8 @@ def clean_db():
         #    Truncating a table is a faster method of removing all data from the table.""
         sql = "DELETE FROM {};".format(table)
         db.session.execute(sql)
-        db.session.commit()
-
+    # There were multiple failures on different systems due to a SQL session
+    # remaining open. It turns out that executing raw SQL does not commit the
+    # changes to the DB file, resulting in the file staying open indefinitely.
+    # We need to explicitly commit the changes into the database.
+    db.session.commit()

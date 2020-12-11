@@ -48,7 +48,7 @@ def register_post():
     # if there is any error messages when registering new user
     # at the backend, go back to the register page.
     if error_message:
-        return render_template('register.html', message=error_message)
+        return render_template('login.html', message=error_message)
     else:
         return redirect('/login')
 
