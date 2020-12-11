@@ -1,5 +1,5 @@
 """
-This file defines integration test I1
+This file defines integration test I2
 """
 
 from unittest.mock import patch
@@ -26,8 +26,8 @@ class IntegrationPurchaseTicketTest(BaseCase):
         # 3. User buys ticket
         # 4. User logs out
         # ### Notes
-        # - The test_user defined in `qa327_test/common.py` will be used throughout this test
-        # - An additional test user `test_seller` will be manually added to the database to serve as the user who posted the ticket
+        # - The TEST_USER defined in `qa327_test/common.py` will be used throughout this test
+        # - An additional test user `TEST_SELLER` will be manually added to the database to serve as the user who posted the ticket
         #     - Email: "test_seller@test.com"
         #     - Name: "Test Seller"
         #     - Password: None (we will not login as this user, so it is not necessary to set their password)
@@ -38,10 +38,10 @@ class IntegrationPurchaseTicketTest(BaseCase):
             password="",
             balance=0
         )
-        # - An additional test ticket "test_selling_ticket" will be manually added to the database
-        #     - It will be based on the test_ticket provided in common.py, but with the following information changed:
-        #     - Owner: `test_seller`
-        #     - Owner ID: [corresponding value for test_seller, set automatically from code]
+        # - An additional test ticket "TEST_SELLING_TICKET" will be manually added to the database
+        #     - It will be based on the TEST_TICKET provided in common.py, but with the following information changed:
+        #     - Owner: `TEST_SELLER`
+        #     - Owner ID: [corresponding value for TEST_SELLER, set automatically from code]
         TEST_SELLING_TICKET = Ticket(
             name=TEST_TICKET.name,
             quantity=TEST_TICKET.quantity,
@@ -51,7 +51,7 @@ class IntegrationPurchaseTicketTest(BaseCase):
         )
         # ### Initialization
         # - Clear all contents from database (done by pytest fixture)
-        # - Add "test_seller" and "test_selling_ticket" to database
+        # - Add "TEST_SELLER" and "TEST_SELLING_TICKET" to database
         db.session.add(TEST_SELLER)
         db.session.add(TEST_SELLING_TICKET)
         db.session.commit()
@@ -64,22 +64,22 @@ class IntegrationPurchaseTicketTest(BaseCase):
         self.assert_equal(self.get_current_url(), base_url + '/login')
         # - Click "Register" link (element `a[href="/register"]`)
         self.click('a[href="/register"]')
-        # - Enter test_user's name into element `#name`
+        # - Enter TEST_USER's name into element `#name`
         self.type("#name", TEST_USER.name)
-        # - Enter test_user's email into element `#email`
+        # - Enter TEST_USER's email into element `#email`
         self.type("#email", TEST_USER.email)
-        # - Enter test_user's password into element `#password`
+        # - Enter TEST_USER's password into element `#password`
         self.type("#password", TEST_USER.raw_password)
-        # - Enter test_user's password into element `#password2`
+        # - Enter TEST_USER's password into element `#password2`
         self.type("#password2", TEST_USER.raw_password)
         # - Click "Register" button (element `input[type="submit"]`)
         self.click('input[type="submit"]')
         # - Validate redirection to `/login`
         self.assert_equal(self.get_current_url(), base_url + '/login')
         # ### 2. User logs in (R1.9 + R3.3 for balance validation)
-        # - Enter test_user's email into element `#email`
+        # - Enter TEST_USER's email into element `#email`
         self.type("#email", TEST_USER.email)
-        # - Enter test_user's password into element `#password`
+        # - Enter TEST_USER's password into element `#password`
         self.type("#password", TEST_USER.raw_password)
         # - Click "Login" button (element `input[type="submit"]`)
         self.click('input[type="submit"]')
@@ -88,17 +88,17 @@ class IntegrationPurchaseTicketTest(BaseCase):
         # - Validate that an element `#balance` shows text `Your balance is $50.00`
         self.assert_text('Your balance is $50.00', selector='#balance')
         # ### 3. User buys ticket (R6.5.1 + R3.5.1 for quantity validation + R3.3 for balance validation)
-        # - Enter test_ticket’s name in the element `#buyform_input_name`
+        # - Enter TEST_SELLING_TICKET's name in the element `#buyform_input_name`
         self.type("#buyform_input_name", TEST_SELLING_TICKET.name)
         # - Enter a quantity of 2 into the element `#buyform_input_quantity`
-        self.type("#buyform_input_quantity", 2)
+        self.type("#buyform_input_quantity", str(2))
         # - Click element `#buyform_submit`
         self.click('#buyform_submit')
         # - Validate that an element `.message_info` shows text `Ticket was purchased successfully.`
         self.assert_text('Ticket was purchased successfully.', selector='.message_info')
         # - Find `tr` of ticket by looking up ticket's name under the ticket table
         rows = self.find_elements("table#tickettable tbody tr")
-        matching_trs = [row for row in rows if TEST_TICKET.name in row.text]
+        matching_trs = [row for row in rows if TEST_SELLING_TICKET.name in row.text]
         self.assert_equal(len(matching_trs), 1)
         tr = matching_trs[0]
         # - Validate quantity by looking under the ticket's `tr` and validating that the element `td.tt_quantity` has text: `88`

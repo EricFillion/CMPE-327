@@ -26,7 +26,7 @@ class IntegrationCreatePostingTest(BaseCase):
         # 3. User sells ticket
         # 4. User logs out
         # ### Notes
-        # - The test_user and test_ticket defined in `qa327_test/common.py` will be used throughout this test
+        # - The TEST_USER and TEST_TICKET defined in `qa327_test/common.py` will be used throughout this test
         # ### Initialization
         # - Clear all contents from database (done by pytest fixture)
         # - Open `/logout` to ensure there is no previous session
@@ -38,35 +38,35 @@ class IntegrationCreatePostingTest(BaseCase):
         self.assert_equal(self.get_current_url(), base_url + '/login')
         # - Click "Register" link (element `a[href="/register"]`)
         self.click('a[href="/register"]')
-        # - Enter test_user's name into element `#name`
+        # - Enter TEST_USER's name into element `#name`
         self.type("#name", TEST_USER.name)
-        # - Enter test_user's email into element `#email`
+        # - Enter TEST_USER's email into element `#email`
         self.type("#email", TEST_USER.email)
-        # - Enter test_user's password into element `#password`
+        # - Enter TEST_USER's password into element `#password`
         self.type("#password", TEST_USER.raw_password)
-        # - Enter test_user's password into element `#password2`
+        # - Enter TEST_USER's password into element `#password2`
         self.type("#password2", TEST_USER.raw_password)
         # - Click "Register" button (element `input[type="submit"]`)
         self.click('input[type="submit"]')
         # - Validate redirection to `/login`
         self.assert_equal(self.get_current_url(), base_url + '/login')
         # ### 2. User logs in (R1.9)
-        # - Enter test_user's email into element `#email`
+        # - Enter TEST_USER's email into element `#email`
         self.type("#email", TEST_USER.email)
-        # - Enter test_user's password into element `#password`
+        # - Enter TEST_USER's password into element `#password`
         self.type("#password", TEST_USER.raw_password)
         # - Click "Login" button (element `input[type="submit"]`)
         self.click('input[type="submit"]')
         # - Validate redirection to `/`
         self.assert_equal(self.get_current_url(), base_url + '/')
         # ### 3. User sells ticket (R4.7 + R3.5.1 for validation)
-        # - Enter test_ticket’s name in the element `#sellform_input_name`
+        # - Enter TEST_TICKET's name in the element `#sellform_input_name`
         self.type("#sellform_input_name", TEST_TICKET.name)
-        # - Enter test_ticket’s quantity into the element `#sellform_input_quantity`
-        self.type("#sellform_input_quantity", TEST_TICKET.quantity)
-        # - Enter test_ticket’s raw expiry date into the element `#sellform_input_date`
+        # - Enter TEST_TICKET's quantity into the element `#sellform_input_quantity`
+        self.type("#sellform_input_quantity", str(TEST_TICKET.quantity))
+        # - Enter TEST_TICKET's raw expiry date into the element `#sellform_input_date`
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
-        # - Enter test_ticket’s price into the element `#sellform_input_price`
+        # - Enter TEST_TICKET's price into the element `#sellform_input_price`
         self.type("#sellform_input_price", '{:.2f}'.format(TEST_TICKET.price/100))
         # - Click element `#sellform_submit`
         self.click('#sellform_submit')
