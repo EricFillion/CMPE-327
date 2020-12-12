@@ -1,7 +1,7 @@
 version: "2"
 services:
   seetgeek-web:
-    image: your_company/seetgeek
+    image: cisccmpe327f2020grp2/app
     depends_on:
       - seetgeek-db
     links:
