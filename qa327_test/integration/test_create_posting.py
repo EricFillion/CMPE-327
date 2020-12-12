@@ -67,7 +67,7 @@ class IntegrationCreatePostingTest(BaseCase):
         # - Enter TEST_TICKET's raw expiry date into the element `#sellform_input_date`
         self.type("#sellform_input_expiry", TEST_TICKET.raw_expiry)
         # - Enter TEST_TICKET's price into the element `#sellform_input_price`
-        self.type("#sellform_input_price", '{:.2f}'.format(TEST_TICKET.price/100))
+        self.type("#sellform_input_price", str(TEST_TICKET.price))
         # - Click element `#sellform_submit`
         self.click('#sellform_submit')
         # - Validate that an element matching `.message_info` shows text `Ticket was posted for sale successfully.`

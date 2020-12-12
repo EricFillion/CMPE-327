@@ -60,6 +60,7 @@ Each of these tests has been broken up into "major steps", showing what function
     - Balance: 0 (they will not need to spend any balance)
 - An additional test ticket "TEST_SELLING_TICKET" will be manually added to the database
     - It will be based on the TEST_TICKET provided in common.py, but with the following information changed:
+    - Price: $15.00
     - Owner: `TEST_SELLER`
     - Owner ID: [corresponding value for TEST_SELLER, set automatically from code]
 ### Initialization

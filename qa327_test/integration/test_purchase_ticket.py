@@ -40,12 +40,13 @@ class IntegrationPurchaseTicketTest(BaseCase):
         )
         # - An additional test ticket "TEST_SELLING_TICKET" will be manually added to the database
         #     - It will be based on the TEST_TICKET provided in common.py, but with the following information changed:
+        #     - Price: $15.00
         #     - Owner: `TEST_SELLER`
         #     - Owner ID: [corresponding value for TEST_SELLER, set automatically from code]
         TEST_SELLING_TICKET = Ticket(
             name=TEST_TICKET.name,
             quantity=TEST_TICKET.quantity,
-            price=TEST_TICKET.price,
+            price=15_00,
             expiry=TEST_TICKET.expiry,
             owner=TEST_SELLER
         )
