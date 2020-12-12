@@ -70,8 +70,8 @@ class IntegrationCreatePostingTest(BaseCase):
         self.type("#sellform_input_price", str(TEST_TICKET.price))
         # - Click element `#sellform_submit`
         self.click('#sellform_submit')
-        # - Validate that an element matching `.message_info` shows text `Ticket was posted for sale successfully.`
-        self.assert_text('Ticket was posted for sale successfully.', selector='.message_info')
+        # - Validate that an element matching `.message_info` shows text `Successfully sold the ticket`
+        self.assert_text('Successfully sold the ticket', selector='.message_info')
         # - Find `tr` of ticket by looking up ticket's name under the ticket table
         rows = self.find_elements("table#tickettable tbody tr")
         matching_trs = [row for row in rows if TEST_TICKET.name in row.text]

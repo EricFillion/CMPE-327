@@ -35,7 +35,7 @@ Each of these tests has been broken up into "major steps", showing what function
 - Enter TEST_TICKET's raw expiry date into the element `#sellform_input_date`
 - Enter TEST_TICKET's price into the element `#sellform_input_price`
 - Click element `#sellform_submit`
-- Validate that an element matching `.message_info` shows text `Ticket was posted for sale successfully.`
+- Validate that an element matching `.message_info` shows text `Successfully sold the ticket`
 - Find `tr` of ticket by looking up ticket's name under the ticket table
 - Validate name by looking under the ticket's `tr` and validating that the element `td.tt_name` has text: `"{}".format(ticket.name)`
 - Validate owner's email by looking under the ticket's `tr` and validating that the element `td.tt_owner` has text: `"{}".format(user.name)`
