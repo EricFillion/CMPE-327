@@ -349,10 +349,10 @@ Actions:
 - Enter test_user2's password into element `#password`
 - Click element input[type="submit"]
 - Open /
-- Navigate to element `#buyform_submit`
+- Navigate to element `#buyform`
 - Enter TEST_TICKET's name into element  `#buyform_input_name`
 - Enter TEST_TICKET's quantity into element  `#buyform_input_quantity`
-- Click element #buy_submit
+- Click element `#buyform_submit`
 - Validate that the `#buy_message` element shows an error message stating "Must have more balance than the ticket price * quantity + service fee (35%) + tax (5%"). 
 - Open /logout (clean up)
 
