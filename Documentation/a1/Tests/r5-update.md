@@ -45,7 +45,7 @@ Actions:
 - Enter the TEST_TICKET's quantity in element `#updateform_input_quantity`
 - Enter the TEST_TICKET's price in element `#updateform_input_price`
 - Enter the TEST_TICKET's expiry date in element `#updateform_input_expiry`
-- Click element `input[type = "updateform_submit"]`
+- Click element `#updateform_submit`
 - Validate that the page shows element `#welcome`
 - Validate that the `#message_error` element shows an error message stating “Unable to update ticket: The name of the ticket has to be alphanumeric only”.
 - Open /logout (clean up)
@@ -65,7 +65,7 @@ Actions:
 - Enter the TEST_TICKET's quantity in element `#updateform_input_quantity`
 - Enter the TEST_TICKET's price in element `#updateform_input_price`
 - Enter the TEST_TICKET's expiry date in element `#updateform_input_expiry`
-- Click element `input[type = "updateform_submit"]`
+- Click element `#updateform_submit`
 - Validate that the page shows element `#welcome`
 - Validate that the `#message_error` element shows an error message stating “Unable to update ticket: The name of the ticket is only allowed spaces if it is not the first or last character”.
 - Open /logout (clean up)
@@ -87,7 +87,7 @@ Actions:
 - Enter the TEST_TICKET's quantity in element `#updateform_input_quantity`
 - Enter the TEST_TICKET's price in element `#updateform_input_price`
 - Enter the TEST_TICKET's expiry date in element `#updateform_input_expiry`
-- Click element `input[type = "updateform_submit"]`
+- Click element `#updateform_submit`
 - Validate that the page shows element `#welcome`
 - Validate that the `#message_error` element shows an error message stating  “The name of the ticket is only allowed spaces if it is not the first or last character”.
  - Open /logout (clean up)
@@ -109,7 +109,7 @@ Actions:
 - Enter the TEST_TICKET's quantity in element `#updateform_input_quantity`
 - Enter the TEST_TICKET's price in element `#updateform_input_price`
 - Enter the TEST_TICKET's expiry date in element `#updateform_input_expiry`
-- Click element `input[type = "updateform_submit"]`
+- Click element `#updateform_submit`
 - Validate that the page shows element `#welcome`
 - Validate that the `#message_info` element shows "Ticket was updated successfully"
 - Open /logout (clean up)
@@ -132,7 +132,7 @@ Actions:
 - Enter the TEST_TICKET's quantity in element `#updateform_input_quantity`
 - Enter the TEST_TICKET's price in element `#updateform_input_price`
 - Enter the TEST_TICKET's expiry date in element `#updateform_input_expiry`
-- Click element `input[type = "updateform_submit"]`
+- Click element `#updateform_submit`
 - Validate that the page shows element `#welcome`
 - Validate that the `#message_info` element shows "Ticket was updated successfully"
 - Open /logout (clean up)
@@ -154,7 +154,7 @@ Actions:
 - Enter the TEST_TICKET's quantity in element `#updateform_input_quantity`
 - Enter the TEST_TICKET's price in element `#updateform_input_price`
 - Enter the TEST_TICKET's expiry date in element `#updateform_input_expiry`
-- Click element `input[type = "updateform_submit"]`
+- Click element `#updateform_submit`
 - Validate that the page shows element `#welcome`
 - Validate that the `#message_error` element shows an error message stating  “Unable to update ticket: The name of the ticket should be no longer than 60 characters”.
 - Open /logout (clean up)
@@ -176,7 +176,7 @@ Actions:
 - Enter a number less than or equal to 0 (ex.-1) into the element `#updateform_input_quantity`
 - Enter the TEST_TICKET's price in element `#updateform_input_price`
 - Enter the TEST_TICKET's expiry date in element `#updateform_input_expiry`
-- Click element `input[type = "updateform_submit"]`
+- Click element `#updateform_submit`
 - Validate that the page shows element `#welcome`
 - Validate that the `#message_error` element shows an error message stating  “Unable to update ticket: The quantity of the ticket must be between 1 and 100”.
 - Open /logout (clean up)
@@ -198,7 +198,7 @@ Actions:
 - Enter a number greater than 100 (ex. 101) into the element `#updateform_input_quantity`
 - Enter the TEST_TICKET's price in element `#updateform_input_price`
 - Enter the TEST_TICKET's expiry date in element `#updateform_input_expiry`
-- Click element `input[type = "updateform_submit"]`
+- Click element `#updateform_submit`
 - Validate that the page shows element `#welcome`
 - Validate that the `#message_error` element shows an error message stating  “Unable to update ticket: The quantity of the ticket must be between 1 and 100”.
 - Open /logout (clean up)
@@ -221,7 +221,7 @@ Actions:
 - Enter the number 50 into the element `#updateform_input_quantity`
 - Enter the TEST_TICKET’s price into the element `#updateform_input_price`
 - Enter the TEST_TICKET’s date into the element `#updateform_input_expiry`
-- Click element `input[type = "updateform_submit"]`
+- Click element `#updateform_submit`
 - Validate that the page shows element `#welcome`
 - Validate that the `#message_info` element shows "Ticket was updated successfully"
 - Validate that current page contains a #ticket-name header matching the tickets name.
@@ -244,7 +244,7 @@ Actions:
 - Enter the TEST_TICKET’s quantity into the element `#updateform_input_quantity`
 - Enter a number below 10 (ex. 9) into the element `#updateform_input_price`
 - Enter the TEST_TICKET’s date into the element `#updateform_input_expiry`
-- Click element `input[type = "updateform_submit"]`
+- Click element `#updateform_submit`
 - Validate that the page shows element `#welcome`
 - Validate that the `#message_error` element shows an error message stating  “Unable to update ticket: The price of the ticket must be between 10 and 100”.
 - Open /logout (clean up)
@@ -266,7 +266,7 @@ Actions:
 - Enter the TEST_TICKET’s quantity into the element `#updateform_input_quantity`
 - Enter a number above 100 (ex. 101) into the element `#updateform_input_price`
 - Enter the TEST_TICKET’s date into the element `#updateform_input_expiry`
-- Click element `input[type = "updateform_submit"]`
+- Click element `#updateform_submit`
 - Validate that the page shows element `#welcome`
 - Validate that the `#message_error` element shows an error message stating  “Unable to update ticket: The price of the ticket must be between 10 and 100”.
 - Open /logout (clean up)
@@ -289,7 +289,7 @@ Actions:
 - Enter the TEST_TICKET’s quantity into the element `#updateform_input_quantity`
 - Enter the number 50 into the element `#updateform_input_price`
 - Enter the TEST_TICKET’s date into the element `#updateform_input_expiry`
-- Click element `input[type = "updateform_submit"]`
+- Click element `#updateform_submit`
 - Validate that the page shows element `#welcome`
 - Validate that the `#message_info` element shows "Ticket was updated successfully"
 - Validate that current page contains a #ticket-name header matching the tickets name.
@@ -312,7 +312,7 @@ Actions:
 - Enter the TEST_TICKET’s quantity into the element `#updateform_input_quantity`
 - Enter the TEST_TICKET’s price into the element `#updateform_input_price`
 - Enter a date in an invalid format (ex. 20201331) into the element `#updateform_input_expiry`
-- Click element `input[type = "updateform_submit"]`
+- Click element `#updateform_submit`
 - Validate that the page shows element `#welcome`
 - Validate that the `#message_error` element shows an error message stating  “Unable to update ticket: Date must be given in the format YYYYMMDD (e.g. 20200901)”.
 - Open /logout (clean up)
@@ -334,7 +334,7 @@ Actions:
 - Enter the TEST_TICKET’s quantity into the element `#updateform_input_quantity`
 - Enter the TEST_TICKET’s price into the element `#updateform_input_price`
 - Call function to get todays date and enter date into the element `#updateform_input_expiry`. Todays date is used so that the date is never in the past. 
-- Click element `input[type = "updateform_submit"]`
+- Click element `#updateform_submit`
 - Validate that the page shows element `#welcome`
 - Validate that the `#message_info` element shows "Ticket was updated successfully"
 - Validate that current page contains a #ticket-name header matching the tickets name.
@@ -359,7 +359,7 @@ Actions:
 - Enter the TEST_TICKET’s quantity into the element `#updateform_input_quantity`
 - Enter the TEST_TICKET’s price into the element `#updateform_input_price`
 - Enter the TEST_TICKET’s date into the element `#updateform_input_expiry`
-- Click element `input[type = "updateform_submit"]`
+- Click element `#updateform_submit`
 - Validate that the page shows element `#welcome`
 - Validate that the `#message_error` element shows an error message stating  “Unable to update ticket: The ticket of the given name must exist."
 - Open /logout (clean up)
@@ -382,7 +382,7 @@ Actions:
 - Enter the TEST_TICKET’s quantity into the element `#updateform_input_quantity`
 - Enter the TEST_TICKET’s price into the element `#updateform_input_price`
 - Enter the TEST_TICKET’s date into the element `#updateform_input_expiry`
-- Click element `input[type = "updateform_submit"]`
+- Click element `#updateform_submit`
 - Validate that the page shows element `#welcome`
 - Validate that the `#message_error` element is shown."
 - Open /logout (clean up)
