@@ -188,7 +188,7 @@ def sell_post(user):
     if not error:
         error = bn.sell_ticket(user, name, quantity, price, expiry)
     if not error:
-        flash('Ticket was posted for sale successfully.', 'info')
+        flash('Successfully sold the ticket', 'info')
         return redirect('/')
     else:
         flash('Unable to sell ticket: ' + error, 'error')
