@@ -8,28 +8,24 @@ targeted by our testing.
 |-|-|-|
 | User |||
 || User object, exists in database | No error |
-|| User object, doesn't exist in database | Error, database is unable to create the foreign key relation|
-|| None | Error, database is unable to create the foreign key relation|
+|| User object, doesn't exist in database | Internal Error: user does not exist in database |
+|| non-User type (incl. None) | Internal Error: 'user' must be of type 'User' |
 ||||
 | Name |||
 || str, non-duplicate | No error |
 || str, duplicate | Error: "A ticket with that name already exists." |
-|| None, non-duplicate | No error |
-|| None, duplicate | Error: "A ticket with that name already exists." |
+|| non-str type (incl. None) | Internal Error: 'name' must be of type 'str' |
 ||||
 | Quantity |||
 || int | No error |
-|| None | No error |
+|| non-int type (incl. None) | Internal Error: 'quantity' must be of type 'int' |
 ||||
 | Price |||
-|| str | No error |
-|| int | No error |
-|| float, no fractional part | No error |
+|| float with no fractional part | No error |
 || float with fractional part | No error |
-|| None | No error |
+|| non-float type (incl. None) | Internal Error: 'price' must be of type 'float' |
 ||||
 | Expiry Date |||
 || date object | No error |
-|| str ("yyyymmdd") | Error, not date object |
-|| str ("yyyy-mm-dd") | Error, not date object |
+|| non-date type (incl. None) | Internal Error: 'expiryDate' must be of type 'date' |
 ||||
