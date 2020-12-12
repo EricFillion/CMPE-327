@@ -33,3 +33,6 @@ email-validator==1.1.2
 flask-pytest
 seleniumbase
 requests
+
+seleniumbase
+pymysql
