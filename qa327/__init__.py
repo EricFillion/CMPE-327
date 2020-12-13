@@ -28,9 +28,14 @@ app.config['SECRET_KEY'] = '69cae04b04756f65eabcd2c5a11c8c24'
 # should always take an absolute path, including drive specifier
 # on Windows.
 db_name_from_env = os.getenv('DB_NAME')
+db_string = os.getenv('db_string')
 def set_db_path(db_path: str):
-    if not db_path:
+    if db_path:
+        database_url = "sqlite:///" + db_path
+    elif db_string:
+        database_url = db_string
+    else:
         # Default to using 'db.sqlite' file in current directory.
-        db_path = 'db.sqlite'
-    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" + db_path
+        database_url = 'sqlite:///db.sqlite'
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 set_db_path(db_name_from_env)
