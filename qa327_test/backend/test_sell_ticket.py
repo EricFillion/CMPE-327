@@ -4,10 +4,9 @@ Whitebox tests for the `sell_ticket` backend function.
 
 from datetime import date
 from seleniumbase import BaseCase
-from sqlalchemy.orm.session import make_transient
 
 from qa327.backend import sell_ticket
-from qa327.models import db, User, Ticket
+from qa327.models import db, User
 from qa327_test.common import TEST_USER
 
 class BackEndSellTicketTest(BaseCase):
