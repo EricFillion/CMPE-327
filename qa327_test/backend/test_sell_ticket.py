@@ -35,6 +35,7 @@ class BackEndSellTicketTest(BaseCase):
         ret_value = sell_ticket(user, name, quantity, price, expiryDate)
         # Check return value
         assert ret_value == False
+
     def test_sell_ticket_valid_with_fraction(self):
         """
         All inputs valid, price with fractional part | user=&lt;user in DB> name="Unique" quantity=1 price=12.34 expiryDate=date(2030, 1, 1) | No error
@@ -57,6 +58,7 @@ class BackEndSellTicketTest(BaseCase):
         ret_value = sell_ticket(user, name, quantity, price, expiryDate)
         # Check return value
         assert ret_value == False
+
     def test_sell_ticket_user_not_in_db(self):
         """
         User object that doesn't exist in database | user=&lt;user not in DB> name="Unique" quantity=1 price=10.00 expiryDate=date(2030, 1, 1) | Internal Error: user does not exist in database
@@ -75,11 +77,10 @@ class BackEndSellTicketTest(BaseCase):
         price = 10.00
         expiryDate = date(2030, 1, 1)
         # Call function
-        print(User.query.all())
         ret_value = sell_ticket(user, name, quantity, price, expiryDate)
         # Check return value
-        print(User.query.all())
         assert ret_value == "Internal Error: user does not exist in database"
+
     def test_sell_ticket_user_bad_type(self):
         """
         Non-User type user parameter | user=None name="Unique" quantity=1 price=10.00 expiryDate=date(2030, 1, 1) | Internal Error: 'user' must be of type 'User'
@@ -102,6 +103,7 @@ class BackEndSellTicketTest(BaseCase):
         ret_value = sell_ticket(user, name, quantity, price, expiryDate)
         # Check return value
         assert ret_value == "Internal Error: 'user' must be of type 'User'"
+
     def test_sell_ticket_duplicate_name(self):
         """
         Duplicate name | user=&lt;user in DB> name="Not Unique" quantity=1 price=10.00 expiryDate=date(2030, 1, 1) | Error: "A ticket with that name already exists."
@@ -130,6 +132,7 @@ class BackEndSellTicketTest(BaseCase):
         ret_value = sell_ticket(user, name, quantity, price, expiryDate)
         # Check return value
         assert ret_value == "A ticket with that name already exists."
+
     def test_sell_ticket_name_bad_type(self):
         """
         Non-str type name parameter | user=&lt;user in DB> name=None quantity=1 price=10.00 expiryDate=date(2030, 1, 1) | Internal Error: 'name' must be of type 'str'
@@ -152,6 +155,7 @@ class BackEndSellTicketTest(BaseCase):
         ret_value = sell_ticket(user, name, quantity, price, expiryDate)
         # Check return value
         assert ret_value == "Internal Error: 'name' must be of type 'str'"
+
     def test_sell_ticket_quantity_bad_type(self):
         """
         Non-int type quantity parameter | user=&lt;user in DB> name="Unique" quantity=None price=10.00 expiryDate=date(2030, 1, 1) | Internal Error: 'quantity' must be of type 'int'
@@ -174,6 +178,7 @@ class BackEndSellTicketTest(BaseCase):
         ret_value = sell_ticket(user, name, quantity, price, expiryDate)
         # Check return value
         assert ret_value == "Internal Error: 'quantity' must be of type 'int'"
+
     def test_sell_ticket_price_bad_type(self):
         """
         Non-float type price parameter | user=&lt;user in DB> name="Unique" quantity=1 price=None expiryDate=date(2030, 1, 1) | Internal Error: 'price' must be of type 'float'
@@ -196,6 +201,7 @@ class BackEndSellTicketTest(BaseCase):
         ret_value = sell_ticket(user, name, quantity, price, expiryDate)
         # Check return value
         assert ret_value == "Internal Error: 'price' must be of type 'float'"
+
     def test_sell_ticket_expiryDate_bad_type(self):
         """
         Non-date type expiryDate parameter | user=&lt;user in DB> name="Unique" quantity=1 price=10.00 expiryDate=None | Internal Error: 'expiryDate' must be of type 'date'
