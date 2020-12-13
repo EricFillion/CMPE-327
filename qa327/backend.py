@@ -127,16 +127,29 @@ def sell_ticket(user, name, quantity, price, expiryDate):
     :param expiryDate: the new expiry date of the ticket
     :return: a string describing the error that occurred, or False for no error
     """
+    if not isinstance(user, User):
+        return "Internal Error: 'user' must be of type 'User'"
+    if not isinstance(name, str):
+        return "Internal Error: 'name' must be of type 'str'"
+    if not isinstance(quantity, int):
+        return "Internal Error: 'quantity' must be of type 'int'"
+    if not isinstance(price, float):
+        return "Internal Error: 'price' must be of type 'float'"
+    if not isinstance(expiryDate, date):
+        return "Internal Error: 'expiryDate' must be of type 'date'"
+    if User.query.filter_by(id=user.id).first() is None:
+        return "Internal Error: user does not exist in database"
     new_ticket = Ticket()
     new_ticket.owner = user
     new_ticket.name = name
     new_ticket.quantity = quantity
-    new_ticket.price = int(float(price)*100)
-    new_ticket.expiry = datetime.strptime(expiryDate, '%Y%m%d').date()
+    new_ticket.price = int(price*100)
+    new_ticket.expiry = expiryDate
     db.session.add(new_ticket)
     try:
         db.session.commit()
     except IntegrityError as e:
+        db.session.rollback()
         # We got an integrity error. Check if it was due to
         # UNIQUE constraint being violated.
         # I can't find a better way to do this unfortunately.

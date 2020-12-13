@@ -3,7 +3,7 @@ from qa327 import app
 import qa327.backend as bn
 from qa327.validate_login_format import validate_login_format,validate_name_format
 from qa327.ticket_utils import calculate_price_ticket
-from datetime import date
+from datetime import date, datetime
 import qa327.validate_ticket_format as validate_ticket_format
 """
 This file defines the front-end part of the service.
@@ -186,7 +186,7 @@ def sell_post(user):
     expiry = request.form.get('expiry')
     error = validate_ticket_format.check_for_sell_ticket_format_error(name, quantity, price, expiry)
     if not error:
-        error = bn.sell_ticket(user, name, quantity, price, expiry)
+        error = bn.sell_ticket(user, name, int(quantity), float(price), datetime.strptime(expiry, '%Y%m%d').date())
     if not error:
         flash('Successfully sold the ticket', 'info')
         return redirect('/')
