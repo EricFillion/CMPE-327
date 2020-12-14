@@ -32,4 +32,4 @@ Each teammate reviewed all PRs that they did not create.
 | [#82](https://github.com/EricFillion/CMPE-327/pull/82): [A5]: 🐛 Fix bug relating to SQL session (temp DB) |
 | [#86](https://github.com/EricFillion/CMPE-327/pull/86): [A5]: ✅💚 Implement integration tests I1, I2 |
 | [#88](https://github.com/EricFillion/CMPE-327/pull/88): [A5]: 📚✅ Add backend whitebox testing description  |
-| [#88](https://github.com/EricFillion/CMPE-327/pull/91): [A5]: Implement whitebox tests on `sell_ticket` |
+| [#91](https://github.com/EricFillion/CMPE-327/pull/91): [A5]: Implement whitebox tests on `sell_ticket` |
